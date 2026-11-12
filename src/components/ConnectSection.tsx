@@ -107,7 +107,7 @@ export default function ConnectSection() {
 
     {/*  4. CTA BUTTON (PORTAL RESMI NETLIFY)  */}
     <div className="vibe-actions reveal" style={{justifyContent: "center"}}>
-      <a href="https://harmonious-tarsier-a4a80a.netlify.app/" className="btn-pixel" target="_blank" rel="noopener">
+      <a href="https://storied-florentine-b344b6.netlify.app" className="btn-pixel" target="_blank" rel="noopener">
         [ DAFTAR INFORMATICS CONNECT (MAHASISWA, DOSEN &amp; ALUMNI) ]
       </a>
     </div>

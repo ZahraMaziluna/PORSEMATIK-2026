@@ -32,7 +32,7 @@ export const eventsData: EventItem[] = [
     venue: "Auditorium FTI UII",
     description: "Ruang temu akrab lintas generasi alumni dan mahasiswa aktif Informatika UII. Diskusi karir industri teknologi, showcase proyek mahasiswa, dan perayaan 32 tahun kebersamaan.",
     ctaText: "PORTAL CONNECT (NETLIFY)",
-    ctaLink: "https://harmonious-tarsier-a4a80a.netlify.app/",
+    ctaLink: "https://storied-florentine-b344b6.netlify.app",
   },
   {
     id: "vibeit-workshop",

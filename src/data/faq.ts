@@ -39,7 +39,7 @@ export const faqData: FaqItem[] = [
   {
     id: "faq-6",
     question: "Bagaimana akses alumni untuk menghadiri Informatics Connect?",
-    answer: "Alumni cukup mengisi konfirmasi kehadiran pada portal Netlify resmi di https://harmonious-tarsier-a4a80a.netlify.app/. Acara berlangsung pada Minggu, 22 November 2026 di Auditorium FTI UII dengan agenda networking, sharing session industri, dan temu kangen dosen & civitas akademika.",
+    answer: "Alumni cukup mengisi konfirmasi kehadiran pada portal Netlify resmi di https://storied-florentine-b344b6.netlify.app. Acara berlangsung pada Minggu, 22 November 2026 di Auditorium FTI UII dengan agenda networking, sharing session industri, dan temu kangen dosen & civitas akademika.",
     category: "ALUMNI",
   },
 ];

@@ -24,7 +24,7 @@ export default function EventsHighlight() {
         <div className="event-card__time"><svg className="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 06.00 – 09.00 WIB</div>
         <div className="event-card__venue"><svg className="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Lapangan Utara GOR UII</div>
         <p className="event-card__desc">Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, kuliner UMKM (3 chip makan &amp; 1 photobooth), dan akustik KOSMIK.</p>
-        <a href="https://harmonious-tarsier-a4a80a.netlify.app/" className="btn-pixel btn-pixel--sm" target="_blank" rel="noopener" style={{marginTop: "auto"}}>[ DAFTAR INFORMATICS CONNECT ]</a>
+        <a href="https://storied-florentine-b344b6.netlify.app" className="btn-pixel btn-pixel--sm" target="_blank" rel="noopener" style={{marginTop: "auto"}}>[ DAFTAR INFORMATICS CONNECT ]</a>
       </div>
 
       {/*  3. VibeIT  */}
