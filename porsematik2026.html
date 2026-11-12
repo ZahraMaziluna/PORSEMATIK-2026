@@ -6,7 +6,7 @@
 <title>PORSEMATIK 2026 — Ignite the Summit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --sky-blue: #87CEEB;
@@ -2926,6 +2926,684 @@ body.dark-theme .footer {
   line-height: 1.4;
 }
 
+
+/* ========== 8-BIT PIXEL LEVEL MAP ROAD TIMELINE (NO FLOWERS, NO PINK) ========== */
+.schedule {
+  background: #FFFDF9 !important;
+  border-top: 4px solid #1E293B !important;
+  padding: 5.5rem 1.5rem !important;
+  position: relative;
+}
+.pixel-map-container {
+  overflow-x: auto;
+  padding: 2.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+.pixel-map-track {
+  min-width: 1140px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+/* 8-bit Pixel Cobblestone/Dirt Road */
+.pixel-road {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  right: 2%;
+  height: 14px;
+  background: #78350F;
+  border: 3px solid #1E293B;
+  border-radius: 0px;
+  transform: translateY(-50%);
+  z-index: 1;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+}
+.pixel-road-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-top: 2px dashed #FDE047;
+  transform: translateY(-50%);
+}
+.map-nodes-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  z-index: 4;
+}
+.map-node-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* 8-Bit Checkpoint Flag Box */
+.checkpoint-box {
+  width: 58px;
+  height: 38px;
+  background: #FEF08A;
+  border: 3px solid #1E293B;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0px #1E293B;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.checkpoint-box:hover {
+  transform: scale(1.15) translateY(-2px);
+  background: #22C55E;
+}
+.checkpoint-box:hover .cp-text {
+  color: #FFFFFF;
+}
+.checkpoint-box--active {
+  background: #22C55E !important;
+  border-color: #1E293B !important;
+  box-shadow: 4px 4px 0px #1E293B !important;
+  transform: scale(1.08);
+}
+.checkpoint-box--active .cp-text {
+  color: #FFFFFF !important;
+}
+.checkpoint-box--boss {
+  background: #F59E0B;
+  border-color: #1E293B;
+}
+.cp-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #1E293B;
+  font-weight: bold;
+}
+.cp-sub {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #78350F;
+  margin-top: 6px;
+  background: #FEF3C7;
+  padding: 2px 4px;
+  border: 1px solid #1E293B;
+  border-radius: 0px;
+}
+
+.map-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.2rem;
+  position: relative;
+  z-index: 3;
+}
+.map-row--top {
+  margin-bottom: -15px;
+  align-items: end;
+}
+.map-row--bottom {
+  margin-top: -15px;
+  align-items: start;
+}
+.map-slot--empty {
+  visibility: hidden;
+}
+.map-card {
+  background: #FFFFFF;
+  border: 3px solid #1E293B;
+  border-radius: 0px;
+  padding: 1.1rem .9rem;
+  box-shadow: 4px 4px 0px #1E293B;
+  text-align: center;
+  max-width: 175px;
+  margin: 0 auto;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.map-card:hover {
+  transform: translateY(-4px);
+  border-color: #22C55E;
+  box-shadow: 5px 5px 0px #22C55E;
+}
+.stg-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 3px 6px;
+  border: 2px solid #1E293B;
+  border-radius: 0px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.stg-badge--green  { background: #DCFCE7; color: #15803D; }
+.stg-badge--amber  { background: #FEF3C7; color: #B45309; }
+.stg-badge--orange { background: #FFEDD5; color: #C2410C; }
+.stg-badge--purple { background: #EDE9FE; color: #6D28D9; }
+.stg-badge--cyan   { background: #E0F2FE; color: #0369A1; }
+.stg-badge--gold   { background: #FEF08A; color: #92400E; }
+
+.map-date {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #D97706;
+  margin-bottom: 2px;
+}
+.map-time {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: #64748B;
+  margin-bottom: 5px;
+}
+.map-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #0F172A;
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+.map-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+/* Disabled Pixel Buttons */
+.btn-pixel--disabled {
+  background: #475569 !important;
+  color: #94A3B8 !important;
+  box-shadow: 0 4px 0px #1E293B !important;
+  border: 3px solid #1E293B !important;
+  cursor: not-allowed !important;
+  opacity: 0.85;
+}
+.btn-pixel--disabled:hover {
+  transform: none !important;
+  box-shadow: 0 4px 0px #1E293B !important;
+}
+
+/* 8-Bit Arcade High-Score Table */
+.pixel-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  font-size: .88rem;
+  border: 3px solid #1E293B;
+  background: #FFFFFF;
+}
+.pixel-table th {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: .9rem .5rem;
+  background: #FEF08A;
+  color: #1E293B;
+  text-align: center;
+  border: 2px solid #1E293B;
+}
+.pixel-table td {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .88rem;
+  padding: .75rem .5rem;
+  text-align: center;
+  border: 2px solid #E2E8F0;
+  color: #1E293B;
+}
+.rank-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 3px 6px;
+  border-radius: 0px;
+  border: 1px solid #1E293B;
+  display: inline-block;
+}
+.rank-1 { background: #FEF08A; color: #854D0E; }
+.rank-2 { background: #E2E8F0; color: #334155; }
+.rank-3 { background: #FFEDD5; color: #9A3412; }
+.rank-4 { background: #F1F5F9; color: #64748B; }
+.total-pts {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #15803D;
+}
+
+/* 8-Bit Box Consistency (All Cards border-radius: 0px, 3px solid #1E293B, 5px shadow) */
+.event-card, .vibe-card, .vibe-step, .comp-card, .faq-item, .value-card, .summit-card, .resource-card, .map-card {
+  border-radius: 0px !important;
+  border: 3px solid #1E293B !important;
+  box-shadow: 5px 5px 0px #1E293B !important;
+}
+
+/* Floating SFX Button (Pixel Art) */
+.sfx-floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #1E293B;
+  background: #FEF08A;
+  border: 3px solid #1E293B;
+  padding: 8px 12px;
+  box-shadow: 3px 3px 0px #1E293B;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+  border-radius: 0px;
+}
+.sfx-floating-btn:hover {
+  transform: translateY(-2px);
+  background: #FDE047;
+}
+.sfx-floating-btn.muted {
+  background: #E2E8F0;
+  color: #64748B;
+  border-color: #64748B;
+}
+
+/* MOBILE 2-KOLOM BERDAMPINGAN UNTUK LOMBA & EVENTS HIGHLIGHT */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+  .comp-grid, .events__grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .comp-card, .event-card {
+    padding: 8px 6px !important;
+    border-width: 2px !important;
+    box-shadow: 3px 3px 0px #1E293B !important;
+  }
+  .comp-card__name, .event-card__title {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px !important;
+  }
+  .comp-card__specs, .event-card__desc {
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+    padding-left: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  .comp-card__specs li {
+    padding-left: 0.8rem !important;
+    margin-bottom: 2px !important;
+  }
+  .comp-price-label {
+    font-size: 7px !important;
+    margin-bottom: 2px !important;
+  }
+  .comp-price-value {
+    font-size: 11px !important;
+  }
+  .comp-prize-title {
+    font-size: 7px !important;
+    margin-bottom: 3px !important;
+  }
+  .comp-prize-item {
+    font-size: 8px !important;
+    margin-bottom: 2px !important;
+  }
+  .comp-card .btn-pixel, .event-card .btn-pixel {
+    font-size: 7px !important;
+    padding: 6px 4px !important;
+  }
+  .hero__title {
+    font-size: clamp(1.6rem, 7.5vw, 2.4rem) !important;
+  }
+  .pixel-health-bar {
+    top: -22px !important;
+    left: 2px !important;
+  }
+  .pixel-health-bar svg {
+    width: 20px !important;
+    height: 18px !important;
+  }
+}
+
+
+/* ========== 8-BIT PIXEL LEVEL MAP ROAD TIMELINE (NO FLOWERS, NO PINK) ========== */
+.schedule {
+  background: #FFFDF9 !important;
+  border-top: 4px solid #1E293B !important;
+  padding: 5.5rem 1.5rem !important;
+  position: relative;
+}
+.pixel-map-container {
+  overflow-x: auto;
+  padding: 2.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+.pixel-map-track {
+  min-width: 1140px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+/* 8-bit Pixel Cobblestone/Dirt Road */
+.pixel-road {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  right: 2%;
+  height: 14px;
+  background: #78350F;
+  border: 3px solid #1E293B;
+  border-radius: 0px;
+  transform: translateY(-50%);
+  z-index: 1;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+}
+.pixel-road-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-top: 2px dashed #FDE047;
+  transform: translateY(-50%);
+}
+.map-nodes-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  z-index: 4;
+}
+.map-node-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* 8-Bit Checkpoint Flag Box */
+.checkpoint-box {
+  width: 58px;
+  height: 38px;
+  background: #FEF08A;
+  border: 3px solid #1E293B;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0px #1E293B;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.checkpoint-box:hover {
+  transform: scale(1.15) translateY(-2px);
+  background: #22C55E;
+}
+.checkpoint-box:hover .cp-text {
+  color: #FFFFFF;
+}
+.checkpoint-box--active {
+  background: #22C55E !important;
+  border-color: #1E293B !important;
+  box-shadow: 4px 4px 0px #1E293B !important;
+  transform: scale(1.08);
+}
+.checkpoint-box--active .cp-text {
+  color: #FFFFFF !important;
+}
+.checkpoint-box--boss {
+  background: #F59E0B;
+  border-color: #1E293B;
+}
+.cp-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #1E293B;
+  font-weight: bold;
+}
+.cp-sub {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #78350F;
+  margin-top: 6px;
+  background: #FEF3C7;
+  padding: 2px 4px;
+  border: 1px solid #1E293B;
+  border-radius: 0px;
+}
+
+.map-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.2rem;
+  position: relative;
+  z-index: 3;
+}
+.map-row--top {
+  margin-bottom: -15px;
+  align-items: end;
+}
+.map-row--bottom {
+  margin-top: -15px;
+  align-items: start;
+}
+.map-slot--empty {
+  visibility: hidden;
+}
+.map-card {
+  background: #FFFFFF;
+  border: 3px solid #1E293B;
+  border-radius: 0px;
+  padding: 1.1rem .9rem;
+  box-shadow: 4px 4px 0px #1E293B;
+  text-align: center;
+  max-width: 175px;
+  margin: 0 auto;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.map-card:hover {
+  transform: translateY(-4px);
+  border-color: #22C55E;
+  box-shadow: 5px 5px 0px #22C55E;
+}
+.stg-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 3px 6px;
+  border: 2px solid #1E293B;
+  border-radius: 0px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.stg-badge--green  { background: #DCFCE7; color: #15803D; }
+.stg-badge--amber  { background: #FEF3C7; color: #B45309; }
+.stg-badge--orange { background: #FFEDD5; color: #C2410C; }
+.stg-badge--purple { background: #EDE9FE; color: #6D28D9; }
+.stg-badge--cyan   { background: #E0F2FE; color: #0369A1; }
+.stg-badge--gold   { background: #FEF08A; color: #92400E; }
+
+.map-date {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #D97706;
+  margin-bottom: 2px;
+}
+.map-time {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: #64748B;
+  margin-bottom: 5px;
+}
+.map-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #0F172A;
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+.map-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+/* Disabled Pixel Buttons */
+.btn-pixel--disabled {
+  background: #475569 !important;
+  color: #94A3B8 !important;
+  box-shadow: 0 4px 0px #1E293B !important;
+  border: 3px solid #1E293B !important;
+  cursor: not-allowed !important;
+  opacity: 0.85;
+}
+.btn-pixel--disabled:hover {
+  transform: none !important;
+  box-shadow: 0 4px 0px #1E293B !important;
+}
+
+/* 8-Bit Arcade High-Score Table */
+.pixel-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  font-size: .88rem;
+  border: 3px solid #1E293B;
+  background: #FFFFFF;
+}
+.pixel-table th {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: .9rem .5rem;
+  background: #FEF08A;
+  color: #1E293B;
+  text-align: center;
+  border: 2px solid #1E293B;
+}
+.pixel-table td {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .88rem;
+  padding: .75rem .5rem;
+  text-align: center;
+  border: 2px solid #E2E8F0;
+  color: #1E293B;
+}
+.rank-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 3px 6px;
+  border-radius: 0px;
+  border: 1px solid #1E293B;
+  display: inline-block;
+}
+.rank-1 { background: #FEF08A; color: #854D0E; }
+.rank-2 { background: #E2E8F0; color: #334155; }
+.rank-3 { background: #FFEDD5; color: #9A3412; }
+.rank-4 { background: #F1F5F9; color: #64748B; }
+.total-pts {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #15803D;
+}
+
+/* 8-Bit Box Consistency (All Cards border-radius: 0px, 3px solid #1E293B, 5px shadow) */
+.event-card, .vibe-card, .vibe-step, .comp-card, .faq-item, .value-card, .summit-card, .resource-card, .map-card {
+  border-radius: 0px !important;
+  border: 3px solid #1E293B !important;
+  box-shadow: 5px 5px 0px #1E293B !important;
+}
+
+/* Floating SFX Button (Pixel Art) */
+.sfx-floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #1E293B;
+  background: #FEF08A;
+  border: 3px solid #1E293B;
+  padding: 8px 12px;
+  box-shadow: 3px 3px 0px #1E293B;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+  border-radius: 0px;
+}
+.sfx-floating-btn:hover {
+  transform: translateY(-2px);
+  background: #FDE047;
+}
+.sfx-floating-btn.muted {
+  background: #E2E8F0;
+  color: #64748B;
+  border-color: #64748B;
+}
+
+/* MOBILE 2-KOLOM BERDAMPINGAN UNTUK LOMBA & EVENTS HIGHLIGHT */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+  .comp-grid, .events__grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .comp-card, .event-card {
+    padding: 8px 6px !important;
+    border-width: 2px !important;
+    box-shadow: 3px 3px 0px #1E293B !important;
+  }
+  .comp-card__name, .event-card__title {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px !important;
+  }
+  .comp-card__specs, .event-card__desc {
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+    padding-left: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  .comp-card__specs li {
+    padding-left: 0.8rem !important;
+    margin-bottom: 2px !important;
+  }
+  .comp-price-label {
+    font-size: 7px !important;
+    margin-bottom: 2px !important;
+  }
+  .comp-price-value {
+    font-size: 11px !important;
+  }
+  .comp-prize-title {
+    font-size: 7px !important;
+    margin-bottom: 3px !important;
+  }
+  .comp-prize-item {
+    font-size: 8px !important;
+    margin-bottom: 2px !important;
+  }
+  .comp-card .btn-pixel, .event-card .btn-pixel {
+    font-size: 7px !important;
+    padding: 6px 4px !important;
+  }
+  .hero__title {
+    font-size: clamp(1.6rem, 7.5vw, 2.4rem) !important;
+  }
+  .pixel-health-bar {
+    top: -22px !important;
+    left: 2px !important;
+  }
+  .pixel-health-bar svg {
+    width: 20px !important;
+    height: 18px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2949,14 +3627,6 @@ body.dark-theme .footer {
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <!-- 4 Full Red Pixel Hearts (Floating freely on sky, NO black stroke) -->
-  <div class="health-bar" title="Full Health">
-    <svg viewBox="0 0 16 14"><path d="M2,2 h3 v2 h-3 Z M5,0 h6 v2 h-6 Z M11,2 h3 v2 h-3 Z M0,4 h16 v4 h-16 Z M2,8 h12 v2 h-12 Z M4,10 h8 v2 h-8 Z M6,12 h4 v2 h-4 Z" fill="#EF4444"/></svg>
-    <svg viewBox="0 0 16 14"><path d="M2,2 h3 v2 h-3 Z M5,0 h6 v2 h-6 Z M11,2 h3 v2 h-3 Z M0,4 h16 v4 h-16 Z M2,8 h12 v2 h-12 Z M4,10 h8 v2 h-8 Z M6,12 h4 v2 h-4 Z" fill="#EF4444"/></svg>
-    <svg viewBox="0 0 16 14"><path d="M2,2 h3 v2 h-3 Z M5,0 h6 v2 h-6 Z M11,2 h3 v2 h-3 Z M0,4 h16 v4 h-16 Z M2,8 h12 v2 h-12 Z M4,10 h8 v2 h-8 Z M6,12 h4 v2 h-4 Z" fill="#EF4444"/></svg>
-    <svg viewBox="0 0 16 14"><path d="M2,2 h3 v2 h-3 Z M5,0 h6 v2 h-6 Z M11,2 h3 v2 h-3 Z M0,4 h16 v4 h-16 Z M2,8 h12 v2 h-12 Z M4,10 h8 v2 h-8 Z M6,12 h4 v2 h-4 Z" fill="#EF4444"/></svg>
-  </div>
-
   <!-- 8-Bit Pixel Clouds -->
   <svg class="pixel-cloud pixel-cloud--1" viewBox="0 0 72 32">
     <path d="M16,24 h48 v8 h-48 Z M8,16 h56 v8 h-56 Z M16,8 h40 v8 h-40 Z M24,0 h24 v8 h-24 Z" fill="#FFFFFF"/>
@@ -2975,7 +3645,7 @@ body.dark-theme .footer {
     <path d="M16,28 h48 v4 h-48 Z" fill="#E2E8F0"/>
   </svg>
 
-  <!-- Clean Alpine Mountain with Rising Sun & Faceted Shading (NO Trees) -->
+  <!-- Craggy Alpine Mountain with Rising Sun & Neat 8-Bit Pixel Pine Forest -->
   <div class="mountains-wrap">
 <svg class="mountain-svg" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -3051,7 +3721,7 @@ body.dark-theme .footer {
 
   <!-- CLIMBER & TORCH AT PEAK (X: 720, Y: 45) -->
   <line x1="729" y1="20" x2="729" y2="44" stroke="#78350F" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="729" cy="18" r="9" fill="#FF7A00" opacity="0.35"/>
+  <circle cx="729" cy="18" r="9" fill="#FF8C00" opacity="0.35"/>
   <path d="M725,20 Q729,8 733,20 Q729,16 725,20 Z" fill="#EF4444"/>
   <path d="M726,19 Q729,11 732,19 Q729,15 726,19 Z" fill="#F59E0B"/>
   <circle cx="729" cy="17" r="1.5" fill="#FEF08A"/>
@@ -3061,15 +3731,464 @@ body.dark-theme .footer {
   <line x1="720" y1="42" x2="722" y2="48" stroke="#14532D" stroke-width="2" stroke-linecap="round"/>
   <line x1="718" y1="36" x2="729" y2="28" stroke="#166534" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- ================= 4. FOREGROUND LUSH GREEN HILLS ================= -->
-  <path d="M0,280 L0,225 Q160,200 360,215 Q560,230 720,210 Q900,190 1100,210 Q1280,230 1440,205 L1440,280 Z" fill="#14532D"/>
-  <path d="M0,280 L0,240 Q220,215 480,230 Q720,245 960,225 Q1200,205 1440,230 L1440,280 Z" fill="#16A34A"/>
+  <!-- ================= 4. NEAT ROW OF 8-BIT PIXEL PINE TREES AT FOOT OF MOUNTAIN ================= -->
+<g transform="translate(30, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(62, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(94, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(126, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(158, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(190, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(222, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(254, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(286, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(318, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(350, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(382, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(414, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(446, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(478, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(510, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(542, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(574, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(840, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(872, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(904, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(936, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(968, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1000, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1032, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1064, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1096, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1128, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1160, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1192, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1224, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1256, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1288, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1320, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1352, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1384, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+<g transform="translate(1416, 212)">
+      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
+      <!-- Tier 3 -->
+      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
+      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
+      <!-- Tier 2 -->
+      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
+      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
+      <!-- Tier 1 -->
+      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
+      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
+    </g>
+
+  <!-- ================= 5. FOREGROUND LUSH GREEN HILLS & GROUND PLATFORM ================= -->
+  <path d="M0,280 L0,232 Q160,215 360,225 Q560,238 720,220 Q900,205 1100,220 Q1280,235 1440,215 L1440,280 Z" fill="#14532D"/>
+  <path d="M0,280 L0,246 Q220,228 480,238 Q720,250 960,234 Q1200,218 1440,238 L1440,280 Z" fill="#16A34A"/>
   
+  <!-- Stepped Pixel Grass Platform -->
   <rect x="0" y="254" width="1440" height="26" fill="#22C55E"/>
   <line x1="0" y1="254" x2="1440" y2="254" stroke="#86EFAC" stroke-width="3"/>
+  <rect x="0" y="272" width="1440" height="8" fill="#78350F"/>
 
-  <!-- ================= 5. ARCADE WARP PIPES ================= -->
-  <g transform="translate(60, 200)">
+  <!-- ================= 6. ARCADE WARP PIPES ================= -->
+  <!-- Left Pipe & Mushroom -->
+  <g transform="translate(60, 202)">
     <rect x="0" y="0" width="56" height="20" fill="#000" rx="2"/>
     <rect x="2" y="2" width="52" height="16" fill="#22C55E" rx="1"/>
     <rect x="5" y="2" width="8" height="16" fill="#86EFAC"/>
@@ -3079,15 +4198,16 @@ body.dark-theme .footer {
     <rect x="12" y="20" width="6" height="40" fill="#86EFAC"/>
     <rect x="37" y="20" width="8" height="40" fill="#15803D"/>
   </g>
-  <g transform="translate(126, 235)">
-    <path d="M2,9 Q9,0 16,9 Z" fill="#EF4444"/>
-    <circle cx="5" cy="5" r="1.3" fill="#FFF"/>
-    <circle cx="13" cy="5" r="1.3" fill="#FFF"/>
-    <circle cx="9" cy="3" r="1.3" fill="#FFF"/>
-    <rect x="4" y="9" width="9" height="5" fill="#FEF3C7" rx="1"/>
+  <g transform="translate(126, 237)">
+    <rect x="3" y="0" width="10" height="7" fill="#EF4444"/>
+    <rect x="0" y="2" width="16" height="5" fill="#EF4444"/>
+    <rect x="4" y="1" width="3" height="3" fill="#FFF"/>
+    <rect x="10" y="2" width="3" height="3" fill="#FFF"/>
+    <rect x="4" y="7" width="8" height="5" fill="#FEF3C7"/>
   </g>
 
-  <g transform="translate(1320, 200)">
+  <!-- Right Pipe & Mystery Block -->
+  <g transform="translate(1320, 202)">
     <rect x="0" y="0" width="56" height="20" fill="#000" rx="2"/>
     <rect x="2" y="2" width="52" height="16" fill="#22C55E" rx="1"/>
     <rect x="5" y="2" width="8" height="16" fill="#86EFAC"/>
@@ -3097,7 +4217,7 @@ body.dark-theme .footer {
     <rect x="12" y="20" width="6" height="40" fill="#86EFAC"/>
     <rect x="37" y="20" width="8" height="40" fill="#15803D"/>
   </g>
-  <g transform="translate(1275, 220)">
+  <g transform="translate(1275, 222)">
     <rect x="0" y="0" width="26" height="26" fill="#000" rx="2"/>
     <rect x="2" y="2" width="22" height="22" fill="#F59E0B" rx="1"/>
     <rect x="2" y="2" width="22" height="3" fill="#FEF08A"/>
@@ -3107,11 +4227,40 @@ body.dark-theme .footer {
 </svg>
   </div>
 
-  <!-- Hero Content -->
-  <h1 class="hero__title">PORSEMATIK</h1>
-  <p class="hero__subtitle"><em>feat.</em> Milad Informatika Tahun 2026</p>
-  <p class="hero__tagline"><em>"Ignite the Summit: Elevating Solidarity, Resilience, and Creativity through Sportsmanship"</em></p>
+  <!-- Hero Title Group: 3.5 Hearts Anchored Above 'POR' -->
+  <div class="hero-title-group">
+    <div class="pixel-health-bar">
+      <!-- 3 Full Red Hearts with black border -->
+      <svg width="26" height="22" viewBox="0 0 14 12" shape-rendering="crispEdges">
+        <path d="M2,0 h3 v1 h-3 Z M9,0 h3 v1 h-3 Z M1,1 h1 v2 h-1 Z M5,1 h1 v2 h-1 Z M8,1 h1 v2 h-1 Z M12,1 h1 v2 h-1 Z M0,3 h1 v4 h-1 Z M13,3 h1 v4 h-1 Z M1,7 h1 v2 h-1 Z M12,7 h1 v2 h-1 Z M2,9 h1 v1 h-1 Z M11,9 h1 v1 h-1 Z M3,10 h2 v1 h-2 Z M9,10 h2 v1 h-2 Z M5,11 h4 v1 h-4 Z" fill="#000000"/>
+        <path d="M2,1 h3 v2 h-3 Z M9,1 h3 v2 h-3 Z M1,3 h12 v4 h-12 Z M2,7 h10 v2 h-10 Z M3,9 h8 v1 h-8 Z M5,10 h4 v1 h-4 Z" fill="#EF4444"/>
+        <rect x="2" y="2" width="2" height="2" fill="#FFFFFF"/>
+      </svg>
+      <svg width="26" height="22" viewBox="0 0 14 12" shape-rendering="crispEdges">
+        <path d="M2,0 h3 v1 h-3 Z M9,0 h3 v1 h-3 Z M1,1 h1 v2 h-1 Z M5,1 h1 v2 h-1 Z M8,1 h1 v2 h-1 Z M12,1 h1 v2 h-1 Z M0,3 h1 v4 h-1 Z M13,3 h1 v4 h-1 Z M1,7 h1 v2 h-1 Z M12,7 h1 v2 h-1 Z M2,9 h1 v1 h-1 Z M11,9 h1 v1 h-1 Z M3,10 h2 v1 h-2 Z M9,10 h2 v1 h-2 Z M5,11 h4 v1 h-4 Z" fill="#000000"/>
+        <path d="M2,1 h3 v2 h-3 Z M9,1 h3 v2 h-3 Z M1,3 h12 v4 h-12 Z M2,7 h10 v2 h-10 Z M3,9 h8 v1 h-8 Z M5,10 h4 v1 h-4 Z" fill="#EF4444"/>
+        <rect x="2" y="2" width="2" height="2" fill="#FFFFFF"/>
+      </svg>
+      <svg width="26" height="22" viewBox="0 0 14 12" shape-rendering="crispEdges">
+        <path d="M2,0 h3 v1 h-3 Z M9,0 h3 v1 h-3 Z M1,1 h1 v2 h-1 Z M5,1 h1 v2 h-1 Z M8,1 h1 v2 h-1 Z M12,1 h1 v2 h-1 Z M0,3 h1 v4 h-1 Z M13,3 h1 v4 h-1 Z M1,7 h1 v2 h-1 Z M12,7 h1 v2 h-1 Z M2,9 h1 v1 h-1 Z M11,9 h1 v1 h-1 Z M3,10 h2 v1 h-2 Z M9,10 h2 v1 h-2 Z M5,11 h4 v1 h-4 Z" fill="#000000"/>
+        <path d="M2,1 h3 v2 h-3 Z M9,1 h3 v2 h-3 Z M1,3 h12 v4 h-12 Z M2,7 h10 v2 h-10 Z M3,9 h8 v1 h-8 Z M5,10 h4 v1 h-4 Z" fill="#EF4444"/>
+        <rect x="2" y="2" width="2" height="2" fill="#FFFFFF"/>
+      </svg>
+      <!-- 1 Half Red / Half Dark Black Heart with sharp black outline -->
+      <svg width="26" height="22" viewBox="0 0 14 12" shape-rendering="crispEdges">
+        <path d="M2,0 h3 v1 h-3 Z M9,0 h3 v1 h-3 Z M1,1 h1 v2 h-1 Z M5,1 h1 v2 h-1 Z M8,1 h1 v2 h-1 Z M12,1 h1 v2 h-1 Z M0,3 h1 v4 h-1 Z M13,3 h1 v4 h-1 Z M1,7 h1 v2 h-1 Z M12,7 h1 v2 h-1 Z M2,9 h1 v1 h-1 Z M11,9 h1 v1 h-1 Z M3,10 h2 v1 h-2 Z M9,10 h2 v1 h-2 Z M5,11 h4 v1 h-4 Z M6,1 h2 v10 h-2 Z" fill="#000000"/>
+        <path d="M2,1 h3 v2 h-3 Z M1,3 h5 v4 h-5 Z M2,7 h4 v2 h-4 Z M3,9 h3 v1 h-3 Z M5,10 h1 v1 h-1 Z" fill="#EF4444"/>
+        <rect x="2" y="2" width="2" height="2" fill="#FFFFFF"/>
+        <path d="M9,1 h3 v2 h-3 Z M8,3 h5 v4 h-5 Z M8,7 h4 v2 h-4 Z M8,9 h3 v1 h-3 Z M8,10 h1 v1 h-1 Z" fill="#1E293B"/>
+      </svg>
+    </div>
+    <h1 class="hero__title">PORSEMATIK</h1>
+  </div>
 
+  <p class="hero__subtitle">feat. Milad Informatika Tahun 2026</p>
+  <p class="hero__tagline">"Ignite the Summit: Elevating Solidarity, Resilience, and Creativity through Sportsmanship"</p>
+
+  <!-- Live Countdown Timer to Nov 16, 2026 17:50:00 WIB -->
   <div class="countdown" id="countdown">
     <div class="countdown__block"><span class="countdown__num" id="cd-days">00</span><span class="countdown__label">Days</span></div>
     <div class="countdown__block"><span class="countdown__num" id="cd-hours">00</span><span class="countdown__label">Hours</span></div>
@@ -3124,103 +4273,6 @@ body.dark-theme .footer {
     <a href="https://linktr.ee/porsematik2026" class="btn-pixel" target="_blank" rel="noopener">[ START ]</a>
     <span class="blink-cursor"></span>
   </div>
-
-  <!-- CLEAN FLOATING 8-BIT PIXEL STICKERS (NO WASHI TAPE) -->
-  <div class="hanging-sticker sticker--trophy" style="top: 16%; left: 3.5%;" title="Piala Bergilir Milad 32">
-    <svg viewBox="0 0 64 64" width="56" height="56" class="sticker-svg">
-      <path d="M16,6 h32 v8 h8 v18 h-10 v10 h6 v6 h-14 v8 h10 v4 h-28 v-4 h10 v-8 h-14 v-6 h6 v-10 h-10 v-18 h8 Z" fill="#FFFFFF"/>
-      <path d="M18,8 h28 v6 h-28 Z M18,14 h28 v8 h-4 v6 h-6 v6 h-8 v-6 h-6 v-6 h-4 Z" fill="#F59E0B"/>
-      <path d="M22,10 h6 v10 h-4 v-6 h-2 Z" fill="#FDE68A"/>
-      <path d="M38,10 h4 v14 h-4 Z" fill="#D97706"/>
-      <path d="M12,16 h4 v10 h-4 Z M10,18 h2 v6 h-2 Z" fill="#F59E0B"/>
-      <path d="M48,16 h4 v10 h-4 Z M52,18 h2 v6 h-2 Z" fill="#F59E0B"/>
-      <text x="32" y="24" font-family="'Press Start 2P', monospace" font-size="7" fill="#78350F" text-anchor="middle" font-weight="bold">32</text>
-      <rect x="28" y="38" width="8" height="8" fill="#D97706"/>
-      <rect x="20" y="46" width="24" height="6" fill="#181924"/>
-      <rect x="22" y="48" width="20" height="2" fill="#F59E0B"/>
-    </svg>
-    <span class="sticker-label">MILAD 32</span>
-  </div>
-
-  <div class="hanging-sticker sticker--torch" style="top: 20%; right: 4%;" title="Ignite the Summit">
-    <svg viewBox="0 0 48 56" width="46" height="54" class="sticker-svg">
-      <path d="M14,4 h20 v16 h-4 v14 h-4 v18 h-8 v-18 h-4 v-14 Z" fill="#FFFFFF"/>
-      <rect x="20" y="30" width="8" height="22" fill="#78350F"/>
-      <rect x="22" y="32" width="2" height="18" fill="#FDE68A"/>
-      <rect x="16" y="20" width="16" height="10" fill="#D97706"/>
-      <rect x="18" y="22" width="12" height="6" fill="#F59E0B"/>
-      <path d="M20,6 h8 v6 h4 v6 h-16 v-6 h4 Z" fill="#EF4444"/>
-      <path d="M22,8 h4 v4 h2 v4 h-8 v-4 h2 Z" fill="#F59E0B"/>
-      <rect x="23" y="10" width="2" height="4" fill="#FFFDE7"/>
-    </svg>
-    <span class="sticker-label">IGNITE!</span>
-  </div>
-
-  <div class="hanging-sticker sticker--gamepad" style="top: 48%; left: 3.5%;" title="E-Sport MLBB">
-    <svg viewBox="0 0 60 40" width="52" height="34" class="sticker-svg">
-      <path d="M6,6 h48 v28 h-48 Z" fill="#FFFFFF"/>
-      <rect x="8" y="8" width="44" height="24" fill="#1F2937" rx="3"/>
-      <rect x="15" y="14" width="4" height="12" fill="#9CA3AF"/>
-      <rect x="11" y="18" width="12" height="4" fill="#9CA3AF"/>
-      <circle cx="41" cy="18" r="2.5" fill="#EF4444"/>
-      <circle cx="47" cy="22" r="2.5" fill="#F59E0B"/>
-      <rect x="25" y="22" width="4" height="2" fill="#4B5563"/>
-      <rect x="31" y="22" width="4" height="2" fill="#4B5563"/>
-    </svg>
-    <span class="sticker-label">E-SPORT</span>
-  </div>
-
-  <div class="hanging-sticker sticker--sports" style="top: 66%; left: 3.5%;" title="Sports Competition (Futsal &amp; Basket)">
-    <svg viewBox="0 0 54 54" width="48" height="48" class="sticker-svg px-bounce-ball">
-      <circle cx="27" cy="27" r="23" fill="#FFFFFF"/>
-      <circle cx="27" cy="27" r="20" fill="#F8FAFC"/>
-      <polygon points="27,15 33,20 31,27 23,27 21,20" fill="#1E293B"/>
-      <polygon points="27,15 27,8 20,11 21,20" fill="#1E293B"/>
-      <polygon points="33,20 39,18 40,24 31,27" fill="#1E293B"/>
-      <polygon points="23,27 15,28 17,21 21,20" fill="#1E293B"/>
-      <polygon points="31,27 34,35 27,38 23,27" fill="#1E293B"/>
-      <circle cx="41" cy="39" r="10" fill="#FFFFFF"/>
-      <circle cx="41" cy="39" r="8.5" fill="#EA580C"/>
-      <line x1="33" y1="39" x2="49" y2="39" stroke="#7C2D12" stroke-width="1.2"/>
-      <line x1="41" y1="31" x2="41" y2="47" stroke="#7C2D12" stroke-width="1.2"/>
-    </svg>
-    <span class="sticker-label">SPORTS ⚽🏀</span>
-  </div>
-
-  <div class="hanging-sticker sticker--camera" style="top: 52%; right: 4%;" title="Lensa Bercerita">
-    <svg viewBox="0 0 52 44" width="48" height="40" class="sticker-svg">
-      <path d="M4,10 h44 v30 h-44 Z M16,4 h20 v6 h-20 Z" fill="#FFFFFF"/>
-      <rect x="6" y="12" width="40" height="26" fill="#374151" rx="2"/>
-      <rect x="18" y="6" width="16" height="6" fill="#4B5563"/>
-      <circle cx="26" cy="25" r="9" fill="#1F2937"/>
-      <circle cx="26" cy="25" r="6" fill="#60A5FA"/>
-      <circle cx="28" cy="23" r="2" fill="#FFFFFF"/>
-      <rect x="10" y="15" width="6" height="4" fill="#FDE68A"/>
-    </svg>
-    <span class="sticker-label">ART &amp; PHOTO</span>
-  </div>
-
-  <div class="hanging-sticker sticker--laptop" style="top: 32%; left: 2.5%;" title="UI/UX &amp; Vibe Coding">
-    <svg viewBox="0 0 54 44" width="48" height="40" class="sticker-svg">
-      <path d="M8,6 h38 v26 h-38 Z M2,32 h50 v8 h-50 Z" fill="#FFFFFF"/>
-      <rect x="10" y="8" width="34" height="22" fill="#111827"/>
-      <text x="14" y="18" font-family="'Press Start 2P', monospace" font-size="4" fill="#2ECC40">&gt;_UII</text>
-      <text x="14" y="25" font-family="'Press Start 2P', monospace" font-size="3.5" fill="#FFD166">2026</text>
-      <rect x="4" y="34" width="46" height="4" fill="#4B5563"/>
-    </svg>
-    <span class="sticker-label">UI/UX &amp; CODE</span>
-  </div>
-
-  <div class="hanging-sticker sticker--badge" style="top: 34%; right: 3%;" title="Established 1994">
-    <svg viewBox="0 0 56 56" width="48" height="48" class="sticker-svg">
-      <polygon points="28,4 34,12 44,8 44,19 54,21 49,30 55,38 45,41 43,51 33,48 28,55 23,48 13,51 11,41 1,38 7,30 2,21 12,19 12,8 22,12" fill="#FFFFFF"/>
-      <polygon points="28,7 33,14 42,10 42,20 51,22 46,30 51,37 42,40 40,48 32,45 28,51 24,45 16,48 14,40 5,37 10,30 5,22 14,20 14,10 23,14" fill="#FF8C00"/>
-      <circle cx="28" cy="30" r="14" fill="#FFFBEB"/>
-      <text x="28" y="29" font-family="'Press Start 2P', monospace" font-size="6" fill="#92400E" text-anchor="middle" font-weight="bold">EST.</text>
-      <text x="28" y="36" font-family="'Press Start 2P', monospace" font-size="6.5" fill="#B45309" text-anchor="middle" font-weight="bold">1994</text>
-    </svg>
-    <span class="sticker-label">32 TH</span>
-  </div>
 </section>
 
 <div class="pixel-divider-wrap" style="color:#0B0C10;background:#22C55E;"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
@@ -3228,17 +4280,17 @@ body.dark-theme .footer {
 <!-- ARCADE MARQUEE TICKER (DOMAIN-READY EMERALD & GOLD - NO PURPLE) -->
 <div class="arcade-marquee">
   <div class="arcade-marquee__track">
-    <span class="marquee-name"><span class="star">★</span> PORSEMATIK <em>FEAT.</em> MILAD INFORMATIKA TAHUN 2026</span>
+    <span class="marquee-name"><span class="star">★</span> PORSEMATIK FEAT. MILAD INFORMATIKA TAHUN 2026</span>
     <span class="dot">◆</span>
-    <span class="marquee-theme"><em>"IGNITE THE SUMMIT: ELEVATING SOLIDARITY, RESILIENCE, AND CREATIVITY THROUGH SPORTSMANSHIP"</em></span>
+    <span class="marquee-theme">"IGNITE THE SUMMIT: ELEVATING SOLIDARITY, RESILIENCE, AND CREATIVITY THROUGH SPORTSMANSHIP"</span>
     <span class="dot">★</span>
-    <span class="marquee-name">PORSEMATIK <em>FEAT.</em> MILAD INFORMATIKA TAHUN 2026</span>
+    <span class="marquee-name">PORSEMATIK FEAT. MILAD INFORMATIKA TAHUN 2026</span>
     <span class="dot">◆</span>
-    <span class="marquee-theme"><em>"IGNITE THE SUMMIT: ELEVATING SOLIDARITY, RESILIENCE, AND CREATIVITY THROUGH SPORTSMANSHIP"</em></span>
+    <span class="marquee-theme">"IGNITE THE SUMMIT: ELEVATING SOLIDARITY, RESILIENCE, AND CREATIVITY THROUGH SPORTSMANSHIP"</span>
     <span class="dot">★</span>
-    <span class="marquee-name">PORSEMATIK <em>FEAT.</em> MILAD INFORMATIKA TAHUN 2026</span>
+    <span class="marquee-name">PORSEMATIK FEAT. MILAD INFORMATIKA TAHUN 2026</span>
     <span class="dot">◆</span>
-    <span class="marquee-theme"><em>"IGNITE THE SUMMIT: ELEVATING SOLIDARITY, RESILIENCE, AND CREATIVITY THROUGH SPORTSMANSHIP"</em></span>
+    <span class="marquee-theme">"IGNITE THE SUMMIT: ELEVATING SOLIDARITY, RESILIENCE, AND CREATIVITY THROUGH SPORTSMANSHIP"</span>
     <span class="dot">★</span>
   </div>
 </div>
@@ -3253,10 +4305,10 @@ body.dark-theme .footer {
 
     <div class="about__text reveal" style="max-width: 860px; margin: 0 auto 3rem; text-align: center;">
       <p style="text-align: center; font-size: 1.05rem; line-height: 1.8; color: #334155; margin-bottom: 1.2rem;">
-        PORSEMATIK adalah ajang tahunan bergengsi yang mempertemukan mahasiswa Informatika FTI UII dari berbagai angkatan dalam kompetisi olahraga, seni, edukasi, dan <em>e-Sports</em>. Tahun ini, PORSEMATIK hadir berkolaborasi dengan semarak perayaan Milad Informatika ke-32 untuk merayakan kebersamaan, daya lentur, dan semangat sportivitas tanpa batas.
+        PORSEMATIK adalah ajang tahunan bergengsi yang mempertemukan mahasiswa Informatika FTI UII dari berbagai angkatan dalam kompetisi olahraga, seni, edukasi, dan e-Sports. Tahun ini, PORSEMATIK hadir berkolaborasi dengan semarak perayaan Milad Informatika ke-32 untuk merayakan kebersamaan, daya lentur, dan semangat sportivitas tanpa batas.
       </p>
       <p style="text-align: center; font-size: 1rem; line-height: 1.8; color: #475569;">
-        Diselenggarakan oleh <strong>Panitia Pelaksana PORSEMATIK <em>feat.</em> Milad Informatika Tahun 2026</strong> di bawah naungan <strong>Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2026/2027</strong>, acara ini bertujuan mempererat solidaritas, mengasah potensi bakat mahasiswa, dan membangun sinergi inklusif civitas akademika.
+        Diselenggarakan oleh <strong>Panitia Pelaksana PORSEMATIK feat. Milad Informatika Tahun 2026</strong> di bawah naungan <strong>Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2025/2026</strong>, acara ini bertujuan mempererat solidaritas, mengasah potensi bakat mahasiswa, dan membangun sinergi inklusif civitas akademika.
       </p>
     </div>
 
@@ -3265,7 +4317,7 @@ body.dark-theme .footer {
     <div class="summit-card reveal" style="max-width:840px;margin:2.5rem auto 3.5rem;background:linear-gradient(135deg, #FEF3C7, #FFFBEB);border:2px solid #F59E0B;border-radius:12px;padding:1.6rem 2rem;text-align:center;box-shadow:4px 4px 0 #D97706;">
       <span class="vibe-badge" style="color:#B45309;background:#FEF3C7;border-color:#FDE68A;">🏔️ THE SUMMIT PHILOSOPHY</span>
       <h3 style="font-family:var(--font-pixel);font-size:clamp(.85rem,1.8vw,1.25rem);color:#92400E;margin:.6rem 0 .5rem;">Ignite the Summit: Filosofi Puncak</h3>
-      <p style="font-family:var(--font-body);font-size:.98rem;color:#78350F;line-height:1.8;margin:0;text-align:center;">Simbol perjuangan dan pendakian bersama mahasiswa Informatika FTI UII menuju puncak pencapaian tertinggi. Kobarkan obor solidaritas, ketahanan mental (<em>resilience</em>), dan kreativitas tanpa batas melalui sportivitas sejati.</p>
+      <p style="font-family:var(--font-body);font-size:.98rem;color:#78350F;line-height:1.8;margin:0;text-align:center;">Simbol perjuangan dan pendakian bersama mahasiswa Informatika FTI UII menuju puncak pencapaian tertinggi. Kobarkan obor solidaritas, ketahanan mental (resilience), dan kreativitas tanpa batas melalui sportivitas sejati.</p>
     </div>
 
 
@@ -3294,7 +4346,7 @@ body.dark-theme .footer {
       <div class="value-card">
         <div class="value-card__icon"><svg class="px-icon px-icon--lg" viewBox="0 0 24 24"><path d="M6,2 h12 v8 h-2 v4 h-3 v4 h5 v3 h-12 v-3 h5 v-4 h-3 v-4 h-2 Z M2,4 h4 v6 h-4 Z M18,4 h4 v6 h-4 Z" fill="#F59E0B"/><rect x="9" y="5" width="6" height="3" fill="#FEF08A"/></svg></div>
         <div class="value-card__title">Sportivitas</div>
-        <p class="value-card__desc">Menjunjung tinggi semangat <em>fair play</em> dalam setiap pertandingan.</p>
+        <p class="value-card__desc">Menjunjung tinggi semangat fair play dalam setiap pertandingan.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon"><svg class="px-icon px-icon--lg" viewBox="0 0 24 24"><path d="M4,4 h6 v3 h-6 Z M14,4 h6 v3 h-6 Z M2,7 h20 v6 h-20 Z M5,13 h14 v4 h-14 Z M8,17 h8 v4 h-8 Z" fill="#10B981"/><path d="M12,8 l3,3 l-3,3 l-3,-3 Z" fill="#FDE047"/></svg></div>
@@ -3307,115 +4359,118 @@ body.dark-theme .footer {
 
 <div class="pixel-divider-wrap" style="color:#F0FDF4;background:#FFFDF9;"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
 
-<!-- MASTER TIMELINE SCHEDULE (GAYA EXACT HORIZONTAL ALTERNATING ARKAVIDIA - IMAGE #2) -->
+<!-- SCHEDULE (8-BIT LEVEL MAP / CHECKPOINT TIMELINE) -->
 <section class="schedule" id="schedule">
   <div class="container" style="text-align: center;">
-    <span class="vibe-tag" style="background:#DCFCE7;color:#15803D;">TIMELINE PELAKSANAAN</span>
+    <span class="vibe-tag" style="background:#DCFCE7;color:#15803D;">WORLD MAP • 6 STAGES</span>
     <h2 class="section-title reveal" style="color:#15803D !important;margin-top:.4rem;text-align:center;">Jadwal Pelaksanaan Acara</h2>
-    <p class="section-subtitle reveal" style="color:#166534 !important;text-align:center;">Rangkaian 6 hari pelaksanaan PORSEMATIK <em>feat.</em> Milad Informatika Tahun 2026.</p>
+    <p class="section-subtitle reveal" style="color:#166534 !important;text-align:center;">Rangkaian 6 stage kompetisi dan kegiatan PORSEMATIK feat. Milad Informatika Tahun 2026.</p>
 
-    <div class="arkav-timeline-container reveal">
-      <div class="arkav-track-wrapper">
-        <!-- Connecting Branch Line -->
-        <div class="arkav-branch-line"></div>
+    <div class="pixel-map-container reveal">
+      <div class="pixel-map-track">
+        <!-- 8-Bit Pixel Dirt Road Path with Centerline -->
+        <div class="pixel-road">
+          <div class="pixel-road-line"></div>
+        </div>
 
-        <!-- Top Content Row (Days 2, 4, 6) -->
-        <div class="arkav-nodes-row" style="margin-bottom:-22px;">
-          <!-- Node 1 Empty Top -->
-          <div class="arkav-node-card-top"></div>
+        <!-- Top Checkpoints Row (STG 2, STG 4, STG 6) -->
+        <div class="map-row map-row--top">
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Node 2 (Top): Informatics Connect -->
-          <div class="arkav-node-card-top">
-            <div class="arkav-content-box">
-              <span class="arkav-card-day">HARI 2</span>
-              <div class="arkav-card-title">Informatics Connect &amp; Basket</div>
-              <div class="arkav-card-date">Selasa, 17 Nov 2026</div>
-              <div class="arkav-card-desc">06.00 – 21.30 WIB<br>Lapangan Utara &amp; GOR UII</div>
+          <!-- STG 2 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--amber">STG 2</span>
+              <div class="map-date">Selasa, 17 Nov 2026</div>
+              <div class="map-time">06.00 – 21.30 WIB</div>
+              <h4 class="map-title">Informatics Connect, Basket &amp; Futsal</h4>
+              <p class="map-desc">Lapangan Utara &amp; GOR UII • Tumpengan Milad ke-32, dilanjutkan babak penyisihan Basket &amp; Futsal.</p>
             </div>
           </div>
 
-          <!-- Node 3 Empty Top -->
-          <div class="arkav-node-card-top"></div>
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Node 4 (Top): Mobile Legends QF & SF -->
-          <div class="arkav-node-card-top">
-            <div class="arkav-content-box">
-              <span class="arkav-card-day">HARI 4</span>
-              <div class="arkav-card-title">QF &amp; Semifinal Mobile Legends</div>
-              <div class="arkav-card-date">Kamis, 19 Nov 2026</div>
-              <div class="arkav-card-desc">18.10 – 21.10 WIB<br>Auditorium FTI UII</div>
+          <!-- STG 4 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--purple">STG 4</span>
+              <div class="map-date">Kamis, 19 Nov 2026</div>
+              <div class="map-time">18.10 – 21.10 WIB</div>
+              <h4 class="map-title">Quarter Final &amp; Semi Final MLBB</h4>
+              <p class="map-desc">Auditorium FTI UII • Laga eliminasi perempat final (BO1) dan semifinal (BO3) Mobile Legends.</p>
             </div>
           </div>
 
-          <!-- Node 5 Empty Top -->
-          <div class="arkav-node-card-top"></div>
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Node 6 (Top): Awarding Night -->
-          <div class="arkav-node-card-top">
-            <div class="arkav-content-box">
-              <span class="arkav-card-day">HARI 6</span>
-              <div class="arkav-card-title">Awarding Night &amp; Closing</div>
-              <div class="arkav-card-date">Minggu, 22 Nov 2026</div>
-              <div class="arkav-card-desc">19.15 – 21.30 WIB<br>Lapangan Utara GOR UII</div>
+          <!-- STG 6 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--gold">STG 6 🏆</span>
+              <div class="map-date">Minggu, 22 Nov 2026</div>
+              <div class="map-time">19.15 – 21.30 WIB</div>
+              <h4 class="map-title">Awarding Night &amp; Closing Ceremony</h4>
+              <p class="map-desc">Lapangan Utara GOR UII • Penobatan Juara Umum Angkatan, penayangan after movie, &amp; konser KOSMIK.</p>
             </div>
           </div>
         </div>
 
-        <!-- Milestone Flower Nodes Row (Centered on Branch) -->
-        <div class="arkav-nodes-row" style="z-index:4;">
-          <div style="display:flex;justify-content:center;"><div class="arkav-flower-node" title="Hari 1: 16 Nov">🌸</div></div>
-          <div style="display:flex;justify-content:center;"><div class="arkav-flower-node" title="Hari 2: 17 Nov">🌸</div></div>
-          <div style="display:flex;justify-content:center;"><div class="arkav-flower-node" title="Hari 3: 18 Nov">🌸</div></div>
-          <div style="display:flex;justify-content:center;"><div class="arkav-flower-node" title="Hari 4: 19 Nov">🌸</div></div>
-          <div style="display:flex;justify-content:center;"><div class="arkav-flower-node" title="Hari 5: 21 Nov">🌸</div></div>
-          <div style="display:flex;justify-content:center;"><div class="arkav-flower-node" title="Hari 6: 22 Nov">🌸</div></div>
+        <!-- Checkpoints Flag Nodes Line -->
+        <div class="map-nodes-row">
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 1: 16 Nov"><span class="cp-text">STG 1</span></div><span class="cp-sub">16 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box checkpoint-box--active" title="Stage 2: 17 Nov"><span class="cp-text">STG 2</span></div><span class="cp-sub">17 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 3: 18 Nov"><span class="cp-text">STG 3</span></div><span class="cp-sub">18 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 4: 19 Nov"><span class="cp-text">STG 4</span></div><span class="cp-sub">19 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 5: 21 Nov"><span class="cp-text">STG 5</span></div><span class="cp-sub">21 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box checkpoint-box--boss" title="Stage 6: 22 Nov"><span class="cp-text">STG 6</span></div><span class="cp-sub">22 Nov</span></div>
         </div>
 
-        <!-- Bottom Content Row (Days 1, 3, 5) -->
-        <div class="arkav-nodes-row" style="margin-top:-22px;">
-          <!-- Node 1 (Bottom): Pembukaan & Futsal -->
-          <div class="arkav-node-card-bottom">
-            <div class="arkav-content-box">
-              <span class="arkav-card-day">HARI 1</span>
-              <div class="arkav-card-title">Pembukaan &amp; Futsal 1–5</div>
-              <div class="arkav-card-date">Senin, 16 Nov 2026</div>
-              <div class="arkav-card-desc">17.50 – 21.50 WIB<br>GOR Ki Bagoes UII</div>
+        <!-- Bottom Checkpoints Row (STG 1, STG 3, STG 5) -->
+        <div class="map-row map-row--bottom">
+          <!-- STG 1 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--green">STG 1</span>
+              <div class="map-date">Senin, 16 Nov 2026</div>
+              <div class="map-time">17.50 – 21.50 WIB</div>
+              <h4 class="map-title">Pembukaan &amp; Penyisihan Futsal (1–5)</h4>
+              <p class="map-desc">GOR Ki Bagoes Hadikoesoemo UII • Upacara pembukaan akbar dan laga perdana babak grup futsal.</p>
             </div>
           </div>
 
-          <!-- Node 2 Empty Bottom -->
-          <div class="arkav-node-card-bottom"></div>
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Node 3 (Bottom): Grand Final Futsal & Deadline -->
-          <div class="arkav-node-card-bottom">
-            <div class="arkav-content-box">
-              <span class="arkav-card-day">HARI 3</span>
-              <div class="arkav-card-title">Grand Final Futsal &amp; Deadline</div>
-              <div class="arkav-card-date">Rabu, 18 Nov 2026</div>
-              <div class="arkav-card-desc">18.00 – 23.59 WIB<br>GOR UII &amp; Daring</div>
+          <!-- STG 3 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--orange">STG 3</span>
+              <div class="map-date">Rabu, 18 Nov 2026</div>
+              <div class="map-time">18.00 – 23.59 WIB</div>
+              <h4 class="map-title">Grand Final Futsal, Basket &amp; Deadline</h4>
+              <p class="map-desc">GOR UII • Laga puncak Final Futsal &amp; Basket, serta batas akhir pengumpulan karya digital (23.59 WIB).</p>
             </div>
           </div>
 
-          <!-- Node 4 Empty Bottom -->
-          <div class="arkav-node-card-bottom"></div>
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Node 5 (Bottom): VibeIT & GF MLBB -->
-          <div class="arkav-node-card-bottom">
-            <div class="arkav-content-box">
-              <span class="arkav-card-day">HARI 5</span>
-              <div class="arkav-card-title">VibeIT, UI/UX &amp; GF MLBB</div>
-              <div class="arkav-card-date">Sabtu, 21 Nov 2026</div>
-              <div class="arkav-card-desc">07.30 – 17.20 WIB<br>Lab 3.2 &amp; Auditorium</div>
+          <!-- STG 5 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--cyan">STG 5</span>
+              <div class="map-date">Sabtu, 21 Nov 2026</div>
+              <div class="map-time">07.30 – 17.20 WIB</div>
+              <h4 class="map-title">VibeIT, Final UI/UX &amp; GF MLBB</h4>
+              <p class="map-desc">Lab 3.2 FTI &amp; Auditorium • Workshop Vibe Coding SMA, Presentasi UI/UX, &amp; Grand Final MLBB.</p>
             </div>
           </div>
 
-          <!-- Node 6 Empty Bottom -->
-          <div class="arkav-node-card-bottom"></div>
+          <div class="map-slot map-slot--empty"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <div class="pixel-divider-wrap" style="color:#FAF8F5;background:#FFFDF9;"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
 
@@ -3429,10 +4484,10 @@ body.dark-theme .footer {
       <!-- 1. Pembukaan -->
       <div class="event-card event-card--rose">
         <div class="event-card__date">16 Nov 2026</div>
-        <h3 class="event-card__title">🎪 <em>Opening Ceremony</em></h3>
+        <h3 class="event-card__title">🎪 Opening Ceremony</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 17.50 – 18.10 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> GOR Ki Bagoes Hadikoesoemo UII</div>
-        <p class="event-card__desc">Upacara pembukaan resmi PORSEMATIK <em>feat.</em> Milad Informatika 2026 dilanjutkan babak penyisihan turnamen Futsal Match 1–5.</p>
+        <p class="event-card__desc">Upacara pembukaan resmi PORSEMATIK feat. Milad Informatika 2026 dilanjutkan babak penyisihan turnamen Futsal Match 1–5.</p>
       </div>
 
       <!-- 2. Informatics Connect -->
@@ -3441,25 +4496,25 @@ body.dark-theme .footer {
         <h3 class="event-card__title">🤝 Informatics Connect</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 06.00 – 09.00 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Lapangan Utara GOR UII</div>
-        <p class="event-card__desc">Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, <em>Wish Note</em>, senam bersama, estafet sarung, kuliner UMKM (3 <em>chip</em> makan &amp; 1 <em>photobooth</em>), dan akustik KOSMIK.</p>
+        <p class="event-card__desc">Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, kuliner UMKM (3 chip makan &amp; 1 photobooth), dan akustik KOSMIK.</p>
       </div>
 
       <!-- 3. VibeIT -->
       <div class="event-card event-card--purple">
         <div class="event-card__date">21 Nov 2026</div>
-        <h3 class="event-card__title">🤖 VibeIT: AI <em>Workshop</em></h3>
+        <h3 class="event-card__title">🤖 VibeIT: AI Workshop</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 07.30 – 11.00 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Ruang 3.2 Lab FTI UII</div>
-        <p class="event-card__desc">Pelatihan <em>Vibe Coding</em> eksklusif bagi 50 siswa SMA/SLTA sederajat bersama GDGOC UII untuk membuat dan <em>deploy landing page</em> UMKM menggunakan Lovable AI.</p>
+        <p class="event-card__desc">Pelatihan Vibe Coding eksklusif bagi 50 siswa SMA/SLTA sederajat bersama GDGOC UII untuk membuat dan deploy landing page UMKM menggunakan Lovable AI.</p>
       </div>
 
       <!-- 4. Awarding Night -->
       <div class="event-card event-card--green">
         <div class="event-card__date">22 Nov 2026</div>
-        <h3 class="event-card__title">🏆 <em>Awarding Night</em> &amp; Penutupan</h3>
+        <h3 class="event-card__title">🏆 Awarding Night &amp; Penutupan</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 19.15 – 21.30 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Lapangan Utara GOR UII</div>
-        <p class="event-card__desc">Malam puncak penayangan <em>after movie</em>, pengumuman pemenang lomba &amp; Juara Umum Angkatan, <em>stand</em> kuliner, penampilan musik angkatan, dan penutup KOSMIK.</p>
+        <p class="event-card__desc">Malam puncak penayangan after movie, pengumuman pemenang lomba &amp; Juara Umum Angkatan, stand kuliner, penampilan musik angkatan, dan penutup KOSMIK.</p>
       </div>
     </div>
   </div>
@@ -3468,15 +4523,16 @@ body.dark-theme .footer {
 <div class="pixel-divider-wrap" style="color:#F5F3FF;background:#FAF8F5;"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
 
 <!-- VIBE IT: AI WORKSHOP EXCLUSIVE SECTION -->
+<!-- VIBE IT: AI WORKSHOP EXCLUSIVE SECTION -->
 <section class="vibeit" id="vibeit">
-  <div class="container">
-    <div class="vibeit__header reveal">
-      <span class="vibe-badge">🤖 HIGH SCHOOL EXCLUSIVE <em>WORKSHOP</em> • <em>COLLAB WITH</em> GDGOC UII</span>
-      <h2 class="section-title">VibeIT: AI <em>Vibe Coding Workshop</em></h2>
-      <p class="section-subtitle">Kegiatan edukasi dan pengenalan Program Studi Informatika FTI UII bagi 50 siswa SMA/SLTA sederajat melalui kolaborasi dengan Google Developer Groups on Campus UII (GDGOC UII).</p>
+  <div class="container" style="text-align: center;">
+    <div class="vibeit__header reveal" style="text-align: center; margin: 0 auto 3rem;">
+      <span class="vibe-badge">HIGH SCHOOL EXCLUSIVE WORKSHOP • COLLAB WITH GDGOC UII</span>
+      <h2 class="section-title" style="font-style: normal !important; text-align: center;">VibeIT: AI Vibe Coding Workshop</h2>
+      <p class="section-subtitle" style="text-align: center;">Kegiatan edukasi dan pengenalan Program Studi Informatika FTI UII bagi 50 siswa SMA/SLTA sederajat melalui kolaborasi dengan Google Developer Groups on Campus UII (GDGOC UII).</p>
       
       <!-- Retro Pixel Progress Bar -->
-      <div class="vibe-progress-bar">
+      <div class="vibe-progress-bar" style="margin: 0 auto 2rem;">
         <div class="vibe-progress-label"><span>VIBE CODING LAB STATUS:</span> <span>READY 100%</span></div>
         <div class="vibe-progress-track">
           <div class="vibe-progress-fill"></div>
@@ -3496,7 +4552,7 @@ body.dark-theme .footer {
         <div class="vibe-card__icon"><svg class="px-icon px-icon--md" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg></div>
         <div class="vibe-card__label">WAKTU PELAKSANAAN</div>
         <div class="vibe-card__val">07.30 – 11.00 WIB</div>
-        <div class="vibe-card__sub">Durasi total 210 Menit <em>workshop</em></div>
+        <div class="vibe-card__sub">Durasi total 210 Menit workshop</div>
       </div>
       <div class="vibe-card vibe-card--sky">
         <div class="vibe-card__icon"><svg class="px-icon px-icon--md" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg></div>
@@ -3512,71 +4568,71 @@ body.dark-theme .footer {
       </div>
     </div>
 
-    <!-- 2. VISUAL TIMELINE / ALUR KEGIATAN VIBEIT (6 LANGKAH) -->
+    <!-- 2. ALUR ACARA 6 LANGKAH (RATA TENGAH) -->
     <div class="vibe-timeline-wrap reveal">
       <div class="vibe-section-title">
         <span class="vibe-tag">QUEST TIMELINE</span>
-        <h3>Alur &amp; Rangkaian Kegiatan VibeIT (6 Level)</h3>
+        <h3 style="text-align: center;">Alur &amp; Rangkaian Kegiatan VibeIT (6 Level)</h3>
       </div>
       <div class="vibe-steps-grid">
-        <div class="vibe-step">
+        <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num">LV.1</div>
           <div class="vibe-step__time">07.30 – 08.00 WIB</div>
           <div class="vibe-step__title">Kedatangan &amp; Registrasi Peserta</div>
-          <p class="vibe-step__desc"><em>Check-in</em> peserta di Ruang 3.2 Lab FTI UII, penukaran kartu peserta, dan persiapan <em>workstation laptop</em>.</p>
+          <p class="vibe-step__desc" style="text-align:center;">Check-in peserta di Ruang 3.2 Lab FTI UII, penukaran kartu peserta, dan persiapan workstation laptop.</p>
         </div>
-        <div class="vibe-step">
+        <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num">LV.2</div>
           <div class="vibe-step__time">08.00 – 08.30 WIB</div>
           <div class="vibe-step__title">Pembukaan &amp; Profil Informatika UII</div>
-          <p class="vibe-step__desc"><em>Opening</em> oleh MC, pemutaran video profil Informatika UII, sambutan, perkenalan pemateri GDGOC UII, serta <em>ice breaking</em>.</p>
+          <p class="vibe-step__desc" style="text-align:center;">Opening oleh MC, pemutaran video profil Informatika UII, sambutan, perkenalan pemateri GDGOC UII, serta ice breaking.</p>
         </div>
-        <div class="vibe-step">
+        <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num">LV.3</div>
           <div class="vibe-step__time">08.30 – 09.30 WIB</div>
-          <div class="vibe-step__title">Sesi Materi: <em>Vibe Coding AI</em> (1 Jam)</div>
-          <p class="vibe-step__desc">Pengenalan paradigma modern pembuatan <em>software</em> dengan bantuan <em>generative AI</em> dan <em>prompt engineering</em> secara visual.</p>
+          <div class="vibe-step__title">Sesi Materi: Vibe Coding AI (1 Jam)</div>
+          <p class="vibe-step__desc" style="text-align:center;">Pengenalan paradigma modern pembuatan software dengan bantuan generative AI dan prompt engineering secara visual.</p>
         </div>
-        <div class="vibe-step">
+        <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num">LV.4</div>
           <div class="vibe-step__time">09.30 – 10.30 WIB</div>
-          <div class="vibe-step__title">Sesi Praktik: <em>Deploy Landing Page</em> (1 Jam)</div>
-          <p class="vibe-step__desc"><em>Hands-on</em> praktik langsung membuat dan mempublikasikan (<em>deploy</em>) <em>landing page</em> UMKM <em>online</em> menggunakan Lovable AI.</p>
+          <div class="vibe-step__title">Sesi Praktik: Deploy Landing Page (1 Jam)</div>
+          <p class="vibe-step__desc" style="text-align:center;">Hands-on praktik langsung membuat dan mempublikasikan (deploy) landing page UMKM online menggunakan Lovable AI.</p>
         </div>
-        <div class="vibe-step">
+        <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num">LV.5</div>
           <div class="vibe-step__time">10.30 – 10.45 WIB</div>
-          <div class="vibe-step__title">Pengumpulan <em>Link</em> Hasil <em>Deploy</em></div>
-          <p class="vibe-step__desc"><em>Submit link website</em> hasil <em>deploy</em> Lovable AI ke <em>form</em> resmi panitia sebagai syarat wajib penerbitan E-Sertifikat.</p>
+          <div class="vibe-step__title">Pengumpulan Link Hasil Deploy</div>
+          <p class="vibe-step__desc" style="text-align:center;">Submit link website hasil deploy Lovable AI ke form resmi panitia sebagai syarat wajib penerbitan E-Sertifikat.</p>
         </div>
-        <div class="vibe-step">
+        <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num">LV.6</div>
           <div class="vibe-step__time">10.45 – 11.00 WIB</div>
-          <div class="vibe-step__title">Sesi Memento, Penutupan &amp; <em>Free Time</em></div>
-          <p class="vibe-step__desc">Foto bersama seluruh peserta dan mentor GDGOC UII, penutupan resmi, serta sesi santai (<em>free time</em>) melihat fasilitas lab kampus.</p>
+          <div class="vibe-step__title">Sesi Memento, Penutupan &amp; Free Time</div>
+          <p class="vibe-step__desc" style="text-align:center;">Foto bersama seluruh peserta dan mentor GDGOC UII, penutupan resmi, serta sesi santai (free time) melihat fasilitas lab kampus.</p>
         </div>
       </div>
     </div>
 
     <!-- 3. HIGHLIGHT BOX (SYARAT E-SERTIFIKAT) -->
-    <div class="vibe-alert-box reveal">
-      <div class="vibe-alert-badge">⚠️ PENGUMUMAN PENTING KELULUSAN</div>
-      <div class="vibe-alert-body">
+    <div class="vibe-alert-box reveal" style="text-align:center;">
+      <div class="vibe-alert-badge">PENGUMUMAN PENTING KELULUSAN</div>
+      <div class="vibe-alert-body" style="justify-content:center;">
         <div class="vibe-alert-icon"><svg class="px-icon px-icon--lg" viewBox="0 0 16 16"><path d="M3,2 h10 v12 h-10 Z M5,4 h6 v1 h-6 Z M5,6 h6 v1 h-6 Z M5,8 h6 v1 h-6 Z M5,10 h4 v1 h-4 Z" fill="#D97706"/></svg></div>
-        <div class="vibe-alert-text">
-          <strong>SYARAT E-SERTIFIKAT:</strong> Hanya peserta yang mengerjakan sesi praktik dan mengumpulkan <em>link</em> hasil <em>deploy</em> Lovable AI pada <em>link</em> resmi panitia yang akan memperoleh E-Sertifikat resmi terverifikasi dari HMIF LEM FTI UII dan GDGOC UII.
+        <div class="vibe-alert-text" style="text-align:center;">
+          <strong>SYARAT E-SERTIFIKAT:</strong> Hanya peserta yang mengerjakan sesi praktik dan mengumpulkan link hasil deploy Lovable AI pada link resmi panitia yang akan memperoleh E-Sertifikat resmi terverifikasi dari HMIF LEM FTI UII dan GDGOC UII.
         </div>
       </div>
     </div>
 
-    <!-- 4. CTA BUTTONS -->
-    <div class="vibe-actions reveal">
-      <a href="https://linktr.ee/porsematik2026" class="btn-pixel" target="_blank" rel="noopener">
+    <!-- 4. CTA BUTTONS (GOOGLE FORMS URL + DISABLED DEPLOY BUTTON) -->
+    <div class="vibe-actions reveal" style="justify-content:center;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScuKliSypDmIJL__CyamGvfZk9dehMoDlrBSP0lsdIi-D0bHg/viewform?usp=publish-editor" class="btn-pixel" target="_blank" rel="noopener">
         [ DAFTAR PESERTA VIBEIT (KUOTA 50 SISWA) ]
       </a>
-      <a href="https://linktr.ee/porsematik2026" class="btn-pixel btn-pixel--secondary" target="_blank" rel="noopener">
-        [ KUMPULKAN LINK DEPLOY LOVABLE AI ]
-      </a>
+      <button class="btn-pixel btn-pixel--disabled" disabled title="Belum dibuka, kumpulkan link deploy pada hari pelaksanaan (21 Nov 2026)">
+        [ BELUM DIBUKA: KUMPULKAN LINK DEPLOY (21 NOV 2026) ]
+      </button>
     </div>
   </div>
 </section>
@@ -3584,16 +4640,19 @@ body.dark-theme .footer {
 <div class="pixel-divider-wrap" style="color:#FFFBEB;background:#F5F3FF;"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
 
 <!-- INFORMATICS CONNECT SECTION -->
+<!-- INFORMATICS CONNECT SECTION -->
 <section class="connect-sec" id="connect">
   <div class="container" style="text-align: center;">
     <div class="vibeit__header reveal" style="text-align: center; margin: 0 auto 3rem;">
-      <span class="vibe-badge" style="color:#D97706;background:#FEF3C7;border-color:#FDE68A;">🎉 COMMUNITY &amp; ALUMNI GATHERING • MILAD INFORMATIKA KE-32</span>
+      <span class="vibe-badge" style="color:#D97706;background:#FEF3C7;border-color:#FDE68A;">COMMUNITY &amp; ALUMNI GATHERING • MILAD INFORMATIKA KE-32</span>
       <h2 class="section-title" style="color:#B45309 !important; font-style: normal !important; text-align: center;">Informatics Connect</h2>
       <p class="section-subtitle" style="color:#78350F !important; max-width: 780px; margin: 0 auto 2rem; text-align: center;">Momen kebersamaan mahasiswa aktif, dosen, dan alumni Program Studi Informatika FTI UII untuk mempererat silaturahmi dalam semarak Milad ke-32.</p>
       
-      <!-- Retro Progress / Solidarity Bar -->
-      <div class="vibe-progress-bar" style="border-color:#F59E0B;box-shadow:4px 4px 0 #FDE68A;">
-        <div class="vibe-progress-label" style="color:#B45309;"><span>SOLIDARITAS ANGKATAN &amp; ALUMNI:</span> <span>100% GUYUB</span></div>
+      <!-- Solidarity Stage (NO 100% GUYUB) -->
+      <div class="vibe-progress-bar" style="border-color:#F59E0B;box-shadow:4px 4px 0 #FDE68A;max-width:540px;margin:0 auto 2rem;">
+        <div class="vibe-progress-label" style="color:#B45309;font-family:'Press Start 2P', monospace;font-size:10px;">
+          <span>MILAD INFORMATIKA UII KE-32 • SOLIDARITY STAGE</span>
+        </div>
         <div class="vibe-progress-track">
           <div class="vibe-progress-fill" style="background:linear-gradient(90deg, #F59E0B, #EA580C, #22C55E);"></div>
         </div>
@@ -3618,7 +4677,7 @@ body.dark-theme .footer {
         <div class="vibe-card__icon"><svg class="px-icon px-icon--md" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#16A34A"/></svg></div>
         <div class="vibe-card__label">TEMPAT / VENUE</div>
         <div class="vibe-card__val">Lapangan Utara GOR UII</div>
-        <div class="vibe-card__sub">Area <em>outdoor</em> GOR Ki Bagoes Hadikoesoemo</div>
+        <div class="vibe-card__sub">Area outdoor GOR Ki Bagoes Hadikoesoemo</div>
       </div>
       <div class="vibe-card vibe-card--sky">
         <div class="vibe-card__icon"><svg class="px-icon px-icon--md" viewBox="0 0 16 16"><path d="M3,2 h4 v4 h-4 Z M9,3 h4 v4 h-4 Z M1,7 h8 v7 h-8 Z M9,8 h6 v6 h-6 Z" fill="#0284C7"/></svg></div>
@@ -3638,8 +4697,8 @@ body.dark-theme .footer {
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.1</div>
           <div class="vibe-step__time">06.00 – 06.30 WIB</div>
-          <div class="vibe-step__title">Registrasi &amp; Penukaran <em>Chip</em></div>
-          <p class="vibe-step__desc"><em>Check-in</em> peserta di meja registrasi, pembagian 3 <em>chip</em> makan kuliner UMKM dan 1 <em>chip photobooth</em> gratis.</p>
+          <div class="vibe-step__title">Registrasi &amp; Penukaran Chip</div>
+          <p class="vibe-step__desc">Check-in peserta di meja registrasi, pembagian 3 chip makan kuliner UMKM dan 1 chip photobooth gratis.</p>
         </div>
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.2</div>
@@ -3650,8 +4709,8 @@ body.dark-theme .footer {
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.3</div>
           <div class="vibe-step__time">07.15 – 07.45 WIB</div>
-          <div class="vibe-step__title">Potong Tumpeng &amp; <em>Wish Note</em></div>
-          <p class="vibe-step__desc">Seremoni simbolis tumpengan Milad Informatika ke-32, doa bersama, serta penempelan kertas harapan (<em>Wish Note</em>) masa depan prodi.</p>
+          <div class="vibe-step__title">Potong Tumpeng &amp; Wish Note</div>
+          <p class="vibe-step__desc">Seremoni simbolis tumpengan Milad Informatika ke-32, doa bersama, serta penempelan kertas harapan (Wish Note) masa depan prodi.</p>
         </div>
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.4</div>
@@ -3662,8 +4721,8 @@ body.dark-theme .footer {
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.5</div>
           <div class="vibe-step__time">08.15 – 08.45 WIB</div>
-          <div class="vibe-step__title">Festival Kuliner UMKM &amp; <em>Photobooth</em></div>
-          <p class="vibe-step__desc">Menikmati sarapan lezat di <em>stand</em> kuliner UMKM mahasiswa menggunakan 3 <em>chip</em> makan dan foto seru di <em>photobooth</em> 360/cetak.</p>
+          <div class="vibe-step__title">Festival Kuliner UMKM &amp; Photobooth</div>
+          <p class="vibe-step__desc">Menikmati sarapan lezat di stand kuliner UMKM mahasiswa menggunakan 3 chip makan dan foto seru di photobooth 360/cetak.</p>
         </div>
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.6</div>
@@ -3674,22 +4733,22 @@ body.dark-theme .footer {
       </div>
     </div>
 
-    <!-- 3. HIGHLIGHT BOX (CUMA CHIP AJA - NO KUPON NO SERTIFIKAT) -->
+    <!-- 3. HIGHLIGHT BOX -->
     <div class="vibe-alert-box reveal" style="background:#ECFDF5;border-color:#10B981;box-shadow:4px 4px 0 #059669;text-align:center;">
-      <div class="vibe-alert-badge" style="color:#065F46;">🎁 FASILITAS CHIP PESERTA</div>
+      <div class="vibe-alert-badge" style="color:#065F46;">FASILITAS CHIP PESERTA</div>
       <div class="vibe-alert-body" style="justify-content:center;">
         <div class="vibe-alert-icon"><svg class="px-icon px-icon--lg" viewBox="0 0 16 16"><path d="M4,2 h8 v2 h2 v4 h-2 v2 h-2 v2 h-4 v-2 h-2 v-6 h2 Z M5,4 h2 v2 h-2 Z M9,4 h2 v2 h-2 Z M5,7 h2 v2 h-2 Z" fill="#10B981"/></svg></div>
         <div class="vibe-alert-text" style="color:#064E3B;text-align:center;">
-          <strong>FASILITAS PESERTA:</strong> Setiap peserta yang mendaftar dan hadir akan mendapatkan <strong>3 <em>chip</em> makan kuliner UMKM</strong> dan <strong>1 <em>chip</em> akses foto di <em>photobooth</em></strong>.
+          <strong>FASILITAS PESERTA:</strong> Setiap peserta yang mendaftar dan hadir akan mendapatkan <strong>3 chip makan kuliner UMKM</strong> dan <strong>1 chip akses foto di photobooth</strong>.
         </div>
       </div>
     </div>
 
-    <!-- 4. CTA BUTTON -->
+    <!-- 4. CTA BUTTON (TERKUNCI / DISABLED) -->
     <div class="vibe-actions reveal" style="justify-content:center;">
-      <a href="https://linktr.ee/porsematik2026" class="btn-pixel" target="_blank" rel="noopener">
-        [ DAFTAR INFORMATICS CONNECT (MAHASISWA, DOSEN &amp; ALUMNI) ]
-      </a>
+      <button class="btn-pixel btn-pixel--disabled" disabled title="Pendaftaran telah ditutup">
+        [ PENDAFTARAN DITUTUP ]
+      </button>
     </div>
   </div>
 </section>
@@ -3771,7 +4830,7 @@ body.dark-theme .footer {
           <ul class="comp-card__specs">
             <li><strong>Jadwal &amp; Lokasi:</strong> 17–18 November 2026 di GOR Ki Bagoes Hadikoesoemo UII</li>
             <li><strong>Komposisi Tim:</strong> 8–14 orang (5 pemain inti, 2–7 pemain cadangan, 1–2 ofisial)</li>
-            <li><strong>Format:</strong> Sistem <em>round-robin</em> klasemen tunggal tanpa final, waktu 4x10 menit kotor</li>
+            <li><strong>Format:</strong> Sistem round-robin klasemen tunggal tanpa final, waktu 4x10 menit kotor</li>
             <li><strong>Penentuan Juara:</strong> Akumulasi poin klasemen akhir seluruh pertandingan</li>
           </ul>
         </div>
@@ -3801,8 +4860,8 @@ body.dark-theme .footer {
           <ul class="comp-card__specs">
             <li><strong>Jadwal &amp; Lokasi:</strong> 19 &amp; 21 November 2026 di Auditorium FTI UII (Luring)</li>
             <li><strong>Komposisi Tim:</strong> 6–8 orang (5 pemain inti, maks. 2 cadangan, 1 ofisial)</li>
-            <li><strong>Format:</strong> <em>Single elimination</em> (QF BO1, Semifinal BO3, Juara 3 BO1, Grand Final BO5)</li>
-            <li><strong>Ketentuan:</strong> Jaringan internet pribadi/kampus, dilarang <em>cheat/bug/toxic</em></li>
+            <li><strong>Format:</strong> Single elimination (QF BO1, Semifinal BO3, Juara 3 BO1, Grand Final BO5)</li>
+            <li><strong>Ketentuan:</strong> Jaringan internet pribadi/kampus, dilarang cheat/bug/toxic</li>
           </ul>
         </div>
         <div class="comp-card__side">
@@ -3829,7 +4888,7 @@ body.dark-theme .footer {
           </div>
           <h3 class="comp-card__name"><svg class="px-icon" viewBox="0 0 16 16" style="margin-right:4px;"><path d="M2,2 h12 v12 h-12 Z M4,4 h8 v8 h-8 Z M5,9 l2,-2 l2,2 l2,-3 l2,3 Z M5,6 h2 v2 h-2 Z" fill="#EC4899"/></svg> Poster Digital Competition</h3>
           <ul class="comp-card__specs">
-            <li><strong>Tema Utama:</strong> <em>"Climate-Sphere: Designing Solutions, Building Resilience"</em> (SDG 13)</li>
+            <li><strong>Tema Utama:</strong> "Climate-Sphere: Designing Solutions, Building Resilience" (SDG 13)</li>
             <li><strong>Pengumpulan &amp; Voting:</strong> Submit daring 16–18 Nov; E-Voting 19–21 Nov 2026</li>
             <li><strong>Ketentuan Teknis:</strong> Ukuran A3 portrait 300 dpi (JPG/PNG &amp; lampirkan file mentah PSD/AI/FIG)</li>
             <li><strong>Integritas:</strong> Karya murni orisinal &amp; <strong>DILARANG KERAS MENGGUNAKAN GENERATIVE AI</strong></li>
@@ -3858,7 +4917,7 @@ body.dark-theme .footer {
           </div>
           <h3 class="comp-card__name"><svg class="px-icon" viewBox="0 0 16 16" style="margin-right:4px;"><path d="M5,2 h6 v2 h-6 Z M2,4 h12 v10 h-12 Z M6,6 h4 v4 h-4 Z M12,5 h1 v2 h-1 Z" fill="#3B82F6"/></svg> Photography &amp; Narrative</h3>
           <ul class="comp-card__specs">
-            <li><strong>Tema Utama:</strong> <em>"Lensa Bercerita: Kisah di Balik Bingkai"</em> (SDG 1, 10, 16)</li>
+            <li><strong>Tema Utama:</strong> "Lensa Bercerita: Kisah di Balik Bingkai" (SDG 1, 10, 16)</li>
             <li><strong>Subtema:</strong> Denyut Perjuangan, Kehangatan Sosial, atau Kontras Muka Sosial</li>
             <li><strong>Ketentuan:</strong> Kanvas utuh 4:5 / 1:1 berisi foto + esai 20–70 kata &amp; file RAW asli</li>
             <li><strong>Etika:</strong> Tanpa manipulasi digital ekstrem, no AI, no poverty porn</li>
@@ -3887,9 +4946,9 @@ body.dark-theme .footer {
           </div>
           <h3 class="comp-card__name"><svg class="px-icon" viewBox="0 0 16 16" style="margin-right:4px;"><path d="M2,2 h12 v9 h-12 Z M6,11 h4 v2 h-4 Z M4,13 h8 v1 h-8 Z M4,4 h8 v5 h-8 Z" fill="#06B6D4"/></svg> UI/UX Design Competition</h3>
           <ul class="comp-card__specs">
-            <li><strong>Tema Utama:</strong> <em>"Climate-Sphere: Designing Solutions, Building Resilience"</em> (SDG 13)</li>
+            <li><strong>Tema Utama:</strong> "Climate-Sphere: Designing Solutions, Building Resilience" (SDG 13)</li>
             <li><strong>Komposisi Tim:</strong> 2–4 mahasiswa aktif (1 ketua + 1–3 anggota per angkatan)</li>
-            <li><strong>Deliverables:</strong> <em>Study Case</em> (.pdf &amp; .ppt) min. 10 screens hi-fi mockup &amp; prototype Figma</li>
+            <li><strong>Deliverables:</strong> Study Case (.pdf &amp; .ppt) min. 10 screens hi-fi mockup &amp; prototype Figma</li>
             <li><strong>Tahapan:</strong> Submit berkas 16–18 Nov; Presentasi Final Sabtu 21 Nov di Lab FTI UII</li>
           </ul>
         </div>
@@ -4034,28 +5093,28 @@ body.dark-theme .footer {
   <div class="container" style="text-align: center;">
     <span class="vibe-tag" style="background:#FFE4D6;color:#EA580C;">TANYA JAWAB RESMI</span>
     <h2 class="section-title reveal" style="color:var(--arcade-orange) !important;margin-top:.4rem;text-align:center;">FAQ</h2>
-    <p class="section-subtitle reveal" style="color:#64748B !important;text-align:center;">Pertanyaan yang sering ditanyakan seputar PORSEMATIK <em>feat.</em> Milad Informatika 2026.</p>
+    <p class="section-subtitle reveal" style="color:#64748B !important;text-align:center;">Pertanyaan yang sering ditanyakan seputar PORSEMATIK feat. Milad Informatika 2026.</p>
 
     <div class="faq-list reveal" style="max-width: 840px; margin: 0 auto; text-align: left;">
       <!-- 1 -->
       <div class="faq-item">
         <button class="faq-question">
-          <span>Siapa saja yang dapat mengikuti PORSEMATIK <em>feat.</em> Milad Informatika 2026?</span>
+          <span>Siapa saja yang dapat mengikuti PORSEMATIK feat. Milad Informatika 2026?</span>
           <span class="faq-icon">▶</span>
         </button>
         <div class="faq-answer">
-          Mahasiswa aktif Program Studi Informatika FTI UII angkatan <strong>2023, 2024, 2025, dan 2026</strong> untuk seluruh cabang lomba; Civitas Akademika (Mahasiswa, Dosen, dan Alumni) untuk mata acara <strong>Informatics Connect</strong>; serta <strong>50 Siswa SMA/SLTA sederajat</strong> khusus untuk <em>workshop</em> <strong>VibeIT</strong>.
+          Mahasiswa aktif Program Studi Informatika FTI UII angkatan <strong>2023, 2024, 2025, dan 2026</strong> untuk seluruh cabang lomba; Civitas Akademika (Mahasiswa, Dosen, dan Alumni) untuk mata acara <strong>Informatics Connect</strong>; serta <strong>50 Siswa SMA/SLTA sederajat</strong> khusus untuk workshop <strong>VibeIT</strong>.
         </div>
       </div>
 
       <!-- 2 -->
       <div class="faq-item">
         <button class="faq-question">
-          <span>Kapan jadwal pendaftaran lomba dan <em>Technical Meeting</em>?</span>
+          <span>Kapan jadwal pendaftaran lomba dan Technical Meeting?</span>
           <span class="faq-icon">▶</span>
         </button>
         <div class="faq-answer">
-          Pendaftaran dibuka mulai <strong>10 November 2026 pukul 12.00 WIB</strong> hingga <strong>13 November 2026 pukul 12.00 WIB</strong> melalui tautan resmi di <a href="https://linktr.ee/porsematik2026" target="_blank" rel="noopener" style="color:var(--pixel-green);font-weight:bold;">linktr.ee/porsematik2026</a>. Sedangkan <strong><em>Technical Meeting</em> (TM) daring</strong> dilaksanakan pada hari <strong>Sabtu, 14 November 2026</strong> via Zoom / Google Meet.
+          Pendaftaran dibuka mulai <strong>10 November 2026 pukul 12.00 WIB</strong> hingga <strong>13 November 2026 pukul 12.00 WIB</strong> melalui tautan resmi di <a href="https://linktr.ee/porsematik2026" target="_blank" rel="noopener" style="color:var(--pixel-green);font-weight:bold;">linktr.ee/porsematik2026</a>. Sedangkan <strong>Technical Meeting (TM) daring</strong> dilaksanakan pada hari <strong>Sabtu, 14 November 2026</strong> via Zoom / Google Meet.
         </div>
       </div>
 
@@ -4066,18 +5125,18 @@ body.dark-theme .footer {
           <span class="faq-icon">▶</span>
         </button>
         <div class="faq-answer">
-          Peserta wajib hadir mengikuti rangkaian sesi materi hingga sesi praktik pembuatan <em>landing page</em> UMKM menggunakan <strong>Lovable AI</strong>, serta wajib <strong>mengumpulkan <em>link</em> hasil <em>deploy landing page</em></strong> pada <em>form</em> resmi panitia sebelum batas waktu yang ditentukan.
+          Peserta wajib hadir mengikuti rangkaian sesi materi hingga sesi praktik pembuatan landing page UMKM menggunakan <strong>Lovable AI</strong>, serta wajib <strong>mengumpulkan link hasil deploy landing page</strong> pada form resmi panitia sebelum batas waktu yang ditentukan.
         </div>
       </div>
 
       <!-- 4 -->
       <div class="faq-item">
         <button class="faq-question">
-          <span>Apa saja syarat memasuki <em>venue</em> acara dan pertandingan?</span>
+          <span>Apa saja syarat memasuki venue acara dan pertandingan?</span>
           <span class="faq-icon">▶</span>
         </button>
         <div class="faq-answer">
-          Seluruh pengunjung, suporter, dan peserta wajib <strong>berpakaian sopan, rapi, dan menutup aurat</strong>, serta wajib menukarkan <strong>KTM asli</strong> dengan <em>Co-Card</em> di pos <em>screening</em> keamanan panitia sebelum memasuki arena GOR Ki Bagoes Hadikoesoemo maupun Auditorium FTI UII.
+          Seluruh pengunjung, suporter, dan peserta wajib <strong>berpakaian sopan, rapi, dan menutup aurat</strong>, serta wajib menukarkan <strong>KTM asli</strong> dengan Co-Card di pos screening keamanan panitia sebelum memasuki arena GOR Ki Bagoes Hadikoesoemo maupun Auditorium FTI UII.
         </div>
       </div>
 
@@ -4088,7 +5147,7 @@ body.dark-theme .footer {
           <span class="faq-icon">▶</span>
         </button>
         <div class="faq-answer">
-          <strong>Wajib dibawa:</strong> Botol minum pribadi (<em>tumbler</em>), KTM asli, dan jas hujan ponco atau payung lipat.<br>
+          <strong>Wajib dibawa:</strong> Botol minum pribadi (tumbler), KTM asli, dan jas hujan ponco atau payung lipat.<br>
           <strong>Dilarang keras:</strong> Membawa kemasan sekali pakai/sampah plastik, rokok/vape/pod, senjata tajam, minuman keras/NAPZA, melakukan provokasi bernada SARA, serta dilarang mengenakan perhiasan/aksesori berlebih saat bertanding di lapangan.
         </div>
       </div>
@@ -4131,7 +5190,11 @@ body.dark-theme .footer {
     <!-- Kolom 3: Sekretariat & Kontak Resmi -->
     <div class="footer__col footer__col--contact">
       <h4 class="footer__heading">Sekretariat &amp; Kontak</h4>
-      <p class="footer__org-text"><strong>Penyelenggara:</strong><br>Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2026/2027</p>
+      <p class="footer__org-text" style="line-height:1.7;">
+        <span style="font-size:0.85rem;color:#94A3B8;">Penyelenggara:</span><br>
+        <strong style="font-size:1.02rem;color:#FDE047;display:inline-block;margin:0.2rem 0;">Panitia Pelaksana PORSEMATIK feat. Milad Informatika Tahun 2026</strong><br>
+        <span style="font-size:0.84rem;color:#CBD5E1;">(Di bawah naungan Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2025/2026)</span>
+      </p>
       <p class="footer__address-text">📍 Komplek Kantor Lembaga Kemahasiswaan UII, Jl. Kaliurang KM 14,5 Sleman, DIY, 55584</p>
       <div class="footer__contact-items">
         <a href="https://wa.me/6285819691653" target="_blank" rel="noopener" class="f-contact-link">📱 WhatsApp: 085819691653</a>
@@ -4544,5 +5607,6 @@ body.dark-theme .footer {
 
 
 
+<button id="sfxFloatBtn" class="sfx-floating-btn" title="Toggle 8-Bit Chiptune Sound">[ 🔊 SFX: ON ]</button>
 </body>
 </html>
