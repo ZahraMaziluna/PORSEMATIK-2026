@@ -130,15 +130,6 @@ export default function EventsHighlight() {
               <p className="event-card__desc">
                 Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, kuliner UMKM (3 chip makan &amp; 1 photobooth), dan akustik KOSMIK.
               </p>
-              <a
-                href="https://storied-florentine-b344b6.netlify.app"
-                className="btn-pixel btn-pixel--sm"
-                target="_blank"
-                rel="noopener"
-                style={{ marginTop: "auto" }}
-              >
-                [ DAFTAR INFORMATICS CONNECT ]
-              </a>
             </div>
 
             {/* 3. VibeIT */}
@@ -232,6 +223,17 @@ export default function EventsHighlight() {
           >
             NEXT <PixelIcon name="chevronRight" />
           </button>
+        </div>
+
+        <div className="events-cta">
+          <a
+            href="https://storied-florentine-b344b6.netlify.app"
+            className="btn-pixel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            [ DAFTAR INFORMATICS CONNECT ]
+          </a>
         </div>
       </div>
     </section>

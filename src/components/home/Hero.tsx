@@ -15,26 +15,27 @@ export default function Hero() {
 <section className="hero" id="hero">
   {/*  8-BIT RETRO PIXEL SUN (FLOATING HIGH IN SKY - NOT FROM MOUNTAIN)  */}
   <div className="pixel-sky-sun" aria-label="8-Bit Retro Sun">
-    <svg viewBox="0 0 64 64" className="pixel-sun-svg" shapeRendering="crispEdges">
-      {/*  Radiating Outer Warm Rays  */}
-      <rect x="26" y="0" width="12" height="4" fill="#FBBF24"/>
-      <rect x="26" y="60" width="12" height="4" fill="#FBBF24"/>
-      <rect x="0" y="26" width="4" height="12" fill="#FBBF24"/>
-      <rect x="60" y="26" width="4" height="12" fill="#FBBF24"/>
-      {/*  Diagonal Rays  */}
-      <rect x="8" y="8" width="6" height="6" fill="#FDE047"/>
-      <rect x="50" y="8" width="6" height="6" fill="#FDE047"/>
-      <rect x="8" y="50" width="6" height="6" fill="#FDE047"/>
-      <rect x="50" y="50" width="6" height="6" fill="#FDE047"/>
-      {/*  Sun Core Pixel Octagon  */}
-      <rect x="18" y="10" width="28" height="44" fill="#F59E0B"/>
-      <rect x="10" y="18" width="44" height="28" fill="#F59E0B"/>
-      {/*  Golden Glow Core  */}
-      <rect x="18" y="14" width="28" height="36" fill="#FDE047"/>
-      <rect x="14" y="18" width="36" height="28" fill="#FDE047"/>
-      {/*  Warm Highlights  */}
-      <rect x="22" y="18" width="20" height="20" fill="#FEF08A"/>
-      <rect x="26" y="22" width="12" height="12" fill="#FFFBEB"/>
+    <svg viewBox="0 0 96 96" className="pixel-sun-svg">
+      {/*  Sinar berputar  */}
+      <g className="pixel-sun-rays">
+        <rect x="44" y="2" width="8" height="14" fill="#FBBF24" transform="rotate(0 48 48)"/>
+        <rect x="45" y="5" width="6" height="10" fill="#FDE047" transform="rotate(45 48 48)"/>
+        <rect x="44" y="2" width="8" height="14" fill="#FBBF24" transform="rotate(90 48 48)"/>
+        <rect x="45" y="5" width="6" height="10" fill="#FDE047" transform="rotate(135 48 48)"/>
+        <rect x="44" y="2" width="8" height="14" fill="#FBBF24" transform="rotate(180 48 48)"/>
+        <rect x="45" y="5" width="6" height="10" fill="#FDE047" transform="rotate(225 48 48)"/>
+        <rect x="44" y="2" width="8" height="14" fill="#FBBF24" transform="rotate(270 48 48)"/>
+        <rect x="45" y="5" width="6" height="10" fill="#FDE047" transform="rotate(315 48 48)"/>
+      </g>
+      {/*  Inti matahari piksel (diam)  */}
+      <g shapeRendering="crispEdges">
+        <rect x="28" y="20" width="40" height="56" fill="#F59E0B"/>
+        <rect x="20" y="28" width="56" height="40" fill="#F59E0B"/>
+        <rect x="28" y="24" width="40" height="48" fill="#FDE047"/>
+        <rect x="24" y="28" width="48" height="40" fill="#FDE047"/>
+        <rect x="32" y="28" width="28" height="28" fill="#FEF08A"/>
+        <rect x="36" y="32" width="16" height="16" fill="#FFFBEB"/>
+      </g>
     </svg>
   </div>
   {/*  8-Bit Pixel Clouds  */}
@@ -81,6 +82,21 @@ export default function Hero() {
       <stop offset="50%" stopColor="#93C5FD"/>
       <stop offset="100%" stopColor="#60A5FA"/>
     </linearGradient>
+
+
+    {/*  Hutan pinus piksel (gaya halaman Jadwal), tinggi beragam  */}
+    <g id="ppL2" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#16A34A"/><rect x="-2" y="0" width="4" height="4" fill="#22C55E"/><rect x="-10" y="4" width="20" height="4" fill="#16A34A"/><rect x="-6" y="4" width="6" height="4" fill="#22C55E"/><rect x="-6" y="4" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="8" width="28" height="4" fill="#16A34A"/><rect x="-10" y="8" width="10" height="4" fill="#22C55E"/><rect x="-10" y="8" width="4" height="4" fill="#4ADE80"/><rect x="-10" y="12" width="20" height="4" fill="#16A34A"/><rect x="-6" y="12" width="6" height="4" fill="#22C55E"/><rect x="-14" y="16" width="28" height="4" fill="#16A34A"/><rect x="-10" y="16" width="10" height="4" fill="#22C55E"/><rect x="-10" y="16" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="20" width="36" height="4" fill="#16A34A"/><rect x="-14" y="20" width="14" height="4" fill="#22C55E"/><rect x="-14" y="20" width="4" height="4" fill="#4ADE80"/><rect x="-2" y="24" width="8" height="8" fill="#78350F"/></g>
+    <g id="ppL3" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#16A34A"/><rect x="-2" y="0" width="4" height="4" fill="#22C55E"/><rect x="-10" y="4" width="20" height="4" fill="#16A34A"/><rect x="-6" y="4" width="6" height="4" fill="#22C55E"/><rect x="-6" y="4" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="8" width="28" height="4" fill="#16A34A"/><rect x="-10" y="8" width="10" height="4" fill="#22C55E"/><rect x="-10" y="8" width="4" height="4" fill="#4ADE80"/><rect x="-10" y="12" width="20" height="4" fill="#16A34A"/><rect x="-6" y="12" width="6" height="4" fill="#22C55E"/><rect x="-14" y="16" width="28" height="4" fill="#16A34A"/><rect x="-10" y="16" width="10" height="4" fill="#22C55E"/><rect x="-10" y="16" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="20" width="36" height="4" fill="#16A34A"/><rect x="-14" y="20" width="14" height="4" fill="#22C55E"/><rect x="-14" y="20" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="24" width="28" height="4" fill="#16A34A"/><rect x="-10" y="24" width="10" height="4" fill="#22C55E"/><rect x="-18" y="28" width="36" height="4" fill="#16A34A"/><rect x="-14" y="28" width="14" height="4" fill="#22C55E"/><rect x="-14" y="28" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="32" width="44" height="4" fill="#16A34A"/><rect x="-18" y="32" width="18" height="4" fill="#22C55E"/><rect x="-18" y="32" width="4" height="4" fill="#4ADE80"/><rect x="-2" y="36" width="8" height="8" fill="#78350F"/></g>
+    <g id="ppL4" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#16A34A"/><rect x="-2" y="0" width="4" height="4" fill="#22C55E"/><rect x="-10" y="4" width="20" height="4" fill="#16A34A"/><rect x="-6" y="4" width="6" height="4" fill="#22C55E"/><rect x="-6" y="4" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="8" width="28" height="4" fill="#16A34A"/><rect x="-10" y="8" width="10" height="4" fill="#22C55E"/><rect x="-10" y="8" width="4" height="4" fill="#4ADE80"/><rect x="-10" y="12" width="20" height="4" fill="#16A34A"/><rect x="-6" y="12" width="6" height="4" fill="#22C55E"/><rect x="-14" y="16" width="28" height="4" fill="#16A34A"/><rect x="-10" y="16" width="10" height="4" fill="#22C55E"/><rect x="-10" y="16" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="20" width="36" height="4" fill="#16A34A"/><rect x="-14" y="20" width="14" height="4" fill="#22C55E"/><rect x="-14" y="20" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="24" width="28" height="4" fill="#16A34A"/><rect x="-10" y="24" width="10" height="4" fill="#22C55E"/><rect x="-18" y="28" width="36" height="4" fill="#16A34A"/><rect x="-14" y="28" width="14" height="4" fill="#22C55E"/><rect x="-14" y="28" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="32" width="44" height="4" fill="#16A34A"/><rect x="-18" y="32" width="18" height="4" fill="#22C55E"/><rect x="-18" y="32" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="36" width="36" height="4" fill="#16A34A"/><rect x="-14" y="36" width="14" height="4" fill="#22C55E"/><rect x="-22" y="40" width="44" height="4" fill="#16A34A"/><rect x="-18" y="40" width="18" height="4" fill="#22C55E"/><rect x="-18" y="40" width="4" height="4" fill="#4ADE80"/><rect x="-26" y="44" width="52" height="4" fill="#16A34A"/><rect x="-22" y="44" width="22" height="4" fill="#22C55E"/><rect x="-22" y="44" width="4" height="4" fill="#4ADE80"/><rect x="-2" y="48" width="8" height="8" fill="#78350F"/></g>
+    <g id="ppL5" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#16A34A"/><rect x="-2" y="0" width="4" height="4" fill="#22C55E"/><rect x="-10" y="4" width="20" height="4" fill="#16A34A"/><rect x="-6" y="4" width="6" height="4" fill="#22C55E"/><rect x="-6" y="4" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="8" width="28" height="4" fill="#16A34A"/><rect x="-10" y="8" width="10" height="4" fill="#22C55E"/><rect x="-10" y="8" width="4" height="4" fill="#4ADE80"/><rect x="-10" y="12" width="20" height="4" fill="#16A34A"/><rect x="-6" y="12" width="6" height="4" fill="#22C55E"/><rect x="-14" y="16" width="28" height="4" fill="#16A34A"/><rect x="-10" y="16" width="10" height="4" fill="#22C55E"/><rect x="-10" y="16" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="20" width="36" height="4" fill="#16A34A"/><rect x="-14" y="20" width="14" height="4" fill="#22C55E"/><rect x="-14" y="20" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="24" width="28" height="4" fill="#16A34A"/><rect x="-10" y="24" width="10" height="4" fill="#22C55E"/><rect x="-18" y="28" width="36" height="4" fill="#16A34A"/><rect x="-14" y="28" width="14" height="4" fill="#22C55E"/><rect x="-14" y="28" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="32" width="44" height="4" fill="#16A34A"/><rect x="-18" y="32" width="18" height="4" fill="#22C55E"/><rect x="-18" y="32" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="36" width="36" height="4" fill="#16A34A"/><rect x="-14" y="36" width="14" height="4" fill="#22C55E"/><rect x="-22" y="40" width="44" height="4" fill="#16A34A"/><rect x="-18" y="40" width="18" height="4" fill="#22C55E"/><rect x="-18" y="40" width="4" height="4" fill="#4ADE80"/><rect x="-26" y="44" width="52" height="4" fill="#16A34A"/><rect x="-22" y="44" width="22" height="4" fill="#22C55E"/><rect x="-22" y="44" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="48" width="44" height="4" fill="#16A34A"/><rect x="-18" y="48" width="18" height="4" fill="#22C55E"/><rect x="-26" y="52" width="52" height="4" fill="#16A34A"/><rect x="-22" y="52" width="22" height="4" fill="#22C55E"/><rect x="-22" y="52" width="4" height="4" fill="#4ADE80"/><rect x="-30" y="56" width="60" height="4" fill="#16A34A"/><rect x="-26" y="56" width="26" height="4" fill="#22C55E"/><rect x="-26" y="56" width="4" height="4" fill="#4ADE80"/><rect x="-2" y="60" width="8" height="8" fill="#78350F"/></g>
+    <g id="ppL6" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#16A34A"/><rect x="-2" y="0" width="4" height="4" fill="#22C55E"/><rect x="-10" y="4" width="20" height="4" fill="#16A34A"/><rect x="-6" y="4" width="6" height="4" fill="#22C55E"/><rect x="-6" y="4" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="8" width="28" height="4" fill="#16A34A"/><rect x="-10" y="8" width="10" height="4" fill="#22C55E"/><rect x="-10" y="8" width="4" height="4" fill="#4ADE80"/><rect x="-10" y="12" width="20" height="4" fill="#16A34A"/><rect x="-6" y="12" width="6" height="4" fill="#22C55E"/><rect x="-14" y="16" width="28" height="4" fill="#16A34A"/><rect x="-10" y="16" width="10" height="4" fill="#22C55E"/><rect x="-10" y="16" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="20" width="36" height="4" fill="#16A34A"/><rect x="-14" y="20" width="14" height="4" fill="#22C55E"/><rect x="-14" y="20" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="24" width="28" height="4" fill="#16A34A"/><rect x="-10" y="24" width="10" height="4" fill="#22C55E"/><rect x="-18" y="28" width="36" height="4" fill="#16A34A"/><rect x="-14" y="28" width="14" height="4" fill="#22C55E"/><rect x="-14" y="28" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="32" width="44" height="4" fill="#16A34A"/><rect x="-18" y="32" width="18" height="4" fill="#22C55E"/><rect x="-18" y="32" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="36" width="36" height="4" fill="#16A34A"/><rect x="-14" y="36" width="14" height="4" fill="#22C55E"/><rect x="-22" y="40" width="44" height="4" fill="#16A34A"/><rect x="-18" y="40" width="18" height="4" fill="#22C55E"/><rect x="-18" y="40" width="4" height="4" fill="#4ADE80"/><rect x="-26" y="44" width="52" height="4" fill="#16A34A"/><rect x="-22" y="44" width="22" height="4" fill="#22C55E"/><rect x="-22" y="44" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="48" width="44" height="4" fill="#16A34A"/><rect x="-18" y="48" width="18" height="4" fill="#22C55E"/><rect x="-26" y="52" width="52" height="4" fill="#16A34A"/><rect x="-22" y="52" width="22" height="4" fill="#22C55E"/><rect x="-22" y="52" width="4" height="4" fill="#4ADE80"/><rect x="-30" y="56" width="60" height="4" fill="#16A34A"/><rect x="-26" y="56" width="26" height="4" fill="#22C55E"/><rect x="-26" y="56" width="4" height="4" fill="#4ADE80"/><rect x="-26" y="60" width="52" height="4" fill="#16A34A"/><rect x="-22" y="60" width="22" height="4" fill="#22C55E"/><rect x="-30" y="64" width="60" height="4" fill="#16A34A"/><rect x="-26" y="64" width="26" height="4" fill="#22C55E"/><rect x="-26" y="64" width="4" height="4" fill="#4ADE80"/><rect x="-34" y="68" width="68" height="4" fill="#16A34A"/><rect x="-30" y="68" width="30" height="4" fill="#22C55E"/><rect x="-30" y="68" width="4" height="4" fill="#4ADE80"/><rect x="-2" y="72" width="8" height="8" fill="#78350F"/></g>
+    <g id="ppL7" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#16A34A"/><rect x="-2" y="0" width="4" height="4" fill="#22C55E"/><rect x="-10" y="4" width="20" height="4" fill="#16A34A"/><rect x="-6" y="4" width="6" height="4" fill="#22C55E"/><rect x="-6" y="4" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="8" width="28" height="4" fill="#16A34A"/><rect x="-10" y="8" width="10" height="4" fill="#22C55E"/><rect x="-10" y="8" width="4" height="4" fill="#4ADE80"/><rect x="-10" y="12" width="20" height="4" fill="#16A34A"/><rect x="-6" y="12" width="6" height="4" fill="#22C55E"/><rect x="-14" y="16" width="28" height="4" fill="#16A34A"/><rect x="-10" y="16" width="10" height="4" fill="#22C55E"/><rect x="-10" y="16" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="20" width="36" height="4" fill="#16A34A"/><rect x="-14" y="20" width="14" height="4" fill="#22C55E"/><rect x="-14" y="20" width="4" height="4" fill="#4ADE80"/><rect x="-14" y="24" width="28" height="4" fill="#16A34A"/><rect x="-10" y="24" width="10" height="4" fill="#22C55E"/><rect x="-18" y="28" width="36" height="4" fill="#16A34A"/><rect x="-14" y="28" width="14" height="4" fill="#22C55E"/><rect x="-14" y="28" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="32" width="44" height="4" fill="#16A34A"/><rect x="-18" y="32" width="18" height="4" fill="#22C55E"/><rect x="-18" y="32" width="4" height="4" fill="#4ADE80"/><rect x="-18" y="36" width="36" height="4" fill="#16A34A"/><rect x="-14" y="36" width="14" height="4" fill="#22C55E"/><rect x="-22" y="40" width="44" height="4" fill="#16A34A"/><rect x="-18" y="40" width="18" height="4" fill="#22C55E"/><rect x="-18" y="40" width="4" height="4" fill="#4ADE80"/><rect x="-26" y="44" width="52" height="4" fill="#16A34A"/><rect x="-22" y="44" width="22" height="4" fill="#22C55E"/><rect x="-22" y="44" width="4" height="4" fill="#4ADE80"/><rect x="-22" y="48" width="44" height="4" fill="#16A34A"/><rect x="-18" y="48" width="18" height="4" fill="#22C55E"/><rect x="-26" y="52" width="52" height="4" fill="#16A34A"/><rect x="-22" y="52" width="22" height="4" fill="#22C55E"/><rect x="-22" y="52" width="4" height="4" fill="#4ADE80"/><rect x="-30" y="56" width="60" height="4" fill="#16A34A"/><rect x="-26" y="56" width="26" height="4" fill="#22C55E"/><rect x="-26" y="56" width="4" height="4" fill="#4ADE80"/><rect x="-26" y="60" width="52" height="4" fill="#16A34A"/><rect x="-22" y="60" width="22" height="4" fill="#22C55E"/><rect x="-30" y="64" width="60" height="4" fill="#16A34A"/><rect x="-26" y="64" width="26" height="4" fill="#22C55E"/><rect x="-26" y="64" width="4" height="4" fill="#4ADE80"/><rect x="-34" y="68" width="68" height="4" fill="#16A34A"/><rect x="-30" y="68" width="30" height="4" fill="#22C55E"/><rect x="-30" y="68" width="4" height="4" fill="#4ADE80"/><rect x="-30" y="72" width="60" height="4" fill="#16A34A"/><rect x="-26" y="72" width="26" height="4" fill="#22C55E"/><rect x="-34" y="76" width="68" height="4" fill="#16A34A"/><rect x="-30" y="76" width="30" height="4" fill="#22C55E"/><rect x="-30" y="76" width="4" height="4" fill="#4ADE80"/><rect x="-38" y="80" width="76" height="4" fill="#16A34A"/><rect x="-34" y="80" width="34" height="4" fill="#22C55E"/><rect x="-34" y="80" width="4" height="4" fill="#4ADE80"/><rect x="-2" y="84" width="8" height="8" fill="#78350F"/></g>
+    <g id="ppD2" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#14532D"/><rect x="-2" y="0" width="4" height="4" fill="#166534"/><rect x="-10" y="4" width="20" height="4" fill="#14532D"/><rect x="-6" y="4" width="6" height="4" fill="#166534"/><rect x="-6" y="4" width="4" height="4" fill="#15803D"/><rect x="-14" y="8" width="28" height="4" fill="#14532D"/><rect x="-10" y="8" width="10" height="4" fill="#166534"/><rect x="-10" y="8" width="4" height="4" fill="#15803D"/><rect x="-10" y="12" width="20" height="4" fill="#14532D"/><rect x="-6" y="12" width="6" height="4" fill="#166534"/><rect x="-14" y="16" width="28" height="4" fill="#14532D"/><rect x="-10" y="16" width="10" height="4" fill="#166534"/><rect x="-10" y="16" width="4" height="4" fill="#15803D"/><rect x="-18" y="20" width="36" height="4" fill="#14532D"/><rect x="-14" y="20" width="14" height="4" fill="#166534"/><rect x="-14" y="20" width="4" height="4" fill="#15803D"/><rect x="-2" y="24" width="8" height="8" fill="#451A03"/></g>
+    <g id="ppD3" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#14532D"/><rect x="-2" y="0" width="4" height="4" fill="#166534"/><rect x="-10" y="4" width="20" height="4" fill="#14532D"/><rect x="-6" y="4" width="6" height="4" fill="#166534"/><rect x="-6" y="4" width="4" height="4" fill="#15803D"/><rect x="-14" y="8" width="28" height="4" fill="#14532D"/><rect x="-10" y="8" width="10" height="4" fill="#166534"/><rect x="-10" y="8" width="4" height="4" fill="#15803D"/><rect x="-10" y="12" width="20" height="4" fill="#14532D"/><rect x="-6" y="12" width="6" height="4" fill="#166534"/><rect x="-14" y="16" width="28" height="4" fill="#14532D"/><rect x="-10" y="16" width="10" height="4" fill="#166534"/><rect x="-10" y="16" width="4" height="4" fill="#15803D"/><rect x="-18" y="20" width="36" height="4" fill="#14532D"/><rect x="-14" y="20" width="14" height="4" fill="#166534"/><rect x="-14" y="20" width="4" height="4" fill="#15803D"/><rect x="-14" y="24" width="28" height="4" fill="#14532D"/><rect x="-10" y="24" width="10" height="4" fill="#166534"/><rect x="-18" y="28" width="36" height="4" fill="#14532D"/><rect x="-14" y="28" width="14" height="4" fill="#166534"/><rect x="-14" y="28" width="4" height="4" fill="#15803D"/><rect x="-22" y="32" width="44" height="4" fill="#14532D"/><rect x="-18" y="32" width="18" height="4" fill="#166534"/><rect x="-18" y="32" width="4" height="4" fill="#15803D"/><rect x="-2" y="36" width="8" height="8" fill="#451A03"/></g>
+    <g id="ppD4" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#14532D"/><rect x="-2" y="0" width="4" height="4" fill="#166534"/><rect x="-10" y="4" width="20" height="4" fill="#14532D"/><rect x="-6" y="4" width="6" height="4" fill="#166534"/><rect x="-6" y="4" width="4" height="4" fill="#15803D"/><rect x="-14" y="8" width="28" height="4" fill="#14532D"/><rect x="-10" y="8" width="10" height="4" fill="#166534"/><rect x="-10" y="8" width="4" height="4" fill="#15803D"/><rect x="-10" y="12" width="20" height="4" fill="#14532D"/><rect x="-6" y="12" width="6" height="4" fill="#166534"/><rect x="-14" y="16" width="28" height="4" fill="#14532D"/><rect x="-10" y="16" width="10" height="4" fill="#166534"/><rect x="-10" y="16" width="4" height="4" fill="#15803D"/><rect x="-18" y="20" width="36" height="4" fill="#14532D"/><rect x="-14" y="20" width="14" height="4" fill="#166534"/><rect x="-14" y="20" width="4" height="4" fill="#15803D"/><rect x="-14" y="24" width="28" height="4" fill="#14532D"/><rect x="-10" y="24" width="10" height="4" fill="#166534"/><rect x="-18" y="28" width="36" height="4" fill="#14532D"/><rect x="-14" y="28" width="14" height="4" fill="#166534"/><rect x="-14" y="28" width="4" height="4" fill="#15803D"/><rect x="-22" y="32" width="44" height="4" fill="#14532D"/><rect x="-18" y="32" width="18" height="4" fill="#166534"/><rect x="-18" y="32" width="4" height="4" fill="#15803D"/><rect x="-18" y="36" width="36" height="4" fill="#14532D"/><rect x="-14" y="36" width="14" height="4" fill="#166534"/><rect x="-22" y="40" width="44" height="4" fill="#14532D"/><rect x="-18" y="40" width="18" height="4" fill="#166534"/><rect x="-18" y="40" width="4" height="4" fill="#15803D"/><rect x="-26" y="44" width="52" height="4" fill="#14532D"/><rect x="-22" y="44" width="22" height="4" fill="#166534"/><rect x="-22" y="44" width="4" height="4" fill="#15803D"/><rect x="-2" y="48" width="8" height="8" fill="#451A03"/></g>
+    <g id="ppD5" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#14532D"/><rect x="-2" y="0" width="4" height="4" fill="#166534"/><rect x="-10" y="4" width="20" height="4" fill="#14532D"/><rect x="-6" y="4" width="6" height="4" fill="#166534"/><rect x="-6" y="4" width="4" height="4" fill="#15803D"/><rect x="-14" y="8" width="28" height="4" fill="#14532D"/><rect x="-10" y="8" width="10" height="4" fill="#166534"/><rect x="-10" y="8" width="4" height="4" fill="#15803D"/><rect x="-10" y="12" width="20" height="4" fill="#14532D"/><rect x="-6" y="12" width="6" height="4" fill="#166534"/><rect x="-14" y="16" width="28" height="4" fill="#14532D"/><rect x="-10" y="16" width="10" height="4" fill="#166534"/><rect x="-10" y="16" width="4" height="4" fill="#15803D"/><rect x="-18" y="20" width="36" height="4" fill="#14532D"/><rect x="-14" y="20" width="14" height="4" fill="#166534"/><rect x="-14" y="20" width="4" height="4" fill="#15803D"/><rect x="-14" y="24" width="28" height="4" fill="#14532D"/><rect x="-10" y="24" width="10" height="4" fill="#166534"/><rect x="-18" y="28" width="36" height="4" fill="#14532D"/><rect x="-14" y="28" width="14" height="4" fill="#166534"/><rect x="-14" y="28" width="4" height="4" fill="#15803D"/><rect x="-22" y="32" width="44" height="4" fill="#14532D"/><rect x="-18" y="32" width="18" height="4" fill="#166534"/><rect x="-18" y="32" width="4" height="4" fill="#15803D"/><rect x="-18" y="36" width="36" height="4" fill="#14532D"/><rect x="-14" y="36" width="14" height="4" fill="#166534"/><rect x="-22" y="40" width="44" height="4" fill="#14532D"/><rect x="-18" y="40" width="18" height="4" fill="#166534"/><rect x="-18" y="40" width="4" height="4" fill="#15803D"/><rect x="-26" y="44" width="52" height="4" fill="#14532D"/><rect x="-22" y="44" width="22" height="4" fill="#166534"/><rect x="-22" y="44" width="4" height="4" fill="#15803D"/><rect x="-22" y="48" width="44" height="4" fill="#14532D"/><rect x="-18" y="48" width="18" height="4" fill="#166534"/><rect x="-26" y="52" width="52" height="4" fill="#14532D"/><rect x="-22" y="52" width="22" height="4" fill="#166534"/><rect x="-22" y="52" width="4" height="4" fill="#15803D"/><rect x="-30" y="56" width="60" height="4" fill="#14532D"/><rect x="-26" y="56" width="26" height="4" fill="#166534"/><rect x="-26" y="56" width="4" height="4" fill="#15803D"/><rect x="-2" y="60" width="8" height="8" fill="#451A03"/></g>
+    <g id="ppD6" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#14532D"/><rect x="-2" y="0" width="4" height="4" fill="#166534"/><rect x="-10" y="4" width="20" height="4" fill="#14532D"/><rect x="-6" y="4" width="6" height="4" fill="#166534"/><rect x="-6" y="4" width="4" height="4" fill="#15803D"/><rect x="-14" y="8" width="28" height="4" fill="#14532D"/><rect x="-10" y="8" width="10" height="4" fill="#166534"/><rect x="-10" y="8" width="4" height="4" fill="#15803D"/><rect x="-10" y="12" width="20" height="4" fill="#14532D"/><rect x="-6" y="12" width="6" height="4" fill="#166534"/><rect x="-14" y="16" width="28" height="4" fill="#14532D"/><rect x="-10" y="16" width="10" height="4" fill="#166534"/><rect x="-10" y="16" width="4" height="4" fill="#15803D"/><rect x="-18" y="20" width="36" height="4" fill="#14532D"/><rect x="-14" y="20" width="14" height="4" fill="#166534"/><rect x="-14" y="20" width="4" height="4" fill="#15803D"/><rect x="-14" y="24" width="28" height="4" fill="#14532D"/><rect x="-10" y="24" width="10" height="4" fill="#166534"/><rect x="-18" y="28" width="36" height="4" fill="#14532D"/><rect x="-14" y="28" width="14" height="4" fill="#166534"/><rect x="-14" y="28" width="4" height="4" fill="#15803D"/><rect x="-22" y="32" width="44" height="4" fill="#14532D"/><rect x="-18" y="32" width="18" height="4" fill="#166534"/><rect x="-18" y="32" width="4" height="4" fill="#15803D"/><rect x="-18" y="36" width="36" height="4" fill="#14532D"/><rect x="-14" y="36" width="14" height="4" fill="#166534"/><rect x="-22" y="40" width="44" height="4" fill="#14532D"/><rect x="-18" y="40" width="18" height="4" fill="#166534"/><rect x="-18" y="40" width="4" height="4" fill="#15803D"/><rect x="-26" y="44" width="52" height="4" fill="#14532D"/><rect x="-22" y="44" width="22" height="4" fill="#166534"/><rect x="-22" y="44" width="4" height="4" fill="#15803D"/><rect x="-22" y="48" width="44" height="4" fill="#14532D"/><rect x="-18" y="48" width="18" height="4" fill="#166534"/><rect x="-26" y="52" width="52" height="4" fill="#14532D"/><rect x="-22" y="52" width="22" height="4" fill="#166534"/><rect x="-22" y="52" width="4" height="4" fill="#15803D"/><rect x="-30" y="56" width="60" height="4" fill="#14532D"/><rect x="-26" y="56" width="26" height="4" fill="#166534"/><rect x="-26" y="56" width="4" height="4" fill="#15803D"/><rect x="-26" y="60" width="52" height="4" fill="#14532D"/><rect x="-22" y="60" width="22" height="4" fill="#166534"/><rect x="-30" y="64" width="60" height="4" fill="#14532D"/><rect x="-26" y="64" width="26" height="4" fill="#166534"/><rect x="-26" y="64" width="4" height="4" fill="#15803D"/><rect x="-34" y="68" width="68" height="4" fill="#14532D"/><rect x="-30" y="68" width="30" height="4" fill="#166534"/><rect x="-30" y="68" width="4" height="4" fill="#15803D"/><rect x="-2" y="72" width="8" height="8" fill="#451A03"/></g>
+    <g id="ppD7" shapeRendering="crispEdges"><rect x="-6" y="0" width="12" height="4" fill="#14532D"/><rect x="-2" y="0" width="4" height="4" fill="#166534"/><rect x="-10" y="4" width="20" height="4" fill="#14532D"/><rect x="-6" y="4" width="6" height="4" fill="#166534"/><rect x="-6" y="4" width="4" height="4" fill="#15803D"/><rect x="-14" y="8" width="28" height="4" fill="#14532D"/><rect x="-10" y="8" width="10" height="4" fill="#166534"/><rect x="-10" y="8" width="4" height="4" fill="#15803D"/><rect x="-10" y="12" width="20" height="4" fill="#14532D"/><rect x="-6" y="12" width="6" height="4" fill="#166534"/><rect x="-14" y="16" width="28" height="4" fill="#14532D"/><rect x="-10" y="16" width="10" height="4" fill="#166534"/><rect x="-10" y="16" width="4" height="4" fill="#15803D"/><rect x="-18" y="20" width="36" height="4" fill="#14532D"/><rect x="-14" y="20" width="14" height="4" fill="#166534"/><rect x="-14" y="20" width="4" height="4" fill="#15803D"/><rect x="-14" y="24" width="28" height="4" fill="#14532D"/><rect x="-10" y="24" width="10" height="4" fill="#166534"/><rect x="-18" y="28" width="36" height="4" fill="#14532D"/><rect x="-14" y="28" width="14" height="4" fill="#166534"/><rect x="-14" y="28" width="4" height="4" fill="#15803D"/><rect x="-22" y="32" width="44" height="4" fill="#14532D"/><rect x="-18" y="32" width="18" height="4" fill="#166534"/><rect x="-18" y="32" width="4" height="4" fill="#15803D"/><rect x="-18" y="36" width="36" height="4" fill="#14532D"/><rect x="-14" y="36" width="14" height="4" fill="#166534"/><rect x="-22" y="40" width="44" height="4" fill="#14532D"/><rect x="-18" y="40" width="18" height="4" fill="#166534"/><rect x="-18" y="40" width="4" height="4" fill="#15803D"/><rect x="-26" y="44" width="52" height="4" fill="#14532D"/><rect x="-22" y="44" width="22" height="4" fill="#166534"/><rect x="-22" y="44" width="4" height="4" fill="#15803D"/><rect x="-22" y="48" width="44" height="4" fill="#14532D"/><rect x="-18" y="48" width="18" height="4" fill="#166534"/><rect x="-26" y="52" width="52" height="4" fill="#14532D"/><rect x="-22" y="52" width="22" height="4" fill="#166534"/><rect x="-22" y="52" width="4" height="4" fill="#15803D"/><rect x="-30" y="56" width="60" height="4" fill="#14532D"/><rect x="-26" y="56" width="26" height="4" fill="#166534"/><rect x="-26" y="56" width="4" height="4" fill="#15803D"/><rect x="-26" y="60" width="52" height="4" fill="#14532D"/><rect x="-22" y="60" width="22" height="4" fill="#166534"/><rect x="-30" y="64" width="60" height="4" fill="#14532D"/><rect x="-26" y="64" width="26" height="4" fill="#166534"/><rect x="-26" y="64" width="4" height="4" fill="#15803D"/><rect x="-34" y="68" width="68" height="4" fill="#14532D"/><rect x="-30" y="68" width="30" height="4" fill="#166534"/><rect x="-30" y="68" width="4" height="4" fill="#15803D"/><rect x="-30" y="72" width="60" height="4" fill="#14532D"/><rect x="-26" y="72" width="26" height="4" fill="#166534"/><rect x="-34" y="76" width="68" height="4" fill="#14532D"/><rect x="-30" y="76" width="30" height="4" fill="#166534"/><rect x="-30" y="76" width="4" height="4" fill="#15803D"/><rect x="-38" y="80" width="76" height="4" fill="#14532D"/><rect x="-34" y="80" width="34" height="4" fill="#166534"/><rect x="-34" y="80" width="4" height="4" fill="#15803D"/><rect x="-2" y="84" width="8" height="8" fill="#451A03"/></g>
   </defs>
 
   {/*  Sun placed high in hero sky  */}
@@ -119,22 +135,44 @@ export default function Hero() {
 
     {/*  LIVELY 8-BIT PLATFORMER SUMMIT HERO & FLAMING TORCH (X: 720, Y: 45)  */}
   <g className="summit-climber-group" shapeRendering="crispEdges">
-    {/*  Glowing Flame Aura / Halo  */}
-    <circle cx="738" cy="14" r="16" fill="#FF9800" opacity="0.4" className="torch-halo"/>
-    <circle cx="738" cy="14" r="8" fill="#FDE047" opacity="0.5" className="torch-core"/>
-
     {/*  SUMMIT TORCH (Right Hand Raised High)  */}
     <rect x="736" y="20" width="4" height="24" fill="#58240C"/>
     <rect x="737" y="22" width="2" height="20" fill="#8B4513"/>
     <rect x="733" y="16" width="10" height="5" fill="#D97706"/>
     <rect x="734" y="17" width="8" height="3" fill="#F59E0B"/>
-    {/*  Multi-tier Animated 8-bit Flame  */}
-    <g className="pixel-torch-flame">
-      <rect x="734" y="6" width="8" height="10" fill="#DC2626"/>
-      <rect x="735" y="3" width="6" height="6" fill="#EA580C"/>
-      <rect x="735" y="7" width="6" height="7" fill="#F59E0B"/>
-      <rect x="736" y="4" width="4" height="6" fill="#FDE047"/>
-      <rect x="737" y="2" width="2" height="4" fill="#FFFFFF"/>
+    {/*  Asap api naik: kotak piksel abu memudar  */}
+    <g className="torch-smoke" shapeRendering="crispEdges">
+      <rect className="smoke smoke--1" x="735" y="-2" width="5" height="5" fill="#94A3B8"/>
+      <rect className="smoke smoke--2" x="737" y="-2" width="6" height="6" fill="#CBD5E1"/>
+      <rect className="smoke smoke--3" x="734" y="-2" width="4" height="4" fill="#64748B"/>
+      <rect className="smoke smoke--4" x="738" y="-2" width="5" height="5" fill="#E2E8F0"/>
+      <rect className="smoke smoke--5" x="736" y="-2" width="4" height="4" fill="#94A3B8"/>
+    </g>
+    {/*  Percikan bara  */}
+    <g className="torch-embers" shapeRendering="crispEdges">
+      <rect className="ember ember--1" x="733" y="4" width="2" height="2" fill="#FDE047"/>
+      <rect className="ember ember--2" x="741" y="4" width="2" height="2" fill="#FB923C"/>
+      <rect className="ember ember--3" x="737" y="3" width="1.5" height="1.5" fill="#FFFFFF"/>
+    </g>
+    {/*  Api menyala berlapis  */}
+    <g className="pixel-torch-flame" shapeRendering="crispEdges">
+      <g className="flame flame--outer">
+        <rect x="733" y="8" width="10" height="9" fill="#DC2626"/>
+        <rect x="734" y="4" width="8" height="6" fill="#DC2626"/>
+        <rect x="736" y="1" width="4" height="5" fill="#DC2626"/>
+      </g>
+      <g className="flame flame--mid">
+        <rect x="734" y="9" width="8" height="8" fill="#EA580C"/>
+        <rect x="735" y="5" width="6" height="6" fill="#EA580C"/>
+        <rect x="737" y="2" width="2" height="4" fill="#EA580C"/>
+      </g>
+      <g className="flame flame--inner">
+        <rect x="735" y="10" width="6" height="6" fill="#F59E0B"/>
+        <rect x="736" y="7" width="4" height="5" fill="#FDE047"/>
+      </g>
+      <g className="flame flame--core">
+        <rect x="737" y="11" width="2" height="5" fill="#FFFFFF"/>
+      </g>
     </g>
 
     {/*  CLIMBER HERO BODY (Vivid Platformer Adventurer)  */}
@@ -169,451 +207,131 @@ export default function Hero() {
     <rect x="719" y="46" width="6" height="3" fill="#78350F"/> {/*  Right Boot  */}
   </g>
 
-  {/*  ================= 4. NEAT ROW OF 8-BIT PIXEL PINE TREES AT FOOT OF MOUNTAIN =================  */}
-<g transform="translate(30, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(62, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(94, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(126, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(158, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(190, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(222, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(254, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(286, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(318, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(350, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(382, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(414, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(446, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(478, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(510, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(542, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(574, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(840, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(872, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(904, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(936, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(968, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1000, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1032, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1064, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1096, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1128, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1160, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1192, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1224, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1256, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1288, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1320, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1352, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1384, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
-<g transform="translate(1416, 212)">
-      <rect x="7" y="28" width="4" height="8" fill="#5A2E0F"/>
-      {/*  Tier 3  */}
-      <polygon points="1,28 9,18 17,28" fill="#14532D"/>
-      <polygon points="3,28 9,20 15,28" fill="#15803D"/>
-      {/*  Tier 2  */}
-      <polygon points="3,20 9,11 15,20" fill="#15803D"/>
-      <polygon points="5,20 9,13 13,20" fill="#22C55E"/>
-      {/*  Tier 1  */}
-      <polygon points="5,12 9,4 13,12" fill="#22C55E"/>
-      <polygon points="7,12 9,6 11,12" fill="#4ADE80"/>
-    </g>
+  {/*  ================= 4. HUTAN PINUS PIKSEL RAPAT (TINGGI BERBEDA) =================  */}
+  <use href="#ppD4" transform="translate(-4,194)"/>
+  <use href="#ppD6" transform="translate(16,170)"/>
+  <use href="#ppD4" transform="translate(36,194)"/>
+  <use href="#ppD6" transform="translate(60,170)"/>
+  <use href="#ppD4" transform="translate(84,194)"/>
+  <use href="#ppD7" transform="translate(104,158)"/>
+  <use href="#ppD4" transform="translate(136,194)"/>
+  <use href="#ppD6" transform="translate(144,170)"/>
+  <use href="#ppD5" transform="translate(168,182)"/>
+  <use href="#ppD5" transform="translate(196,182)"/>
+  <use href="#ppD6" transform="translate(208,170)"/>
+  <use href="#ppD6" transform="translate(224,170)"/>
+  <use href="#ppD5" transform="translate(256,182)"/>
+  <use href="#ppD7" transform="translate(268,158)"/>
+  <use href="#ppD6" transform="translate(292,170)"/>
+  <use href="#ppD5" transform="translate(312,182)"/>
+  <use href="#ppD5" transform="translate(332,182)"/>
+  <use href="#ppD6" transform="translate(348,170)"/>
+  <use href="#ppD6" transform="translate(372,170)"/>
+  <use href="#ppD6" transform="translate(392,170)"/>
+  <use href="#ppD6" transform="translate(412,170)"/>
+  <use href="#ppD5" transform="translate(432,182)"/>
+  <use href="#ppD7" transform="translate(448,158)"/>
+  <use href="#ppD4" transform="translate(472,194)"/>
+  <use href="#ppD5" transform="translate(492,182)"/>
+  <use href="#ppD5" transform="translate(512,182)"/>
+  <use href="#ppD6" transform="translate(532,170)"/>
+  <use href="#ppD7" transform="translate(544,158)"/>
+  <use href="#ppD6" transform="translate(564,170)"/>
+  <use href="#ppD4" transform="translate(592,194)"/>
+  <use href="#ppD5" transform="translate(616,182)"/>
+  <use href="#ppD7" transform="translate(640,158)"/>
+  <use href="#ppD6" transform="translate(656,170)"/>
+  <use href="#ppD6" transform="translate(684,170)"/>
+  <use href="#ppD5" transform="translate(700,182)"/>
+  <use href="#ppD6" transform="translate(720,170)"/>
+  <use href="#ppD6" transform="translate(736,170)"/>
+  <use href="#ppD5" transform="translate(764,182)"/>
+  <use href="#ppD6" transform="translate(788,170)"/>
+  <use href="#ppD5" transform="translate(812,182)"/>
+  <use href="#ppD4" transform="translate(836,194)"/>
+  <use href="#ppD6" transform="translate(856,170)"/>
+  <use href="#ppD7" transform="translate(876,158)"/>
+  <use href="#ppD7" transform="translate(896,158)"/>
+  <use href="#ppD7" transform="translate(920,158)"/>
+  <use href="#ppD6" transform="translate(940,170)"/>
+  <use href="#ppD6" transform="translate(968,170)"/>
+  <use href="#ppD5" transform="translate(988,182)"/>
+  <use href="#ppD5" transform="translate(1012,182)"/>
+  <use href="#ppD4" transform="translate(1028,194)"/>
+  <use href="#ppD5" transform="translate(1056,182)"/>
+  <use href="#ppD6" transform="translate(1076,170)"/>
+  <use href="#ppD6" transform="translate(1104,170)"/>
+  <use href="#ppD5" transform="translate(1120,182)"/>
+  <use href="#ppD6" transform="translate(1144,170)"/>
+  <use href="#ppD5" transform="translate(1172,182)"/>
+  <use href="#ppD7" transform="translate(1196,158)"/>
+  <use href="#ppD5" transform="translate(1216,182)"/>
+  <use href="#ppD7" transform="translate(1240,158)"/>
+  <use href="#ppD6" transform="translate(1252,170)"/>
+  <use href="#ppD6" transform="translate(1272,170)"/>
+  <use href="#ppD4" transform="translate(1304,194)"/>
+  <use href="#ppD5" transform="translate(1320,182)"/>
+  <use href="#ppD4" transform="translate(1344,194)"/>
+  <use href="#ppD5" transform="translate(1368,182)"/>
+  <use href="#ppD4" transform="translate(1392,194)"/>
+  <use href="#ppD4" transform="translate(1412,194)"/>
+  <use href="#ppD6" transform="translate(1432,170)"/>
+  <use href="#ppL4" transform="translate(16,194)"/>
+  <use href="#ppL3" transform="translate(32,206)"/>
+  <use href="#ppL4" transform="translate(68,194)"/>
+  <use href="#ppL2" transform="translate(92,218)"/>
+  <use href="#ppL2" transform="translate(116,218)"/>
+  <use href="#ppL2" transform="translate(140,218)"/>
+  <use href="#ppL3" transform="translate(168,206)"/>
+  <use href="#ppL4" transform="translate(192,194)"/>
+  <use href="#ppL5" transform="translate(212,182)"/>
+  <use href="#ppL3" transform="translate(240,206)"/>
+  <use href="#ppL2" transform="translate(268,218)"/>
+  <use href="#ppL6" transform="translate(284,170)"/>
+  <use href="#ppL5" transform="translate(320,182)"/>
+  <use href="#ppL4" transform="translate(340,194)"/>
+  <use href="#ppL3" transform="translate(372,206)"/>
+  <use href="#ppL3" transform="translate(392,206)"/>
+  <use href="#ppL3" transform="translate(420,206)"/>
+  <use href="#ppL3" transform="translate(444,206)"/>
+  <use href="#ppL4" transform="translate(468,194)"/>
+  <use href="#ppL4" transform="translate(496,194)"/>
+  <use href="#ppL3" transform="translate(512,206)"/>
+  <use href="#ppL5" transform="translate(536,182)"/>
+  <use href="#ppL3" transform="translate(556,206)"/>
+  <use href="#ppL4" transform="translate(584,194)"/>
+  <use href="#ppL3" transform="translate(616,206)"/>
+  <use href="#ppL3" transform="translate(644,206)"/>
+  <use href="#ppL5" transform="translate(664,182)"/>
+  <use href="#ppL6" transform="translate(700,170)"/>
+  <use href="#ppL4" transform="translate(720,194)"/>
+  <use href="#ppL4" transform="translate(752,194)"/>
+  <use href="#ppL4" transform="translate(772,194)"/>
+  <use href="#ppL3" transform="translate(796,206)"/>
+  <use href="#ppL3" transform="translate(828,206)"/>
+  <use href="#ppL4" transform="translate(856,194)"/>
+  <use href="#ppL3" transform="translate(892,206)"/>
+  <use href="#ppL2" transform="translate(916,218)"/>
+  <use href="#ppL6" transform="translate(948,170)"/>
+  <use href="#ppL5" transform="translate(968,182)"/>
+  <use href="#ppL2" transform="translate(1004,218)"/>
+  <use href="#ppL4" transform="translate(1024,194)"/>
+  <use href="#ppL3" transform="translate(1048,206)"/>
+  <use href="#ppL5" transform="translate(1076,182)"/>
+  <use href="#ppL4" transform="translate(1104,194)"/>
+  <use href="#ppL4" transform="translate(1124,194)"/>
+  <use href="#ppL4" transform="translate(1156,194)"/>
+  <use href="#ppL6" transform="translate(1180,170)"/>
+  <use href="#ppL3" transform="translate(1220,206)"/>
+  <use href="#ppL4" transform="translate(1244,194)"/>
+  <use href="#ppL3" transform="translate(1268,206)"/>
+  <use href="#ppL3" transform="translate(1296,206)"/>
+  <use href="#ppL3" transform="translate(1316,206)"/>
+  <use href="#ppL4" transform="translate(1344,194)"/>
+  <use href="#ppL3" transform="translate(1376,206)"/>
+  <use href="#ppL2" transform="translate(1392,218)"/>
+  <use href="#ppL4" transform="translate(1424,194)"/>
+  <use href="#ppL3" transform="translate(1444,206)"/>
 
   {/*  ================= 5. FOREGROUND LUSH GREEN HILLS & GROUND PLATFORM =================  */}
   <path d="M0,280 L0,232 Q160,215 360,225 Q560,238 720,220 Q900,205 1100,220 Q1280,235 1440,215 L1440,280 Z" fill="#14532D"/>

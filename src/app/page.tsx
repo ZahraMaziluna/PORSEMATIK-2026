@@ -5,11 +5,23 @@ import About from "@/components/home/About";
 import Roadmap from "@/components/home/Roadmap";
 import Gallery from "@/components/home/Gallery";
 import VibeItHighlight from "@/components/home/VibeItHighlight";
+import ConnectHighlight from "@/components/home/ConnectHighlight";
 import Registration from "@/components/home/Registration";
 import Sponsors from "@/components/home/Sponsors";
 import Faq from "@/components/sections/Faq";
 import PixelDivider from "@/components/layout/PixelDivider";
 import RoadDivider from "@/components/layout/RoadDivider";
+
+/* Pergantian section: gigi piksel gelap, jalan dengan pendaki, lalu gigi piksel ke warna section berikutnya. */
+function RoadBreak({ from, to, variant }: { from: string; to: string; variant: "a" | "b" | "c" }) {
+  return (
+    <>
+      <PixelDivider color="#1E293B" background={from} />
+      <RoadDivider variant={variant} />
+      <PixelDivider color={to} background="#1E293B" />
+    </>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -31,12 +43,13 @@ export default function HomePage() {
       <PixelDivider color="#F5F3FF" background="#87CEEB" />
 
       <VibeItHighlight />
-      <PixelDivider color="#FFFDF9" background="#F5F3FF" />
+      <PixelDivider color="#FFFBEB" background="#F5F3FF" />
+
+      <ConnectHighlight />
+      <RoadBreak from="#FFFBEB" to="#FFFDF9" variant="b" />
 
       <Registration />
-      <PixelDivider color="#1E293B" background="#FFFDF9" />
-      <RoadDivider />
-      <PixelDivider color="#EFF6FF" background="#1E293B" />
+      <RoadBreak from="#FFFDF9" to="#EFF6FF" variant="a" />
 
       <Sponsors />
       <PixelDivider color="#1E293B" background="#EFF6FF" />

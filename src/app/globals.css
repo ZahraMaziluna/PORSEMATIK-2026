@@ -3550,5 +3550,119 @@ a.sponsor-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 v
 .road-divider__hiker svg { display: block; width: 100%; height: 100%; }
 .road-divider__flag { position: absolute; right: clamp(6%, 10vw, 14%); top: 50%; width: 36px; height: 40px; transform: translateY(-55%); color: #FDE047; }
 .road-divider__flag svg { width: 100%; height: 100%; filter: drop-shadow(2px 2px 0 var(--ink)); }
+/* Variasi: b = pendaki di tengah, c = pendaki di kanan menuju bendera di kiri (sprite dicerminkan) */
+.road-divider[data-variant="b"] .road-divider__hiker { left: 46%; }
+.road-divider[data-variant="b"] .road-divider__flag { right: clamp(14%, 22vw, 30%); }
+.road-divider[data-variant="c"] .road-divider__hiker { left: auto; right: clamp(8%, 14vw, 18%); transform: translateY(-52%) scaleX(-1); }
+.road-divider[data-variant="c"] .road-divider__flag { right: auto; left: clamp(6%, 10vw, 14%); }
+@media (max-width: 767px) {
+  .road-divider { height: 60px; }
+  .road-divider__hiker { width: 40px; height: 50px; }
+  .road-divider__flag { width: 30px; height: 34px; }
+}
 
 .footer__credit { margin-top: .5rem; font-size: var(--fs-text-sm); font-weight: 600; letter-spacing: .5px; text-align: center; }
+
+
+/* ---------- Highlight Informatics Connect (Beranda): panel jam + tiket agenda, tata letak asimetris ---------- */
+html body section.ichl { background: #FFFBEB; padding: clamp(3rem, 8vw, 5.5rem) var(--gutter) !important; }
+.ichl__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: start; max-width: 1100px; }
+.ichl__lead { text-align: left; }
+.ichl__tag {
+  display: inline-block; padding: .3rem .7rem; background: #FDE047; color: var(--ink); border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink); font: 700 .8125rem/1.3 var(--font-body), sans-serif; letter-spacing: .04em; text-transform: uppercase;
+}
+html body .ichl__title { margin: 1rem 0 .75rem; text-align: left; color: var(--ink); font-size: clamp(1.25rem, 4.6vw, 2.25rem); line-height: 1.35; text-shadow: none; }
+.ichl__text { max-width: 34rem; color: #334155; font-size: clamp(.9375rem, 2vw, 1.05rem); line-height: 1.7; margin-bottom: 1.5rem; }
+.ichl__clock { background: var(--ink); color: #FDE68A; border: 3px solid var(--ink); box-shadow: 6px 6px 0 #F59E0B; padding: 1rem 1.25rem; margin-bottom: 1.25rem; max-width: 30rem; }
+.ichl__clock-day, .ichl__clock-zone { font: 700 .8125rem/1.4 var(--font-body), sans-serif; letter-spacing: .08em; color: #FFFFFF; }
+.ichl__clock-time { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin: .5rem 0; font-family: var(--font-pixel), monospace; font-size: clamp(1.5rem, 7vw, 2.5rem); line-height: 1.2; color: #FBBF24; }
+.ichl__clock-time i { font-style: normal; color: #FFFFFF; }
+.ichl__facts { list-style: none; display: grid; gap: .5rem; margin-bottom: 1.1rem; }
+.ichl__facts li { display: flex; gap: .6rem; align-items: flex-start; color: var(--ink); font-size: .9375rem; line-height: 1.5; }
+.ichl__facts .px-icon { width: 1.25rem; height: 1.25rem; margin-top: .1rem; color: #B45309; }
+.ichl__chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.5rem; }
+.ichl__chip { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .8rem; background: #FFFFFF; color: var(--ink); border: 2px dashed var(--ink); border-radius: 999px; font: 600 .875rem/1.3 var(--font-body), sans-serif; }
+.ichl__chip b { display: inline-grid; place-items: center; min-width: 1.9rem; height: 1.9rem; background: #F59E0B; color: var(--ink); border: 2px solid var(--ink); border-radius: 50%; font-size: .8125rem; }
+.ichl__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.ichl__ticket { position: relative; background: #FFFFFF; border: 3px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+.ichl__ticket::before, .ichl__ticket::after {
+  content: ""; position: absolute; top: 3.35rem; width: 22px; height: 22px; background: #FFFBEB; border: 3px solid var(--ink); border-radius: 50%;
+}
+.ichl__ticket::before { left: -13px; }
+.ichl__ticket::after { right: -13px; }
+.ichl__ticket-head { display: flex; justify-content: space-between; gap: 1rem; padding: .9rem 1.25rem; background: #FBBF24; color: var(--ink); border-bottom: 3px dashed var(--ink); font: 700 .8125rem/1.3 var(--font-body), sans-serif; letter-spacing: .06em; }
+.ichl__agenda { list-style: none; padding: .4rem 1.25rem; }
+.ichl__agenda li { display: grid; grid-template-columns: 3rem 3.25rem minmax(0, 1fr); gap: .75rem; align-items: baseline; padding: .8rem 0; border-bottom: 2px dashed #CBD5E1; }
+.ichl__agenda li:last-child { border-bottom: 0; }
+.ichl__lv { font: 700 .8125rem/1.3 var(--font-body), sans-serif; color: #475569; }
+.ichl__time { font: 700 1rem/1.3 var(--font-body), sans-serif; color: #92400E; }
+.ichl__what { font: 600 .9375rem/1.45 var(--font-body), sans-serif; color: var(--ink); }
+.ichl__ticket-foot { padding: .8rem 1.25rem; background: #FEF3C7; border-top: 3px dashed var(--ink); color: #78350F; font: 600 .8125rem/1.4 var(--font-body), sans-serif; text-align: center; }
+
+@media (min-width: 900px) {
+  .ichl__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 3.5rem; }
+  .ichl__ticket { transform: rotate(1.2deg); margin-top: 1.5rem; }
+}
+
+/* Tombol daftar Informatics Connect: di bawah baris kartu Events Highlight, bukan di dalam kartu */
+.events-cta { display: flex; justify-content: center; margin-top: 2.5rem; }
+
+/* ---------- Matahari piksel: pojok kanan atas, di bawah navbar, sinar berputar ---------- */
+body .pixel-sky-sun {
+  top: calc(var(--nav-h) + 10px); right: 1.5%;
+  width: 104px; height: 104px;
+  animation: sunGlow 3s ease-in-out infinite alternate;
+}
+.pixel-sun-rays { transform-box: view-box; transform-origin: center; animation: sunSpin 18s linear infinite; }
+@keyframes sunSpin { to { transform: rotate(360deg); } }
+@keyframes sunGlow {
+  from { filter: drop-shadow(0 0 12px rgba(253, 224, 71, .45)); }
+  to { filter: drop-shadow(0 0 24px rgba(253, 224, 71, .8)); }
+}
+@media (max-width: 899px) {
+  body .pixel-sky-sun { width: 64px; height: 64px; right: 3%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pixel-sun-rays, body .pixel-sky-sun { animation: none; }
+}
+
+/* ---------- Api obor di puncak: menyala, bara, dan asap ---------- */
+body .mountains-wrap { overflow: visible; }
+.mountain-svg { overflow: visible; }
+.pixel-torch-flame { animation: none; transform-origin: initial; }
+.flame, .smoke, .ember { transform-box: fill-box; transform-origin: 50% 100%; }
+.flame--outer { animation: flameDance .5s ease-in-out infinite alternate; }
+.flame--mid { animation: flameDance .38s ease-in-out -.1s infinite alternate; }
+.flame--inner { animation: flameDance .3s ease-in-out -.2s infinite alternate; }
+.flame--core { animation: flameDance .24s ease-in-out -.05s infinite alternate; }
+@keyframes flameDance {
+  0% { transform: scale(1, 1) skewX(0deg); }
+  50% { transform: scale(.88, 1.2) skewX(-6deg); }
+  100% { transform: scale(1.06, .92) skewX(5deg); }
+}
+.smoke { opacity: 0; animation: smokeRise 3.2s ease-out infinite; }
+.smoke--1 { animation-delay: 0s; }
+.smoke--2 { animation-delay: .65s; --dx: 12px; }
+.smoke--3 { animation-delay: 1.3s; --dx: -8px; }
+.smoke--4 { animation-delay: 1.95s; --dx: 16px; }
+.smoke--5 { animation-delay: 2.6s; --dx: -12px; }
+@keyframes smokeRise {
+  0% { opacity: 0; transform: translate(0, 0) scale(.6); }
+  15% { opacity: .75; }
+  100% { opacity: 0; transform: translate(var(--dx, 8px), -42px) scale(2.4); }
+}
+.ember { opacity: 0; animation: emberUp 1.4s ease-out infinite; }
+.ember--1 { animation-delay: 0s; --ex: -6px; }
+.ember--2 { animation-delay: .5s; --ex: 7px; }
+.ember--3 { animation-delay: .95s; --ex: 2px; }
+@keyframes emberUp {
+  0% { opacity: 0; transform: translate(0, 0); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--ex, 0), -22px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flame, .smoke, .ember { animation: none; }
+  .smoke, .ember { opacity: 0; }
+}

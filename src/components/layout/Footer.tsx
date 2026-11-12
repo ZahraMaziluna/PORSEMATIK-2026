@@ -127,7 +127,7 @@ export default function Footer() {
           &copy; 2026 Panitia PORSEMATIK feat. Milad Informatika Tahun 2026, HMIF LEM FTI Universitas Islam
           Indonesia.
         </p>
-        <p className="footer__credit">- Luna ft Guevara -</p>
+        <p className="footer__credit">- with collaborations Zash &amp; Guevara -</p>
       </div>
     </footer>
     </>
