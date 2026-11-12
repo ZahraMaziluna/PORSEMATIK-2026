@@ -1,11 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSound } from "@/hooks/useSound";
+import PixelIcon from "@/components/icons/PixelIcon";
+
+const FILTERS = [
+  { key: "all", label: "Semua Lomba" },
+  { key: "sports", label: "Sports" },
+  { key: "esport", label: "E-Sport" },
+  { key: "art", label: "Art (Seni)" },
+  { key: "education", label: "Education" },
+] as const;
 
 export default function Competitions() {
   const [filter, setFilter] = useState<string>("all");
-  const { playCoin, playClick } = useSound();
+  const [query, setQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(6);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { playClick } = useSound();
+
+  useEffect(() => {
+    const cards = gridRef.current?.querySelectorAll<HTMLElement>(".comp-card") ?? [];
+    const needle = query.trim().toLowerCase();
+    let shown = 0;
+    cards.forEach((card) => {
+      const matchesCategory = filter === "all" || card.dataset.category === filter;
+      const matchesQuery = !needle || (card.textContent ?? "").toLowerCase().includes(needle);
+      const visible = matchesCategory && matchesQuery;
+      card.hidden = !visible;
+      if (visible) shown += 1;
+    });
+    setVisibleCount(shown);
+  }, [filter, query]);
 
   return (
 <section className="competitions" id="competitions">
@@ -15,38 +41,76 @@ export default function Competitions() {
 
     {/*  Eligibility Banner  */}
     <div className="reg-banner reveal">
-      📢 Pendaftaran terbuka eksklusif untuk <strong>Mahasiswa Aktif Informatika FTI UII Angkatan 2023, 2024, 2025, dan 2026</strong>. Wajib melampirkan <strong>KTM/KTM Digital</strong>. Periode pendaftaran: <strong>10 Nov (12:00 WIB) – 13 Nov 2026 (12:00 WIB)</strong>.
+      <PixelIcon name="notice" /> Pendaftaran terbuka eksklusif untuk <strong>Mahasiswa Aktif Informatika FTI UII Angkatan 2023, 2024, 2025, dan 2026</strong>. Wajib melampirkan <strong>KTM/KTM Digital</strong>. Periode pendaftaran: <strong>10 Nov (12:00 WIB) – 13 Nov 2026 (12:00 WIB)</strong>.
     </div>
 
     {/*  Live Search Bar  */}
     <div className="comp-search-wrap reveal">
       <div className="comp-search-box">
-        <span className="comp-search-icon">🔍</span>
-        <input type="text" id="compSearch" className="comp-search-input" placeholder="Cari cabang lomba (contoh: Futsal, MLBB, SDG 13, Daring, Rp50.000)..." autoComplete="off" />
-        <button id="clearSearch" className="comp-search-clear" style={{display: "none"}}>✕</button>
-      </div>
-      <div id="noResultsMsg" className="no-results-msg" style={{display: "none"}}>
-        👾 Tidak ada kompetisi yang cocok dengan pencarian kata kunci tersebut.
+        <span className="comp-search-icon"><PixelIcon name="search" /></span>
+        <input
+          type="search"
+          id="compSearch"
+          className="comp-search-input"
+          placeholder="Cari lomba: Futsal, MLBB, Rp50.000"
+          aria-label="Cari cabang lomba"
+          autoComplete="off"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+        />
+        {query ? (
+          <button
+            type="button"
+            id="clearSearch"
+            className="comp-search-clear"
+            aria-label="Hapus pencarian"
+            onClick={() => {
+              playClick();
+              setQuery("");
+            }}
+          >
+            <PixelIcon name="close" />
+          </button>
+        ) : null}
       </div>
     </div>
 
     {/*  Filter Tabs  */}
-    <div className="filter-tabs reveal">
-      <button className="filter-tab active" data-filter="all">Semua Lomba</button>
-      <button className="filter-tab" data-filter="sports">Sports</button>
-      <button className="filter-tab" data-filter="esport">E-Sport</button>
-      <button className="filter-tab" data-filter="art">Art (Seni)</button>
-      <button className="filter-tab" data-filter="education">Education</button>
+    <div className="filter-tabs reveal" role="group" aria-label="Filter kategori lomba">
+      {FILTERS.map((item) => (
+        <button
+          key={item.key}
+          type="button"
+          className={`filter-tab${filter === item.key ? " active" : ""}`}
+          aria-pressed={filter === item.key}
+          onClick={() => {
+            playClick();
+            setFilter(item.key);
+          }}
+        >
+          {item.label}
+        </button>
+      ))}
     </div>
 
+    <p className="comp-status" role="status" aria-live="polite">
+      {visibleCount === 0 ? (
+        <span className="no-results-msg">
+          <PixelIcon name="invader" /> Tidak ada kompetisi yang cocok dengan filter atau kata kunci tersebut. Ubah kata kunci atau pilih Semua Lomba.
+        </span>
+      ) : (
+        `Menampilkan ${visibleCount} dari 6 cabang lomba`
+      )}
+    </p>
+
     {/*  6 COMPACT COMPETITION CARDS IN 2-COLUMN GRID (KANAN - KIRI)  */}
-    <div className="comp-grid reveal">
+    <div className="comp-grid reveal" ref={gridRef}>
       {/*  1. Futsal  */}
       <div className="comp-card" data-category="sports">
         <div className="comp-card__main">
           <div className="comp-card__top">
             <span className="comp-card__badge comp-card__badge--sports">SPORTS</span>
-            <span className="comp-card__slot">👥 Kuota: 1–2 Tim / Angkatan</span>
+            <span className="comp-card__slot"><PixelIcon name="users" /> Kuota: 1–2 Tim / Angkatan</span>
           </div>
           <h3 className="comp-card__name"><svg className="px-icon" viewBox="0 0 16 16" style={{marginRight: "4px"}}><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M6,6 h4 v4 h-4 Z" fill="#22C55E"/></svg> Futsal Competition</h3>
           <ul className="comp-card__specs">
@@ -62,10 +126,10 @@ export default function Competitions() {
             <div className="comp-price-value"><span className="comp-price-curr">Rp</span>150.000<span className="comp-price-unit">/ tim</span></div>
           </div>
           <div className="comp-prize-box">
-            <div className="comp-prize-title">🏆 REWARD &amp; POIN ANGKATAN</div>
-            <div className="comp-prize-item">🥇 Juara 1: <strong>Rp500.000 + 3 Poin</strong></div>
-            <div className="comp-prize-item">🥈 Juara 2: <strong>Rp250.000 + 2 Poin</strong></div>
-            <div className="comp-prize-item">⭐ Best Player &amp; Top Scorer: <strong>@Rp50.000 + 1 Poin</strong></div>
+            <div className="comp-prize-title"><PixelIcon name="trophy" /> REWARD &amp; POIN ANGKATAN</div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--gold" />Juara 1: <strong>Rp500.000 + 3 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--silver" />Juara 2: <strong>Rp250.000 + 2 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="star" className="medal medal--gold" />Best Player &amp; Top Scorer: <strong>@Rp50.000 + 1 Poin</strong></div>
           </div>
           <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ DAFTAR FUTSAL ]</a>
         </div>
@@ -76,7 +140,7 @@ export default function Competitions() {
         <div className="comp-card__main">
           <div className="comp-card__top">
             <span className="comp-card__badge comp-card__badge--sports">SPORTS</span>
-            <span className="comp-card__slot">👥 Kuota: Maks. 1 Tim / Angkatan</span>
+            <span className="comp-card__slot"><PixelIcon name="users" /> Kuota: Maks. 1 Tim / Angkatan</span>
           </div>
           <h3 className="comp-card__name"><svg className="px-icon" viewBox="0 0 16 16" style={{marginRight: "4px"}}><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,2 h2 v12 h-2 Z M2,7 h12 v2 h-12 Z" fill="#EA580C"/></svg> Basketball Competition</h3>
           <ul className="comp-card__specs">
@@ -92,10 +156,10 @@ export default function Competitions() {
             <div className="comp-price-value"><span className="comp-price-curr">Rp</span>150.000<span className="comp-price-unit">/ tim</span></div>
           </div>
           <div className="comp-prize-box">
-            <div className="comp-prize-title">🏆 REWARD &amp; POIN ANGKATAN</div>
-            <div className="comp-prize-item">🥇 Juara 1: <strong>Rp500.000 + 3 Poin</strong></div>
-            <div className="comp-prize-item">🥈 Juara 2: <strong>Rp250.000 + 2 Poin</strong></div>
-            <div className="comp-prize-item">⭐ Most Valuable Player (MVP): <strong>Rp50.000 + 1 Poin</strong></div>
+            <div className="comp-prize-title"><PixelIcon name="trophy" /> REWARD &amp; POIN ANGKATAN</div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--gold" />Juara 1: <strong>Rp500.000 + 3 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--silver" />Juara 2: <strong>Rp250.000 + 2 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="star" className="medal medal--gold" />Most Valuable Player (MVP): <strong>Rp50.000 + 1 Poin</strong></div>
           </div>
           <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ DAFTAR BASKET ]</a>
         </div>
@@ -106,7 +170,7 @@ export default function Competitions() {
         <div className="comp-card__main">
           <div className="comp-card__top">
             <span className="comp-card__badge comp-card__badge--esport">E-SPORT</span>
-            <span className="comp-card__slot">👥 Kuota: 1–2 Tim / Angkatan</span>
+            <span className="comp-card__slot"><PixelIcon name="users" /> Kuota: 1–2 Tim / Angkatan</span>
           </div>
           <h3 className="comp-card__name"><svg className="px-icon" viewBox="0 0 16 16" style={{marginRight: "4px"}}><path d="M2,4 h12 v8 h-12 Z M4,6 h2 v4 h-2 Z M3,7 h4 v2 h-4 Z M10,7 h2 v2 h-2 Z M12,9 h2 v2 h-2 Z" fill="#8B5CF6"/></svg> Mobile Legends: Bang Bang</h3>
           <ul className="comp-card__specs">
@@ -122,10 +186,10 @@ export default function Competitions() {
             <div className="comp-price-value"><span className="comp-price-curr">Rp</span>50.000<span className="comp-price-unit">/ tim</span></div>
           </div>
           <div className="comp-prize-box">
-            <div className="comp-prize-title">🏆 REWARD &amp; POIN ANGKATAN</div>
-            <div className="comp-prize-item">🥇 Juara 1: <strong>Rp300.000 + 3 Poin</strong></div>
-            <div className="comp-prize-item">🥈 Juara 2: <strong>Rp150.000 + 2 Poin</strong></div>
-            <div className="comp-prize-item">🥉 Juara 3 &amp; Finals MVP: <strong>@Rp80.000/50.000 + 1 Poin</strong></div>
+            <div className="comp-prize-title"><PixelIcon name="trophy" /> REWARD &amp; POIN ANGKATAN</div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--gold" />Juara 1: <strong>Rp300.000 + 3 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--silver" />Juara 2: <strong>Rp150.000 + 2 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--bronze" />Juara 3 &amp; Finals MVP: <strong>@Rp80.000/50.000 + 1 Poin</strong></div>
           </div>
           <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ DAFTAR MLBB ]</a>
         </div>
@@ -136,7 +200,7 @@ export default function Competitions() {
         <div className="comp-card__main">
           <div className="comp-card__top">
             <span className="comp-card__badge comp-card__badge--art">ART (SENI)</span>
-            <span className="comp-card__slot">👤 Individu: 1–3 Karya / Angkatan</span>
+            <span className="comp-card__slot"><PixelIcon name="person" /> Individu: 1–3 Karya / Angkatan</span>
           </div>
           <h3 className="comp-card__name"><svg className="px-icon" viewBox="0 0 16 16" style={{marginRight: "4px"}}><path d="M2,2 h12 v12 h-12 Z M4,4 h8 v8 h-8 Z M5,9 l2,-2 l2,2 l2,-3 l2,3 Z M5,6 h2 v2 h-2 Z" fill="#EC4899"/></svg> Poster Digital Competition</h3>
           <ul className="comp-card__specs">
@@ -152,9 +216,9 @@ export default function Competitions() {
             <div className="comp-price-value"><span className="comp-price-curr">Rp</span>50.000<span className="comp-price-unit">/ peserta</span></div>
           </div>
           <div className="comp-prize-box">
-            <div className="comp-prize-title">🏆 REWARD &amp; POIN ANGKATAN</div>
-            <div className="comp-prize-item">🥇 Juara Terbaik: <strong>Rp100.000 + 3 Poin</strong></div>
-            <div className="comp-prize-item">⭐ Juara Favorit (E-Voting): <strong>Rp75.000 + 2 Poin</strong></div>
+            <div className="comp-prize-title"><PixelIcon name="trophy" /> REWARD &amp; POIN ANGKATAN</div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--gold" />Juara Terbaik: <strong>Rp100.000 + 3 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="star" className="medal medal--gold" />Juara Favorit (E-Voting): <strong>Rp75.000 + 2 Poin</strong></div>
           </div>
           <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ DAFTAR POSTER ]</a>
         </div>
@@ -165,7 +229,7 @@ export default function Competitions() {
         <div className="comp-card__main">
           <div className="comp-card__top">
             <span className="comp-card__badge comp-card__badge--art">ART (SENI)</span>
-            <span className="comp-card__slot">👤 Individu: 1–3 Karya / Angkatan</span>
+            <span className="comp-card__slot"><PixelIcon name="person" /> Individu: 1–3 Karya / Angkatan</span>
           </div>
           <h3 className="comp-card__name"><svg className="px-icon" viewBox="0 0 16 16" style={{marginRight: "4px"}}><path d="M5,2 h6 v2 h-6 Z M2,4 h12 v10 h-12 Z M6,6 h4 v4 h-4 Z M12,5 h1 v2 h-1 Z" fill="#3B82F6"/></svg> Photography &amp; Narrative</h3>
           <ul className="comp-card__specs">
@@ -181,9 +245,9 @@ export default function Competitions() {
             <div className="comp-price-value"><span className="comp-price-curr">Rp</span>50.000<span className="comp-price-unit">/ peserta</span></div>
           </div>
           <div className="comp-prize-box">
-            <div className="comp-prize-title">🏆 REWARD &amp; POIN ANGKATAN</div>
-            <div className="comp-prize-item">🥇 Juara Terbaik: <strong>Rp150.000 + 2 Poin</strong></div>
-            <div className="comp-prize-item">⭐ Juara Favorit (E-Voting): <strong>Rp100.000 + 1 Poin</strong></div>
+            <div className="comp-prize-title"><PixelIcon name="trophy" /> REWARD &amp; POIN ANGKATAN</div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--gold" />Juara Terbaik: <strong>Rp150.000 + 2 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="star" className="medal medal--gold" />Juara Favorit (E-Voting): <strong>Rp100.000 + 1 Poin</strong></div>
           </div>
           <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ DAFTAR FOTOGRAFI ]</a>
         </div>
@@ -194,7 +258,7 @@ export default function Competitions() {
         <div className="comp-card__main">
           <div className="comp-card__top">
             <span className="comp-card__badge comp-card__badge--education">EDUCATION</span>
-            <span className="comp-card__slot">👥 Kuota: 1–2 Tim / Angkatan</span>
+            <span className="comp-card__slot"><PixelIcon name="users" /> Kuota: 1–2 Tim / Angkatan</span>
           </div>
           <h3 className="comp-card__name"><svg className="px-icon" viewBox="0 0 16 16" style={{marginRight: "4px"}}><path d="M2,2 h12 v9 h-12 Z M6,11 h4 v2 h-4 Z M4,13 h8 v1 h-8 Z M4,4 h8 v5 h-8 Z" fill="#06B6D4"/></svg> UI/UX Design Competition</h3>
           <ul className="comp-card__specs">
@@ -210,10 +274,10 @@ export default function Competitions() {
             <div className="comp-price-value"><span className="comp-price-curr">Rp</span>50.000<span className="comp-price-unit">/ tim</span></div>
           </div>
           <div className="comp-prize-box">
-            <div className="comp-prize-title">🏆 REWARD &amp; POIN ANGKATAN</div>
-            <div className="comp-prize-item">🥇 Juara Terbaik: <strong>Uang Tunai + 3 Poin</strong></div>
-            <div className="comp-prize-item">🥈 Juara 2: <strong>Uang Tunai + 2 Poin</strong></div>
-            <div className="comp-prize-item">📜 Sertifikat Resmi &amp; Akumulasi Juara Umum Angkatan</div>
+            <div className="comp-prize-title"><PixelIcon name="trophy" /> REWARD &amp; POIN ANGKATAN</div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--gold" />Juara Terbaik: <strong>Uang Tunai + 3 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="medal" className="medal medal--silver" />Juara 2: <strong>Uang Tunai + 2 Poin</strong></div>
+            <div className="comp-prize-item"><PixelIcon name="scroll" />Sertifikat Resmi &amp; Akumulasi Juara Umum Angkatan</div>
           </div>
           <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ DAFTAR UI/UX ]</a>
         </div>
@@ -223,13 +287,13 @@ export default function Competitions() {
     {/*  PUSAT BERKAS & BUKU PANDUAN DIBAWAH SETELAH PERLOMBAAN  */}
     <div className="resource-hub reveal" style={{marginTop: "3.5rem"}}>
       <div className="resource-hub__header">
-        <span className="resource-badge">💾 OFFICIAL ASSETS &amp; GUIDEBOOK</span>
+        <span className="resource-badge"><PixelIcon name="disk" /> OFFICIAL ASSETS &amp; GUIDEBOOK</span>
         <h3 className="resource-title">Pusat Berkas &amp; Buku Panduan Resmi</h3>
         <p className="resource-subtitle">Wajib diunduh dan dipelajari oleh seluruh peserta, kapten tim, dan perwakilan angkatan sebelum Technical Meeting (14 Nov 2026).</p>
       </div>
       <div className="resource-grid">
         {/*  E-Guidebook (Local PDF 43MB)  */}
-        <a href="E-Guidebook-PORSEMATIK-2026.pdf" download="E-Guidebook-PORSEMATIK-2026.pdf" className="resource-card resource-card--featured" target="_blank">
+        <a href="/E-Guidebook-PORSEMATIK-2026.pdf" download="E-Guidebook-PORSEMATIK-2026.pdf" className="resource-card resource-card--featured" target="_blank" rel="noopener noreferrer">
           <div>
             <div className="resource-card__icon"><svg className="px-icon px-icon--lg" viewBox="0 0 16 16"><path d="M2,2 h12 v11 h-12 Z M4,4 h3 v7 h-3 Z M9,4 h3 v7 h-3 Z M1,13 h14 v1 h-14 Z" fill="#F59E0B"/></svg></div>
             <div className="resource-card__tag">WAJIB DIBACA • VERSI RESMI</div>

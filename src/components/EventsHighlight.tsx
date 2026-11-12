@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import PixelIcon from "@/components/icons/PixelIcon";
 
 export default function EventsHighlight() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -55,11 +56,15 @@ export default function EventsHighlight() {
 
         {/* Mobile Swipe Hint (Hidden on Desktop) */}
         <div className="events-mobile-hint">
-          <span className="events-mobile-hint__icon">◀</span>
+          <span className="events-mobile-hint__icon">
+            <PixelIcon name="chevronLeft" />
+          </span>
           <span>
             Geser kartu untuk melihat acara (<strong>{activeSlide + 1}</strong> dari {totalSlides})
           </span>
-          <span className="events-mobile-hint__icon">▶</span>
+          <span className="events-mobile-hint__icon">
+            <PixelIcon name="chevronRight" />
+          </span>
         </div>
 
         {/* Slider Viewport */}
@@ -76,7 +81,7 @@ export default function EventsHighlight() {
             {/* 1. Pembukaan */}
             <div className="event-card event-card--rose">
               <div className="event-card__date">16 Nov 2026</div>
-              <h3 className="event-card__title">🎪 Opening Ceremony</h3>
+              <h3 className="event-card__title"><PixelIcon name="flag" /> Opening Ceremony</h3>
               <div className="event-card__time">
                 <svg className="px-icon px-icon--sm" viewBox="0 0 16 16">
                   <path
@@ -103,7 +108,7 @@ export default function EventsHighlight() {
             {/* 2. Informatics Connect */}
             <div className="event-card event-card--yellow">
               <div className="event-card__date">17 Nov 2026</div>
-              <h3 className="event-card__title">🤝 Informatics Connect</h3>
+              <h3 className="event-card__title"><PixelIcon name="users" /> Informatics Connect</h3>
               <div className="event-card__time">
                 <svg className="px-icon px-icon--sm" viewBox="0 0 16 16">
                   <path
@@ -139,7 +144,7 @@ export default function EventsHighlight() {
             {/* 3. VibeIT */}
             <div className="event-card event-card--purple">
               <div className="event-card__date">21 Nov 2026</div>
-              <h3 className="event-card__title">🤖 VibeIT: AI Workshop</h3>
+              <h3 className="event-card__title"><PixelIcon name="code" /> VibeIT: AI Workshop</h3>
               <div className="event-card__time">
                 <svg className="px-icon px-icon--sm" viewBox="0 0 16 16">
                   <path
@@ -166,7 +171,7 @@ export default function EventsHighlight() {
             {/* 4. Awarding Night */}
             <div className="event-card event-card--green">
               <div className="event-card__date">22 Nov 2026</div>
-              <h3 className="event-card__title">🏆 Awarding Night &amp; Penutupan</h3>
+              <h3 className="event-card__title"><PixelIcon name="trophy" /> Awarding Night &amp; Penutupan</h3>
               <div className="event-card__time">
                 <svg className="px-icon px-icon--sm" viewBox="0 0 16 16">
                   <path
@@ -201,7 +206,7 @@ export default function EventsHighlight() {
             disabled={activeSlide === 0}
             aria-label="Acara Sebelumnya"
           >
-            ◀ PREV
+            <PixelIcon name="chevronLeft" /> PREV
           </button>
 
           <div className="events-slider-dots">
@@ -225,7 +230,7 @@ export default function EventsHighlight() {
             disabled={activeSlide === totalSlides - 1}
             aria-label="Acara Berikutnya"
           >
-            NEXT ▶
+            NEXT <PixelIcon name="chevronRight" />
           </button>
         </div>
       </div>

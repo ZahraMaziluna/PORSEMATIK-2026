@@ -1,53 +1,37 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import HomeTicker from "@/components/HomeTicker";
 import About from "@/components/About";
-import Schedule from "@/components/Schedule";
-import EventsHighlight from "@/components/EventsHighlight";
-import VibeItSection from "@/components/VibeItSection";
-import ConnectSection from "@/components/ConnectSection";
-import Competitions from "@/components/Competitions";
-import Leaderboard from "@/components/Leaderboard";
+import Roadmap from "@/components/Roadmap";
+import Gallery from "@/components/Gallery";
+import Registration from "@/components/Registration";
 import Faq from "@/components/Faq";
-import Footer from "@/components/Footer";
-import SoundFloatingButton from "@/components/SoundFloatingButton";
 import PixelDivider from "@/components/PixelDivider";
 
 export default function HomePage() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <PixelDivider color="#0B0C10" background="#22C55E" />
-        <PixelDivider color="#FFFDF9" background="#0B0C10" />
+    <main id="main" className="page page--home">
+      <Hero />
+      <PixelDivider color="#1E293B" background="#22C55E" />
+      <HomeTicker />
+      <PixelDivider color="#FFFDF9" background="#1E293B" />
 
-        <About />
-        <PixelDivider color="#F0FDF4" background="#FFFDF9" />
+      <About />
+      <PixelDivider color="#1E293B" background="#FFFDF9" />
+      <div className="road-strip" aria-hidden="true" />
+      <PixelDivider color="#F0FDF4" background="#1E293B" />
 
-        <Schedule />
-        <PixelDivider color="#FAF8F5" background="#FFFDF9" />
+      <Roadmap />
+      <PixelDivider color="#87CEEB" background="#F0FDF4" />
 
-        <EventsHighlight />
-        <PixelDivider color="#F5F3FF" background="#FAF8F5" />
+      <Gallery />
+      <PixelDivider color="#FFFDF9" background="#87CEEB" />
 
-        <VibeItSection />
-        <PixelDivider color="#FFFBEB" background="#F5F3FF" />
+      <Registration />
+      <PixelDivider color="#1E293B" background="#FFFDF9" />
 
-        <ConnectSection />
-        <PixelDivider color="#F8FAFC" background="#FFFBEB" />
-
-        <Competitions />
-        <PixelDivider color="#FEFCE8" background="#F8FAFC" />
-
-        <Leaderboard />
-        <PixelDivider color="#FFFDF9" background="#FEFCE8" />
-
-        <Faq />
-        <PixelDivider color="#1E293B" background="#FFFDF9" />
-      </main>
-      <Footer />
-      <SoundFloatingButton />
-    </>
+      <Faq />
+      <PixelDivider color="#FFFDF9" background="#1E293B" />
+    </main>
   );
 }

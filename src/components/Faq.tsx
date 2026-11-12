@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useSound } from "@/hooks/useSound";
+import PixelIcon from "@/components/icons/PixelIcon";
 
 interface FaqItemData {
   id: number;
@@ -94,16 +95,16 @@ export default function Faq() {
   return (
     <section className="faq" id="faq">
       <div className="container" style={{ textAlign: "center" }}>
-        <span className="vibe-tag" style={{ background: "#FFE4D6", color: "#EA580C" }}>
+        <span className="vibe-tag" style={{ background: "#FFE4D6", color: "#9A3412" }}>
           TANYA JAWAB RESMI
         </span>
         <h2
           className="section-title reveal"
-          style={{ color: "var(--arcade-orange) !important", marginTop: ".4rem", textAlign: "center" }}
+          style={{ marginTop: ".4rem", textAlign: "center" }}
         >
           FAQ
         </h2>
-        <p className="section-subtitle reveal" style={{ color: "#64748B !important", textAlign: "center" }}>
+        <p className="section-subtitle reveal" style={{ textAlign: "center" }}>
           Pertanyaan yang sering ditanyakan seputar PORSEMATIK feat. Milad Informatika 2026.
         </p>
 
@@ -126,7 +127,7 @@ export default function Faq() {
                       transition: "transform 0.25s ease",
                     }}
                   >
-                    ▶
+                    <PixelIcon name="chevronRight" />
                   </span>
                 </button>
                 <div

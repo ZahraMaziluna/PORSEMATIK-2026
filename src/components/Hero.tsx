@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useSound } from "@/hooks/useSound";
 
@@ -705,7 +706,8 @@ export default function Hero() {
 
   {/*  [START] Button placed comfortably in open sky above the summit  */}
   <div className="hero__cta-wrap">
-    <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener">[ START ]</a>
+    <a href="https://linktr.ee/porsematik2026" className="btn-pixel" target="_blank" rel="noopener noreferrer">[ DAFTAR LOMBA ]</a>
+    <Link href="/kompetisi" className="btn-pixel btn-pixel--secondary">[ LIHAT KOMPETISI ]</Link>
     
   </div>
 

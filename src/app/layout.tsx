@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
-import { Press_Start_2P, Poppins, Pixelify_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Press_Start_2P, Poppins } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const pressStart2P = Press_Start_2P({
@@ -17,17 +19,15 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const pixelifySans = Pixelify_Sans({
-  weight: ["400", "600"],
-  subsets: ["latin"],
-  variable: "--font-sub",
-  display: "swap",
-});
+const SITE_DESCRIPTION =
+  "Official Landing Page PORSEMATIK feat. Milad Informatika Ke-32 Universitas Islam Indonesia. 8-Bit Retro Pixel Art Platformer & Mountain Summit.";
 
 export const metadata: Metadata = {
-  title: "PORSEMATIK 2026 — Ignite the Summit",
-  description:
-    "Official Landing Page PORSEMATIK feat. Milad Informatika Ke-32 Universitas Islam Indonesia. 8-Bit Retro Pixel Art Platformer & Mountain Summit.",
+  title: {
+    default: "PORSEMATIK 2026: Ignite the Summit",
+    template: "%s | PORSEMATIK 2026",
+  },
+  description: SITE_DESCRIPTION,
   keywords: [
     "PORSEMATIK",
     "PORSEMATIK 2026",
@@ -39,13 +39,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "HMIF LEM FTI UII" }],
   openGraph: {
-    title: "PORSEMATIK 2026 — Ignite the Summit",
-    description:
-      "Official Landing Page PORSEMATIK feat. Milad Informatika Ke-32 Universitas Islam Indonesia. 8-Bit Retro Pixel Art Platformer & Mountain Summit.",
+    title: "PORSEMATIK 2026: Ignite the Summit",
+    description: SITE_DESCRIPTION,
     url: "https://porsematik2026.my.id",
     siteName: "PORSEMATIK 2026",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -54,11 +58,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="id"
-      className={`${pressStart2P.variable} ${poppins.variable} ${pixelifySans.variable}`}
-    >
-      <body>{children}</body>
+    <html lang="id" className={`${pressStart2P.variable} ${poppins.variable}`}>
+      <body>
+        <a href="#main" className="skip-link">
+          Lewati ke konten utama
+        </a>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
