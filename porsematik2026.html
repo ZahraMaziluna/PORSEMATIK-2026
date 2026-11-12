@@ -980,7 +980,7 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  /* unblocked hanging sticker */
+  .hanging-sticker { display: none; }
 }
 
 /* ========== SCRAPBOOK COLLAGE STRIP ========== */
@@ -2090,7 +2090,7 @@ body {
   .vibe-info-grid { grid-template-columns: 1fr 1fr !important; }
   .vibe-steps-grid { grid-template-columns: 1fr !important; }
   .footer__grid-4 { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
-  /* unblocked hanging sticker */
+  .hanging-sticker { display: none !important; }
 }
 @media (max-width: 600px) {
   .vibe-info-grid { grid-template-columns: 1fr !important; }
@@ -3605,440 +3605,8 @@ body.dark-theme .footer {
 }
 
 
-/* ====================================================================
-   ARKAVIKDIA X RETRO ARCADE ENHANCED STYLESHEET
-   ==================================================================== */
-
-/* --- NAVBAR STICKY (#0F172A) --- */
-.navbar {
-  background: #0F172A !important;
-  border-bottom: 3px solid #2ECC40 !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
-}
-.navbar__logo {
-  font-family: var(--font-pixel) !important;
-  font-size: .75rem !important;
-  color: #FFB800 !important;
-  letter-spacing: 1px !important;
-  text-shadow: 2px 2px 0 #1E293B !important;
-}
-.navbar__links {
-  align-items: center;
-  gap: 1.1rem !important;
-}
-.navbar__links a {
-  font-family: var(--font-pixel) !important;
-  font-size: .45rem !important;
-  letter-spacing: .5px !important;
-  transition: color .2s, transform .2s !important;
-}
-.navbar__links a:hover {
-  color: #2ECC40 !important;
-  transform: translateY(-1px);
-}
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-}
-.nav-sfx-btn {
-  font-family: var(--font-pixel);
-  font-size: .42rem;
-  background: #1E293B;
-  color: #2ECC40;
-  border: 2px solid #2ECC40;
-  box-shadow: 2px 2px 0 #000;
-  padding: .35rem .6rem;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: transform .15s, background .15s;
-}
-.nav-sfx-btn:hover {
-  background: #2ECC40;
-  color: #0F172A;
-  transform: translateY(-1px);
-}
-.nav-sfx-btn--mob {
-  display: none;
-}
-@media (max-width: 900px) {
-  .nav-sfx-li { display: none; }
-  .nav-sfx-btn--mob { display: block; }
-}
-
-/* --- SWAYING HANGING PIXEL STICKERS (HERO SKY) --- */
-.hanging-sticker {
-  position: absolute;
-  z-index: 12;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform .25s cubic-bezier(0.34, 1.56, 0.64, 1), filter .25s ease;
-  user-select: none;
-  cursor: grab;
-}
-.hanging-sticker:active { cursor: grabbing; }
-.sticker-svg {
-  filter: drop-shadow(0 4px 0 rgba(0,0,0,0.22)) drop-shadow(0 6px 12px rgba(0,0,0,0.15));
-  transition: transform .25s ease;
-}
-.hanging-sticker:hover {
-  transform: scale(1.18) rotate(0deg) !important;
-  z-index: 25;
-}
-.hanging-sticker:hover .sticker-svg {
-  filter: drop-shadow(0 8px 0 rgba(0,0,0,0.3)) drop-shadow(0 14px 24px rgba(0,0,0,0.25));
-}
-.sticker-label {
-  font-family: var(--font-pixel);
-  font-size: .42rem;
-  color: #1F2937;
-  background: #FFFFFF;
-  padding: .25rem .55rem;
-  border-radius: 3px;
-  border: 1px solid #E5E7EB;
-  margin-top: -5px;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.2);
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-}
-
-.sticker--trophy  { top: 15%; left: 3.5%; animation: stickerFloat1 6s ease-in-out infinite alternate; }
-.sticker--torch   { top: 18%; right: 4%; animation: stickerFloat2 7s ease-in-out infinite alternate; }
-.sticker--laptop  { top: 32%; left: 2%; animation: stickerFloat2 7.5s ease-in-out infinite alternate 1.5s; }
-.sticker--badge   { top: 34%; right: 2.5%; animation: stickerFloat1 6s ease-in-out infinite alternate 2s; }
-.sticker--gamepad { top: 50%; left: 3.5%; animation: stickerFloat1 8s ease-in-out infinite alternate 1s; }
-.sticker--camera  { top: 52%; right: 3.5%; animation: stickerFloat2 6.5s ease-in-out infinite alternate .5s; }
-.sticker--sports  { top: 68%; left: 2.5%; animation: stickerFloat1 7s ease-in-out infinite alternate; }
-
-@keyframes stickerFloat1 {
-  0% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-14px) rotate(-2deg); }
-  100% { transform: translateY(0) rotate(-8deg); }
-}
-@keyframes stickerFloat2 {
-  0% { transform: translateY(0) rotate(8deg); }
-  50% { transform: translateY(-16px) rotate(2deg); }
-  100% { transform: translateY(0) rotate(8deg); }
-}
-
-@media (max-width: 1024px) {
-  .hanging-sticker {
-    transform: scale(0.8) !important;
-  }
-}
-@media (max-width: 768px) {
-  .hanging-sticker {
-    transform: scale(0.65) !important;
-  }
-  .sticker--laptop, .sticker--badge { display: none !important; }
-  .sticker--trophy  { top: 10% !important; left: 1% !important; }
-  .sticker--torch   { top: 10% !important; right: 1% !important; }
-  .sticker--gamepad { top: 48% !important; left: 1% !important; }
-  .sticker--camera  { top: 48% !important; right: 1% !important; }
-  .sticker--sports  { top: 68% !important; left: 1% !important; }
-}
-@media (max-width: 480px) {
-  .hanging-sticker {
-    transform: scale(0.55) !important;
-  }
-}
-
-/* --- HERO PIXEL ARROW CURSOR --- */
-.btn-pixel--start {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-}
-
-/* --- IMPACT & ASPIRATION STATS BAR (ALA ARKAVIDIA) --- */
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-  max-width: 1040px;
-  margin: 2.5rem auto 3.5rem;
-}
-.stat-card {
-  background: #FFFFFF;
-  border: 3px solid #1E293B;
-  box-shadow: 4px 4px 0 #1E293B;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 6px 6px 0 #F59E0B;
-}
-.stat-card__num {
-  font-family: var(--font-pixel);
-  font-size: 1.35rem;
-  color: #B45309;
-  margin-bottom: .6rem;
-  letter-spacing: 1px;
-}
-.stat-card__desc {
-  font-size: .85rem;
-  color: #475569;
-  line-height: 1.4;
-  font-weight: 500;
-}
-@media (max-width: 768px) {
-  .stats-bar {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: .8rem !important;
-  }
-  .stat-card { padding: 1rem .6rem !important; }
-  .stat-card__num { font-size: 1rem !important; }
-  .stat-card__desc { font-size: .75rem !important; }
-}
-
-/* --- TIMELINE TAHAPAN UTAMA (BAGIAN A SCHEDULE) --- */
-.timeline-milestone-wrap {
-  margin: 2.5rem auto 3.5rem;
-  max-width: 1080px;
-}
-.timeline-heading {
-  font-family: var(--font-pixel);
-  font-size: .85rem;
-  color: #15803D;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-}
-.milestones-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: .9rem;
-}
-.milestone-box {
-  background: #FFFFFF;
-  border: 2px solid #1E293B;
-  box-shadow: 3px 3px 0 #1E293B;
-  padding: 1.1rem .8rem;
-  text-align: center;
-  transition: transform .2s, box-shadow .2s;
-  display: flex;
-  flex-direction: column;
-}
-.milestone-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 5px 5px 0 #15803D;
-}
-.milestone-box--highlight {
-  background: #FEF3C7;
-  border-color: #F59E0B;
-}
-.milestone-badge {
-  font-family: var(--font-pixel);
-  font-size: .45rem;
-  background: #15803D;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: .3rem .5rem;
-  margin: 0 auto .6rem;
-  border-radius: 2px;
-}
-.milestone-date {
-  font-size: .75rem;
-  font-weight: 700;
-  color: #EA580C;
-  margin-bottom: .4rem;
-}
-.milestone-title {
-  font-family: var(--font-pixel);
-  font-size: .55rem;
-  color: #1E293B;
-  margin-bottom: .5rem;
-  line-height: 1.3;
-}
-.milestone-desc {
-  font-size: .75rem;
-  color: #64748B;
-  line-height: 1.35;
-  margin-top: auto;
-}
-@media (max-width: 900px) {
-  .milestones-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .milestone-box--highlight {
-    grid-column: span 2;
-  }
-}
-@media (max-width: 500px) {
-  .milestones-grid {
-    grid-template-columns: 1fr;
-  }
-  .milestone-box--highlight {
-    grid-column: span 1;
-  }
-}
-
-/* --- 6-STAGE EVENT ROADMAP RESPONSIVENESS (NO BROKEN EMPTY HOLES!) --- */
-.desktop-roadmap {
-  display: block;
-}
-.mobile-roadmap {
-  display: none;
-}
-.stage-clickable {
-  cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-}
-.stage-clickable:hover {
-  transform: translateY(-4px) scale(1.02);
-}
-@media (max-width: 768px) {
-  .desktop-roadmap {
-    display: none !important;
-  }
-  .mobile-roadmap {
-    display: block !important;
-  }
-  .mobile-stage-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 1rem;
-  }
-  .mobile-stage-card {
-    background: #FFFFFF;
-    border: 2px solid #1E293B;
-    box-shadow: 3px 3px 0 #1E293B;
-    padding: .85rem .65rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-  }
-  .mobile-stage-card.stage-card--gold {
-    background: #FEF9C3;
-    border-color: #F59E0B;
-  }
-  .mobile-stage-card .stg-badge {
-    margin-bottom: .4rem;
-    align-self: flex-start;
-  }
-  .mobile-stage-card .map-date {
-    font-size: .72rem;
-    font-weight: 700;
-    color: #1E293B;
-    margin-bottom: .2rem;
-  }
-  .mobile-stage-card .map-time {
-    font-size: .65rem;
-    color: #EA580C;
-    margin-bottom: .4rem;
-  }
-  .mobile-stage-card .map-title {
-    font-family: var(--font-pixel);
-    font-size: .52rem;
-    line-height: 1.35;
-    color: #1E293B;
-    margin-bottom: .4rem;
-  }
-  .mobile-stage-card .map-desc {
-    font-size: .7rem;
-    color: #64748B;
-    line-height: 1.3;
-    margin-top: auto;
-  }
-}
-@media (max-width: 440px) {
-  .mobile-stage-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- MOBILE 2-COLUMN GRID FOR EVENTS & COMPETITIONS (< 768px) --- */
-@media (max-width: 768px) {
-  .events__grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-  .event-card {
-    padding: .85rem .65rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .event-card__title {
-    font-size: .62rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: .4rem !important;
-  }
-  .event-card__date { font-size: .45rem !important; margin-bottom: .4rem !important; }
-  .event-card__time, .event-card__venue { font-size: .68rem !important; gap: .3rem !important; }
-  .event-card__desc { font-size: .72rem !important; line-height: 1.35 !important; margin-top: .4rem !important; }
-  .event-card .btn-pixel {
-    font-size: .42rem !important;
-    padding: .45rem .4rem !important;
-    margin-top: auto !important;
-  }
-
-  .comp-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-  .comp-card {
-    padding: .85rem .6rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .comp-card__title {
-    font-size: .65rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: .4rem !important;
-  }
-  .comp-card__badge { font-size: .4rem !important; }
-  .comp-card__specs { font-size: .68rem !important; line-height: 1.35 !important; }
-  .comp-card__prize { font-size: .68rem !important; line-height: 1.35 !important; }
-  .comp-card .btn-pixel {
-    font-size: .42rem !important;
-    padding: .5rem .4rem !important;
-    margin-top: auto !important;
-  }
-}
-
-/* --- CONNECT 4-STEP GRID RESPONSIVE --- */
-@media (max-width: 900px) {
-  .vibe-steps-grid[style*="repeat(4"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-  }
-}
-@media (max-width: 500px) {
-  .vibe-steps-grid[style*="repeat(4"] {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-
-@media (max-width: 600px) {
-  .hero__title { font-size: clamp(1.3rem, 6vw, 2rem) !important; margin-bottom: .6rem !important; }
-  .hero__subtitle {
-    font-size: clamp(.48rem, 2.2vw, .68rem) !important;
-    padding: .45rem .85rem !important;
-    line-height: 1.5 !important;
-    max-width: 92% !important;
-    margin: 0 auto .8rem !important;
-    word-break: normal !important;
-  }
-  .hero__tagline { font-size: .78rem !important; line-height: 1.45 !important; max-width: 90% !important; margin: 0 auto 1.2rem !important; }
-  .pixel-health-bar {
-    top: -24px !important;
-  }
-  .comp-card__title {
-    font-size: .6rem !important;
-    letter-spacing: .3px !important;
-  }
-  .comp-card__specs, .comp-card__prize {
-    font-size: .65rem !important;
-  }
-}
-
-
 /* ===================================================================
-   USER REVISIONS: POPPINS FONT, ITALIC FEAT, HANGING STICKERS & SKY SUN
+   POPPINS TYPOGRAPHY & VISUAL POLISH (ZERO UNWANTED SLIDES/CONTENT)
    =================================================================== */
 
 :root {
@@ -4059,18 +3627,15 @@ em, .italic-feat, em.italic-feat {
   font-family: inherit;
 }
 
-/* 2. HEADINGS USE 'Press Start 2P' */
+/* 2. HEADINGS PRESERVE PIXEL ART FONT */
 h1, h2, h3, h4,
 .hero__title,
 .section-title,
 .btn-pixel,
 .arcade-crown,
-.arcade-leaderboard-table th,
-.arcade-leaderboard-table .td-rank,
-.arcade-leaderboard-table .td-total,
-.pixel-checkpoint-node,
-.mobile-checkpoint,
+.map-title,
 .stg-badge,
+.cp-text,
 .comp-card__name,
 .event-card__title,
 .countdown__num,
@@ -4086,6 +3651,10 @@ p, span, li, a, td, input, button,
 .event-card__desc,
 .event-card__time,
 .event-card__venue,
+.map-desc,
+.map-date,
+.map-time,
+.cp-sub,
 .comp-card__specs,
 .comp-price-label,
 .comp-prize-item,
@@ -4093,8 +3662,6 @@ p, span, li, a, td, input, button,
 .faq-question span,
 .faq-answer,
 .footer,
-.stg-desc,
-.stg-date,
 .countdown__label,
 .vibe-card__desc,
 .vibe-step__desc,
@@ -4107,7 +3674,7 @@ p, span, li, a, td, input, button,
   display: none !important;
 }
 
-/* 5. 8-BIT RETRO PIXEL SKY SUN (FLOATING HIGH IN SKY) */
+/* 5. 8-BIT RETRO PIXEL SKY SUN */
 .pixel-sky-sun {
   position: absolute;
   top: 40px;
@@ -4148,14 +3715,6 @@ p, span, li, a, td, input, button,
   z-index: 25;
 }
 
-.sticker--trophy  { top: 14%; left: 3.5%; animation: stickerFloat1 6s ease-in-out infinite alternate; }
-.sticker--torch   { top: 18%; right: 4%; animation: stickerFloat2 7s ease-in-out infinite alternate; }
-.sticker--laptop  { top: 32%; left: 2%; animation: stickerFloat2 7.5s ease-in-out infinite alternate 1.5s; }
-.sticker--badge   { top: 34%; right: 2.5%; animation: stickerFloat1 6s ease-in-out infinite alternate 2s; }
-.sticker--gamepad { top: 50%; left: 3.5%; animation: stickerFloat1 8s ease-in-out infinite alternate 1s; }
-.sticker--camera  { top: 52%; right: 3.5%; animation: stickerFloat2 6.5s ease-in-out infinite alternate .5s; }
-.sticker--sports  { top: 68%; left: 2.5%; animation: stickerFloat1 7s ease-in-out infinite alternate; }
-
 /* 7. TORCH FLICKER ANIMATION */
 @keyframes flameFlicker {
   0%, 100% { transform: scale(1) translateY(0); filter: brightness(1); }
@@ -4169,7 +3728,7 @@ p, span, li, a, td, input, button,
   animation: flameFlicker 1.2s ease-in-out infinite alternate;
 }
 
-/* 8. MOBILE VIEW (< 768px): CAREFUL SPACING & PROPORTIONS */
+/* 8. MOBILE VIEW (< 768px): 2-COLUMN CARDS & CLEAN SPACING */
 @media (max-width: 768px) {
   .hanging-sticker {
     transform: scale(0.65) !important;
@@ -4199,14 +3758,12 @@ p, span, li, a, td, input, button,
     font-size: 0.85rem !important;
     margin-bottom: 0.6rem !important;
     padding: 6px 14px !important;
-    font-family: var(--font-body) !important;
   }
   .hero__tagline {
     font-size: 0.82rem !important;
     line-height: 1.5 !important;
     margin-bottom: 1.5rem !important;
     max-width: 90% !important;
-    font-family: var(--font-body) !important;
   }
   .countdown {
     gap: 6px !important;
@@ -4221,7 +3778,6 @@ p, span, li, a, td, input, button,
   }
   .countdown__label {
     font-size: 0.65rem !important;
-    font-family: var(--font-body) !important;
   }
   .hero__cta-wrap {
     margin-bottom: 2rem !important;
@@ -4248,7 +3804,6 @@ p, span, li, a, td, input, button,
   }
   .event-card__desc,
   .comp-card__specs {
-    font-family: var(--font-body) !important;
     font-size: 0.72rem !important;
   }
   .comp-price-box,
@@ -4271,24 +3826,19 @@ p, span, li, a, td, input, button,
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
-  <a href="#hero" class="navbar__logo">PORSEMATIK 2026</a>
+  <a href="#hero" class="navbar__logo">PORSEMATIK</a>
   <ul class="navbar__links" id="navLinks">
     <li><a href="#about">About</a></li>
-    <li><a href="#events">Journey</a></li>
-    <li><a href="#competitions">Kompetisi</a></li>
+    <li><a href="#schedule">Jadwal</a></li>
+    <li><a href="#events">Events</a></li>
     <li><a href="#vibeit">VibeIT</a></li>
     <li><a href="#connect">Connect</a></li>
-    <li><a href="#schedule">Jadwal</a></li>
-    <li><a href="#leaderboard">Klasemen</a></li>
+    <li><a href="#competitions">Kompetisi</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li class="nav-sfx-li"><button class="nav-sfx-btn" id="navSfxToggle" title="Toggle 8-Bit Audio">[ 🔊 SFX: ON ]</button></li>
   </ul>
-  <div class="nav-actions">
-    <button class="nav-sfx-btn nav-sfx-btn--mob" id="navSfxToggleMobile" title="Toggle 8-Bit Audio">[ 🔊 SFX ]</button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -4363,7 +3913,7 @@ p, span, li, a, td, input, button,
     </linearGradient>
   </defs>
 
-  <!-- Sun moved to high open sky in Hero -->
+  <!-- Sun placed high in hero sky -->
 
   <!-- ================= 1. DISTANT PURPLE-BLUE ALPINE PEAKS ================= -->
   <polygon points="0,280 0,160 80,130 160,170 260,110 360,180 460,120 560,200 560,280" fill="url(#distantSlope)" opacity="0.6"/>
@@ -4397,17 +3947,15 @@ p, span, li, a, td, input, button,
   <polygon points="720,45 695,65 708,60 715,75 725,60 735,72 748,58 720,45" fill="#FFFBEB"/>
   <polygon points="720,45 710,55 720,50 730,55 720,45" fill="#FFFFFF"/>
 
-  <!-- LIVELY 8-BIT PLATFORMER SUMMIT HERO & FLAMING TORCH (X: 720, Y: 45) -->
+    <!-- LIVELY 8-BIT PLATFORMER SUMMIT HERO & FLAMING TORCH (X: 720, Y: 45) -->
   <g class="summit-climber-group" shape-rendering="crispEdges">
     <!-- Glowing Flame Aura / Halo -->
     <circle cx="738" cy="14" r="16" fill="#FF9800" opacity="0.4" class="torch-halo"/>
     <circle cx="738" cy="14" r="8" fill="#FDE047" opacity="0.5" class="torch-core"/>
 
     <!-- SUMMIT TORCH (Right Hand Raised High) -->
-    <!-- Torch Pole / Staff -->
     <rect x="736" y="20" width="4" height="24" fill="#58240C"/>
     <rect x="737" y="22" width="2" height="20" fill="#8B4513"/>
-    <!-- Torch Gold Bracket / Head -->
     <rect x="733" y="16" width="10" height="5" fill="#D97706"/>
     <rect x="734" y="17" width="8" height="3" fill="#F59E0B"/>
     <!-- Multi-tier Animated 8-bit Flame -->
@@ -4990,111 +4538,8 @@ p, span, li, a, td, input, button,
 
   <!-- [START] Button placed comfortably in open sky above the summit -->
   <div class="hero__cta-wrap">
-    <a href="https://linktr.ee/porsematik2026" class="btn-pixel btn-pixel--start" target="_blank" rel="noopener">
-      [ START ]
-      <svg class="pixel-cursor-icon" viewBox="0 0 16 16" width="14" height="14" style="display:inline-block;vertical-align:middle;margin-left:6px;">
-        <path d="M2,2 L2,14 L6,10 L9,14 L11,13 L8,9 L13,9 Z" fill="#FFFFFF"/>
-        <path d="M3,4 L3,12 L5.5,9.5 L8.5,13.5 L9.5,13 L6.5,9 L10.5,9 Z" fill="#181924"/>
-      </svg>
-    </a>
+    <a href="https://linktr.ee/porsematik2026" class="btn-pixel" target="_blank" rel="noopener">[ START ]</a>
     
-  </div>
-
-  <!-- 7 SWAYING FLOATING 8-BIT PIXEL STICKERS (HERO SKY) -->
-  <div class="hanging-sticker sticker--trophy" title="Piala Bergilir Milad 32">
-    <svg viewBox="0 0 64 64" width="56" height="56" class="sticker-svg">
-      <path d="M16,6 h32 v8 h8 v18 h-10 v10 h6 v6 h-14 v8 h10 v4 h-28 v-4 h10 v-8 h-14 v-6 h6 v-10 h-10 v-18 h8 Z" fill="#FFFFFF"/>
-      <path d="M18,8 h28 v6 h-28 Z M18,14 h28 v8 h-4 v6 h-6 v6 h-8 v-6 h-6 v-6 h-4 Z" fill="#F59E0B"/>
-      <path d="M22,10 h6 v10 h-4 v-6 h-2 Z" fill="#FDE68A"/>
-      <path d="M38,10 h4 v14 h-4 Z" fill="#D97706"/>
-      <path d="M12,16 h4 v10 h-4 Z M10,18 h2 v6 h-2 Z" fill="#F59E0B"/>
-      <path d="M48,16 h4 v10 h-4 Z M52,18 h2 v6 h-2 Z" fill="#F59E0B"/>
-      <text x="32" y="24" font-family="'Press Start 2P', monospace" font-size="7" fill="#78350F" text-anchor="middle" font-weight="bold">32</text>
-      <rect x="28" y="38" width="8" height="8" fill="#D97706"/>
-      <rect x="20" y="46" width="24" height="6" fill="#181924"/>
-      <rect x="22" y="48" width="20" height="2" fill="#F59E0B"/>
-    </svg>
-    <span class="sticker-label">MILAD 32</span>
-  </div>
-
-  <div class="hanging-sticker sticker--torch" title="Ignite the Summit">
-    <svg viewBox="0 0 48 56" width="46" height="54" class="sticker-svg">
-      <path d="M14,4 h20 v16 h-4 v14 h-4 v18 h-8 v-18 h-4 v-14 Z" fill="#FFFFFF"/>
-      <rect x="20" y="30" width="8" height="22" fill="#78350F"/>
-      <rect x="22" y="32" width="2" height="18" fill="#FDE68A"/>
-      <rect x="16" y="20" width="16" height="10" fill="#D97706"/>
-      <rect x="18" y="22" width="12" height="6" fill="#F59E0B"/>
-      <path d="M20,6 h8 v6 h4 v6 h-16 v-6 h4 Z" fill="#EF4444"/>
-      <path d="M22,8 h4 v4 h2 v4 h-8 v-4 h2 Z" fill="#F59E0B"/>
-      <rect x="23" y="10" width="2" height="4" fill="#FFFDE7"/>
-    </svg>
-    <span class="sticker-label">IGNITE!</span>
-  </div>
-
-  <div class="hanging-sticker sticker--gamepad" title="E-Sport MLBB">
-    <svg viewBox="0 0 60 40" width="52" height="34" class="sticker-svg">
-      <path d="M6,6 h48 v28 h-48 Z" fill="#FFFFFF"/>
-      <rect x="8" y="8" width="44" height="24" fill="#1F2937" rx="3"/>
-      <rect x="15" y="14" width="4" height="12" fill="#9CA3AF"/>
-      <rect x="11" y="18" width="12" height="4" fill="#9CA3AF"/>
-      <circle cx="41" cy="18" r="2.5" fill="#EF4444"/>
-      <circle cx="47" cy="22" r="2.5" fill="#F59E0B"/>
-      <rect x="25" y="22" width="4" height="2" fill="#4B5563"/>
-      <rect x="31" y="22" width="4" height="2" fill="#4B5563"/>
-    </svg>
-    <span class="sticker-label">E-SPORT</span>
-  </div>
-
-  <div class="hanging-sticker sticker--sports" title="Sports Competition (Futsal & Basket)">
-    <svg viewBox="0 0 54 54" width="48" height="48" class="sticker-svg px-bounce-ball">
-      <circle cx="27" cy="27" r="23" fill="#FFFFFF"/>
-      <circle cx="27" cy="27" r="20" fill="#F8FAFC"/>
-      <polygon points="27,15 33,20 31,27 23,27 21,20" fill="#1E293B"/>
-      <polygon points="27,15 27,8 20,11 21,20" fill="#1E293B"/>
-      <polygon points="33,20 39,18 40,24 31,27" fill="#1E293B"/>
-      <polygon points="23,27 15,28 17,21 21,20" fill="#1E293B"/>
-      <polygon points="31,27 34,35 27,38 23,27" fill="#1E293B"/>
-      <circle cx="41" cy="39" r="10" fill="#FFFFFF"/>
-      <circle cx="41" cy="39" r="8.5" fill="#EA580C"/>
-      <line x1="33" y1="39" x2="49" y2="39" stroke="#7C2D12" stroke-width="1.2"/>
-      <line x1="41" y1="31" x2="41" y2="47" stroke="#7C2D12" stroke-width="1.2"/>
-    </svg>
-    <span class="sticker-label">SPORTS</span>
-  </div>
-
-  <div class="hanging-sticker sticker--camera" title="Lensa Bercerita">
-    <svg viewBox="0 0 52 44" width="48" height="40" class="sticker-svg">
-      <path d="M4,10 h44 v30 h-44 Z M16,4 h20 v6 h-20 Z" fill="#FFFFFF"/>
-      <rect x="6" y="12" width="40" height="26" fill="#374151" rx="2"/>
-      <rect x="18" y="6" width="16" height="6" fill="#4B5563"/>
-      <circle cx="26" cy="25" r="9" fill="#1F2937"/>
-      <circle cx="26" cy="25" r="6" fill="#60A5FA"/>
-      <circle cx="28" cy="23" r="2" fill="#FFFFFF"/>
-      <rect x="10" y="15" width="6" height="4" fill="#FDE68A"/>
-    </svg>
-    <span class="sticker-label">ART &amp; PHOTO</span>
-  </div>
-
-  <div class="hanging-sticker sticker--laptop" title="UI/UX & Vibe Coding">
-    <svg viewBox="0 0 54 44" width="48" height="40" class="sticker-svg">
-      <path d="M8,6 h38 v26 h-38 Z M2,32 h50 v8 h-50 Z" fill="#FFFFFF"/>
-      <rect x="10" y="8" width="34" height="22" fill="#111827"/>
-      <text x="14" y="18" font-family="'Press Start 2P', monospace" font-size="4" fill="#2ECC40">&gt;_UII</text>
-      <text x="14" y="25" font-family="'Press Start 2P', monospace" font-size="3.5" fill="#FFD166">2026</text>
-      <rect x="4" y="34" width="46" height="4" fill="#4B5563"/>
-    </svg>
-    <span class="sticker-label">UI/UX &amp; CODE</span>
-  </div>
-
-  <div class="hanging-sticker sticker--badge" title="Established 1994">
-    <svg viewBox="0 0 56 56" width="48" height="48" class="sticker-svg">
-      <polygon points="28,4 34,12 44,8 44,19 54,21 49,30 55,38 45,41 43,51 33,48 28,55 23,48 13,51 11,41 1,38 7,30 2,21 12,19 12,8 22,12" fill="#FFFFFF"/>
-      <polygon points="28,7 33,14 42,10 42,20 51,22 46,30 51,37 42,40 40,48 32,45 28,51 24,45 16,48 14,40 5,37 10,30 5,22 14,20 14,10 23,14" fill="#FF8C00"/>
-      <circle cx="28" cy="30" r="14" fill="#FFFBEB"/>
-      <text x="28" y="29" font-family="'Press Start 2P', monospace" font-size="6" fill="#92400E" text-anchor="middle" font-weight="bold">EST.</text>
-      <text x="28" y="36" font-family="'Press Start 2P', monospace" font-size="6.5" fill="#B45309" text-anchor="middle" font-weight="bold">1994</text>
-    </svg>
-    <span class="sticker-label">32 TH</span>
   </div>
 </section>
 
@@ -5131,30 +4576,10 @@ p, span, li, a, td, input, button,
         PORSEMATIK adalah ajang tahunan bergengsi yang mempertemukan mahasiswa Informatika FTI UII dari berbagai angkatan dalam kompetisi olahraga, seni, edukasi, dan e-Sports. Tahun ini, PORSEMATIK hadir berkolaborasi dengan semarak perayaan Milad Informatika ke-32 untuk merayakan kebersamaan, daya lentur, dan semangat sportivitas tanpa batas.
       </p>
       <p style="text-align: center; font-size: 1rem; line-height: 1.8; color: #475569;">
-        Diselenggarakan oleh <strong>Panitia Pelaksana PORSEMATIK <em class="italic-feat">feat.</em> Milad Informatika Tahun 2026</strong> di bawah naungan <strong>Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2025/2026</strong>, acara ini bertujuan mempererat solidaritas, mengasah potensi bakat mahasiswa, dan membangun sinergi inklusif civitas akademika.
+        Diselenggarakan oleh <strong>Panitia Pelaksana PORSEMATIK feat. Milad Informatika Tahun 2026</strong> di bawah naungan <strong>Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2025/2026</strong>, acara ini bertujuan mempererat solidaritas, mengasah potensi bakat mahasiswa, dan membangun sinergi inklusif civitas akademika.
       </p>
     </div>
 
-
-        <!-- IMPACT & ASPIRATION STATS BAR (ALA ARKAVIDIA) -->
-    <div class="stats-bar reveal">
-      <div class="stat-card">
-        <div class="stat-card__num">32 TAHUN</div>
-        <div class="stat-card__desc">Perayaan Milad Informatika FTI UII</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">219+</div>
-        <div class="stat-card__desc">Responden Aspirasi Mahasiswa Informatika</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">86,3%</div>
-        <div class="stat-card__desc">Menilai Penyelenggaraan PORSENI Penting</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">94,5%</div>
-        <div class="stat-card__desc">Mempererat Solidaritas &amp; Silaturahmi Angkatan</div>
-      </div>
-    </div>
 
     <!-- SUMMIT PHILOSOPHY CARD (IGNITE THE SUMMIT) -->
     <div class="summit-card reveal" style="max-width:840px;margin:2.5rem auto 3.5rem;background:linear-gradient(135deg, #FEF3C7, #FFFBEB);border:2px solid #F59E0B;border-radius:12px;padding:1.6rem 2rem;text-align:center;box-shadow:4px 4px 0 #D97706;">
@@ -5205,262 +4630,109 @@ p, span, li, a, td, input, button,
 <!-- SCHEDULE (8-BIT LEVEL MAP / CHECKPOINT TIMELINE) -->
 <section class="schedule" id="schedule">
   <div class="container" style="text-align: center;">
-    <span class="vibe-tag" style="background:#DCFCE7;color:#15803D;">TIMELINE &amp; MASTER SCHEDULE</span>
+    <span class="vibe-tag" style="background:#DCFCE7;color:#15803D;">WORLD MAP • 6 STAGES</span>
     <h2 class="section-title reveal" style="color:#15803D !important;margin-top:.4rem;text-align:center;">Jadwal Pelaksanaan Acara</h2>
-    <p class="section-subtitle reveal" style="color:#166534 !important;text-align:center;">Alur tahapan pendaftaran dan rangkaian 6 stage pelaksanaan PORSEMATIK feat. Milad Informatika 2026.</p>
+    <p class="section-subtitle reveal" style="color:#166534 !important;text-align:center;">Rangkaian 6 stage kompetisi dan kegiatan PORSEMATIK feat. Milad Informatika Tahun 2026.</p>
 
-    <!-- ================= BAGIAN A: TIMELINE TAHAPAN UTAMA (ALA ARKAVIDIA) ================= -->
-    <div class="timeline-milestone-wrap reveal">
-      <h3 class="timeline-heading">★ TIMELINE TAHAPAN PENDAFTARAN &amp; KOMPETISI ★</h3>
-      <div class="milestones-grid">
-        <div class="milestone-box">
-          <div class="milestone-badge">TAHAP 1</div>
-          <div class="milestone-date">10 – 13 Nov 2026</div>
-          <h4 class="milestone-title">Pendaftaran Lomba</h4>
-          <p class="milestone-desc">Buka 10 Nov (12.00 WIB) s.d. 13 Nov (12.00 WIB) via portal linktr.ee/porsematik2026</p>
-        </div>
-        <div class="milestone-box">
-          <div class="milestone-badge">TAHAP 2</div>
-          <div class="milestone-date">Sabtu, 14 Nov 2026</div>
-          <h4 class="milestone-title">Technical Meeting</h4>
-          <p class="milestone-desc">Daring via Zoom / Google Meet untuk seluruh perwakilan cabang kompetisi</p>
-        </div>
-        <div class="milestone-box">
-          <div class="milestone-badge">TAHAP 3</div>
-          <div class="milestone-date">16 – 18 Nov 2026</div>
-          <h4 class="milestone-title">Pengumpulan Karya</h4>
-          <p class="milestone-desc">Batas akhir submit Poster, Fotografi, &amp; UI/UX Study Case (18 Nov pukul 23.59 WIB)</p>
-        </div>
-        <div class="milestone-box">
-          <div class="milestone-badge">TAHAP 4</div>
-          <div class="milestone-date">19 – 21 Nov 2026</div>
-          <h4 class="milestone-title">Pameran &amp; E-Voting</h4>
-          <p class="milestone-desc">Voting Juara Favorit Poster &amp; Fotografi via akun student UII &amp; Instagram @porsematik</p>
-        </div>
-        <div class="milestone-box milestone-box--highlight">
-          <div class="milestone-badge" style="background:#F59E0B;color:#181924;">TAHAP 5</div>
-          <div class="milestone-date">16 – 22 Nov 2026</div>
-          <h4 class="milestone-title">Pekan Pelaksanaan</h4>
-          <p class="milestone-desc">6 Hari festival olahraga, seni, edukasi AI, hingga Awarding Night &amp; Closing Ceremony!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= BAGIAN B: 6-STAGE ROADMAP (DESKTOP & MOBILE RESPONSIVE) ================= -->
     <div class="pixel-map-container reveal">
-      <div class="roadmap-header">
-        <h3 class="timeline-heading" style="color:#B45309;">🗺️ 6-STAGE EVENT ROADMAP</h3>
-        <p style="font-size:.85rem;color:#78350F;margin-bottom:1.5rem;">Jalur perjalanan 6 stage PORSEMATIK MMXXVI. Klik kartu untuk melihat detail rundown!</p>
-      </div>
+      <div class="pixel-map-track">
+        <!-- 8-Bit Pixel Dirt Road Path with Centerline -->
+        <div class="pixel-road">
+          <div class="pixel-road-line"></div>
+        </div>
 
-      <!-- DESKTOP 6-STAGE HORIZONTAL PIXEL ROAD (HIDDEN ON MOBILE TO PREVENT BROKEN EMPTY HOLES) -->
-      <div class="desktop-roadmap">
-        <div class="pixel-map-track">
-          <!-- 8-Bit Pixel Dirt Road Path with Centerline -->
-          <div class="pixel-road">
-            <div class="pixel-road-line"></div>
-          </div>
+        <!-- Top Checkpoints Row (STG 2, STG 4, STG 6) -->
+        <div class="map-row map-row--top">
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Top Checkpoints Row (STG 2, STG 4, STG 6) -->
-          <div class="map-row map-row--top">
-            <div class="map-slot map-slot--empty"></div>
-
-            <!-- STG 2 -->
-            <div class="map-slot">
-              <div class="map-card stage-clickable" data-target-day="2">
-                <span class="stg-badge stg-badge--amber">STG 2</span>
-                <div class="map-date">Selasa, 17 Nov 2026</div>
-                <div class="map-time">06.00 – 21.30 WIB</div>
-                <h4 class="map-title">Informatics Connect, Basket &amp; Futsal</h4>
-                <p class="map-desc">Lapangan Utara &amp; GOR UII • Tumpengan Milad ke-32, dilanjutkan babak penyisihan Basket &amp; Futsal.</p>
-              </div>
-            </div>
-
-            <div class="map-slot map-slot--empty"></div>
-
-            <!-- STG 4 -->
-            <div class="map-slot">
-              <div class="map-card stage-clickable" data-target-day="4">
-                <span class="stg-badge stg-badge--purple">STG 4</span>
-                <div class="map-date">Kamis, 19 Nov 2026</div>
-                <div class="map-time">18.10 – 21.10 WIB</div>
-                <h4 class="map-title">Quarter Final &amp; Semifinal MLBB</h4>
-                <p class="map-desc">Auditorium FTI UII • Pertarungan sengit babak perempat final &amp; semifinal Mobile Legends.</p>
-              </div>
-            </div>
-
-            <div class="map-slot map-slot--empty"></div>
-
-            <!-- STG 6 -->
-            <div class="map-slot">
-              <div class="map-card stage-clickable stage-card--gold" data-target-day="6">
-                <span class="stg-badge stg-badge--gold">STG 6</span>
-                <div class="map-date">Minggu, 22 Nov 2026</div>
-                <div class="map-time">19.15 – 21.30 WIB</div>
-                <h4 class="map-title">Awarding Night &amp; Closing</h4>
-                <p class="map-desc">Lapangan Utara GOR UII • Malam puncak after movie, pengumuman Juara Umum &amp; penutup KOSMIK.</p>
-              </div>
+          <!-- STG 2 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--amber">STG 2</span>
+              <div class="map-date">Selasa, 17 Nov 2026</div>
+              <div class="map-time">06.00 – 21.30 WIB</div>
+              <h4 class="map-title">Informatics Connect, Basket &amp; Futsal</h4>
+              <p class="map-desc">Lapangan Utara &amp; GOR UII • Tumpengan Milad ke-32, dilanjutkan babak penyisihan Basket &amp; Futsal.</p>
             </div>
           </div>
 
-          <!-- Center Road Track with Interactive Checkpoints -->
-          <div class="map-road-strip">
-            <div class="map-node-wrap"><div class="checkpoint-box stage-clickable" data-target-day="1" title="Stage 1: 16 Nov"><span class="cp-text">STG 1</span></div><span class="cp-sub">16 Nov</span></div>
-            <div class="map-node-wrap"><div class="checkpoint-box stage-clickable" data-target-day="2" title="Stage 2: 17 Nov"><span class="cp-text">STG 2</span></div><span class="cp-sub">17 Nov</span></div>
-            <div class="map-node-wrap"><div class="checkpoint-box stage-clickable" data-target-day="3" title="Stage 3: 18 Nov"><span class="cp-text">STG 3</span></div><span class="cp-sub">18 Nov</span></div>
-            <div class="map-node-wrap"><div class="checkpoint-box stage-clickable" data-target-day="4" title="Stage 4: 19 Nov"><span class="cp-text">STG 4</span></div><span class="cp-sub">19 Nov</span></div>
-            <div class="map-node-wrap"><div class="checkpoint-box stage-clickable" data-target-day="5" title="Stage 5: 21 Nov"><span class="cp-text">STG 5</span></div><span class="cp-sub">21 Nov</span></div>
-            <div class="map-node-wrap"><div class="checkpoint-box checkpoint-box--gold stage-clickable" data-target-day="6" title="Stage 6: 22 Nov"><span class="cp-text">STG 6</span></div><span class="cp-sub">22 Nov</span></div>
-          </div>
+          <div class="map-slot map-slot--empty"></div>
 
-          <!-- Bottom Checkpoints Row (STG 1, STG 3, STG 5) -->
-          <div class="map-row map-row--bottom">
-            <!-- STG 1 -->
-            <div class="map-slot">
-              <div class="map-card stage-clickable" data-target-day="1">
-                <span class="stg-badge stg-badge--green">STG 1</span>
-                <div class="map-date">Senin, 16 Nov 2026</div>
-                <div class="map-time">17.50 – 21.50 WIB</div>
-                <h4 class="map-title">Pembukaan &amp; Futsal Match 1–5</h4>
-                <p class="map-desc">GOR Ki Bagoes Hadikoesoemo • Opening resmi, penyisihan Futsal pool A &amp; B.</p>
-              </div>
+          <!-- STG 4 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--purple">STG 4</span>
+              <div class="map-date">Kamis, 19 Nov 2026</div>
+              <div class="map-time">18.10 – 21.10 WIB</div>
+              <h4 class="map-title">Quarter Final &amp; Semi Final MLBB</h4>
+              <p class="map-desc">Auditorium FTI UII • Laga eliminasi perempat final (BO1) dan semifinal (BO3) Mobile Legends.</p>
             </div>
+          </div>
 
-            <div class="map-slot map-slot--empty"></div>
+          <div class="map-slot map-slot--empty"></div>
 
-            <!-- STG 3 -->
-            <div class="map-slot">
-              <div class="map-card stage-clickable" data-target-day="3">
-                <span class="stg-badge stg-badge--emerald">STG 3</span>
-                <div class="map-date">Rabu, 18 Nov 2026</div>
-                <div class="map-time">18.00 – 21.30 WIB</div>
-                <h4 class="map-title">Grand Final Futsal &amp; Basket</h4>
-                <p class="map-desc">GOR Ki Bagoes Hadikoesoemo • Grand Final Futsal Match 13, kelanjutan Basket, &amp; batas submit karya (23.59 WIB).</p>
-              </div>
+          <!-- STG 6 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--gold">STG 6 🏆</span>
+              <div class="map-date">Minggu, 22 Nov 2026</div>
+              <div class="map-time">19.15 – 21.30 WIB</div>
+              <h4 class="map-title">Awarding Night &amp; Closing Ceremony</h4>
+              <p class="map-desc">Lapangan Utara GOR UII • Penobatan Juara Umum Angkatan, penayangan after movie, &amp; konser KOSMIK.</p>
             </div>
+          </div>
+        </div>
 
-            <div class="map-slot map-slot--empty"></div>
+        <!-- Checkpoints Flag Nodes Line -->
+        <div class="map-nodes-row">
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 1: 16 Nov"><span class="cp-text">STG 1</span></div><span class="cp-sub">16 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box checkpoint-box--active" title="Stage 2: 17 Nov"><span class="cp-text">STG 2</span></div><span class="cp-sub">17 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 3: 18 Nov"><span class="cp-text">STG 3</span></div><span class="cp-sub">18 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 4: 19 Nov"><span class="cp-text">STG 4</span></div><span class="cp-sub">19 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box" title="Stage 5: 21 Nov"><span class="cp-text">STG 5</span></div><span class="cp-sub">21 Nov</span></div>
+          <div class="map-node-wrap"><div class="checkpoint-box checkpoint-box--boss" title="Stage 6: 22 Nov"><span class="cp-text">STG 6</span></div><span class="cp-sub">22 Nov</span></div>
+        </div>
 
-            <!-- STG 5 -->
-            <div class="map-slot">
-              <div class="map-card stage-clickable" data-target-day="5">
-                <span class="stg-badge stg-badge--sky">STG 5</span>
-                <div class="map-date">Sabtu, 21 Nov 2026</div>
-                <div class="map-time">07.30 – 17.20 WIB</div>
-                <h4 class="map-title">VibeIT, UI/UX &amp; Grand Final MLBB</h4>
-                <p class="map-desc">Lab FTI, Learning Space 2, &amp; Auditorium • Workshop VibeIT, presentasi UI/UX, &amp; perebutan Juara 1–3 MLBB.</p>
-              </div>
+        <!-- Bottom Checkpoints Row (STG 1, STG 3, STG 5) -->
+        <div class="map-row map-row--bottom">
+          <!-- STG 1 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--green">STG 1</span>
+              <div class="map-date">Senin, 16 Nov 2026</div>
+              <div class="map-time">17.50 – 21.50 WIB</div>
+              <h4 class="map-title">Pembukaan &amp; Penyisihan Futsal (1–5)</h4>
+              <p class="map-desc">GOR Ki Bagoes Hadikoesoemo UII • Upacara pembukaan akbar dan laga perdana babak grup futsal.</p>
             </div>
-
-            <div class="map-slot map-slot--empty"></div>
           </div>
-        </div>
-      </div>
 
-      <!-- MOBILE 6-STAGE VERTICAL/2-COL ROADMAP (NO BROKEN EMPTY HOLES!) -->
-      <div class="mobile-roadmap">
-        <div class="mobile-stage-grid">
-          <div class="mobile-stage-card stage-clickable" data-target-day="1">
-            <span class="stg-badge stg-badge--green">STG 1</span>
-            <div class="map-date">Senin, 16 Nov</div>
-            <div class="map-time">17.50 – 21.50 WIB</div>
-            <h4 class="map-title">Pembukaan &amp; Futsal 1–5</h4>
-            <p class="map-desc">GOR UII • Opening &amp; match penyisihan Futsal pool A &amp; B.</p>
+          <div class="map-slot map-slot--empty"></div>
+
+          <!-- STG 3 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--orange">STG 3</span>
+              <div class="map-date">Rabu, 18 Nov 2026</div>
+              <div class="map-time">18.00 – 23.59 WIB</div>
+              <h4 class="map-title">Grand Final Futsal, Basket &amp; Deadline</h4>
+              <p class="map-desc">GOR UII • Laga puncak Final Futsal &amp; Basket, serta batas akhir pengumpulan karya digital (23.59 WIB).</p>
+            </div>
           </div>
-          <div class="mobile-stage-card stage-clickable" data-target-day="2">
-            <span class="stg-badge stg-badge--amber">STG 2</span>
-            <div class="map-date">Selasa, 17 Nov</div>
-            <div class="map-time">06.00 – 21.30 WIB</div>
-            <h4 class="map-title">Informatics Connect, Basket &amp; Futsal</h4>
-            <p class="map-desc">Lap. Utara &amp; GOR UII • Tumpengan Milad 32 &amp; penyisihan Basket/Futsal.</p>
+
+          <div class="map-slot map-slot--empty"></div>
+
+          <!-- STG 5 -->
+          <div class="map-slot">
+            <div class="map-card">
+              <span class="stg-badge stg-badge--cyan">STG 5</span>
+              <div class="map-date">Sabtu, 21 Nov 2026</div>
+              <div class="map-time">07.30 – 17.20 WIB</div>
+              <h4 class="map-title">VibeIT, Final UI/UX &amp; GF MLBB</h4>
+              <p class="map-desc">Lab 3.2 FTI &amp; Auditorium • Workshop Vibe Coding SMA, Presentasi UI/UX, &amp; Grand Final MLBB.</p>
+            </div>
           </div>
-          <div class="mobile-stage-card stage-clickable" data-target-day="3">
-            <span class="stg-badge stg-badge--emerald">STG 3</span>
-            <div class="map-date">Rabu, 18 Nov</div>
-            <div class="map-time">18.00 – 21.30 WIB</div>
-            <h4 class="map-title">Grand Final Futsal &amp; Basket</h4>
-            <p class="map-desc">GOR UII • Final Futsal &amp; batas submit karya Poster/Foto/UIUX.</p>
-          </div>
-          <div class="mobile-stage-card stage-clickable" data-target-day="4">
-            <span class="stg-badge stg-badge--purple">STG 4</span>
-            <div class="map-date">Kamis, 19 Nov</div>
-            <div class="map-time">18.10 – 21.10 WIB</div>
-            <h4 class="map-title">QF &amp; Semifinal MLBB</h4>
-            <p class="map-desc">Auditorium FTI • Babak gugur Mobile Legends Bang Bang.</p>
-          </div>
-          <div class="mobile-stage-card stage-clickable" data-target-day="5">
-            <span class="stg-badge stg-badge--sky">STG 5</span>
-            <div class="map-date">Sabtu, 21 Nov</div>
-            <div class="map-time">07.30 – 17.20 WIB</div>
-            <h4 class="map-title">VibeIT, UI/UX &amp; Final MLBB</h4>
-            <p class="map-desc">Lab FTI &amp; Auditorium • Workshop AI, Final UI/UX, &amp; Final MLBB.</p>
-          </div>
-          <div class="mobile-stage-card stage-clickable stage-card--gold" data-target-day="6">
-            <span class="stg-badge stg-badge--gold">STG 6</span>
-            <div class="map-date">Minggu, 22 Nov</div>
-            <div class="map-time">19.15 – 21.30 WIB</div>
-            <h4 class="map-title">Awarding Night &amp; Closing</h4>
-            <p class="map-desc">Lap. Utara GOR UII • Malam penganugerahan Juara &amp; KOSMIK.</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- DAILY RUNDOWN TABS (INTERACTIVE ACCORDION / TABS) -->
-    <div class="rundown-tabs-wrap reveal" style="margin-top: 3rem;">
-      <h3 class="timeline-heading" style="color:#15803D;margin-bottom:1.5rem;">📋 RUNDOWN DETAIL HARIAN (HARI 1 – 6)</h3>
-      <div class="day-tabs">
-        <button class="day-tab active" data-day="1">HARI 1 (16 NOV)</button>
-        <button class="day-tab" data-day="2">HARI 2 (17 NOV)</button>
-        <button class="day-tab" data-day="3">HARI 3 (18 NOV)</button>
-        <button class="day-tab" data-day="4">HARI 4 (19 NOV)</button>
-        <button class="day-tab" data-day="5">HARI 5 (21 NOV)</button>
-        <button class="day-tab" data-day="6">HARI 6 (22 NOV)</button>
-      </div>
-
-      <div class="day-content active" id="day-1">
-        <div class="timeline">
-          <div class="timeline__item"><div class="timeline__time">17.50 – 18.10</div><div class="timeline__desc">Opening Ceremony PORSEMATIK feat. Milad Informatika ke-32</div><div class="timeline__venue">GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">18.10 – 21.50</div><div class="timeline__desc">Babak Penyisihan Futsal (Match 1 s.d. 5)</div><div class="timeline__venue">GOR Ki Bagoes Hadikoesoemo UII</div></div>
-        </div>
-      </div>
-
-      <div class="day-content" id="day-2">
-        <div class="timeline">
-          <div class="timeline__item"><div class="timeline__time">06.00 – 09.00</div><div class="timeline__desc">Informatics Connect (Tumpengan Milad ke-32, Senam Bersama, Estafet Sarung, Kuliner UMKM, Photobooth, Akustik KOSMIK)</div><div class="timeline__venue">Lapangan Utara GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">09.00 – 14.30</div><div class="timeline__desc">Babak Penyisihan Basket (Match 1 s.d. 4)</div><div class="timeline__venue">GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">14.30 – 21.30</div><div class="timeline__desc">Lanjutan Penyisihan Futsal (Match 6 s.d. 12)</div><div class="timeline__venue">GOR Ki Bagoes Hadikoesoemo UII</div></div>
-        </div>
-      </div>
-
-      <div class="day-content" id="day-3">
-        <div class="timeline">
-          <div class="timeline__item"><div class="timeline__time">18.00 – 20.00</div><div class="timeline__desc">Lanjutan Babak Basket (Match 5 &amp; 6)</div><div class="timeline__venue">GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">20.00 – 21.30</div><div class="timeline__desc">Grand Final Futsal (Match 13)</div><div class="timeline__venue">GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">23.59 WIB</div><div class="timeline__desc">Batas Akhir Pengumpulan Karya Daring (Poster Digital, Photography &amp; Narrative, Study Case UI/UX)</div><div class="timeline__venue">Google Form / Tautan Resmi</div></div>
-        </div>
-      </div>
-
-      <div class="day-content" id="day-4">
-        <div class="timeline">
-          <div class="timeline__item"><div class="timeline__time">18.10 – 20.10</div><div class="timeline__desc">Perempat Final (Quarter Final) E-Sport Mobile Legends (BO1)</div><div class="timeline__venue">Auditorium FTI UII (Lantai 3)</div></div>
-          <div class="timeline__item"><div class="timeline__time">20.10 – 21.10</div><div class="timeline__desc">Semifinal E-Sport Mobile Legends (BO3)</div><div class="timeline__venue">Auditorium FTI UII (Lantai 3)</div></div>
-        </div>
-      </div>
-
-      <div class="day-content" id="day-5">
-        <div class="timeline">
-          <div class="timeline__item"><div class="timeline__time">07.30 – 11.00</div><div class="timeline__desc">VibeIT: AI Vibe Coding Workshop bersama GDGOC UII (50 Siswa SMA/SLTA)</div><div class="timeline__venue">Ruang Kelas 3.2 Lab FTI UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">13.00 – 14.20</div><div class="timeline__desc">Presentasi Final Karya UI/UX Competition</div><div class="timeline__venue">Learning Space 2 FTI UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">14.30 – 17.20</div><div class="timeline__desc">Perebutan Juara 3 (BO1) &amp; Grand Final Mobile Legends (BO5)</div><div class="timeline__venue">Auditorium FTI UII (Lantai 3)</div></div>
-        </div>
-      </div>
-
-      <div class="day-content" id="day-6">
-        <div class="timeline">
-          <div class="timeline__item"><div class="timeline__time">19.15 – 19.45</div><div class="timeline__desc">Opening Awarding Night, Penayangan After Movie PORSEMATIK 2026, &amp; Sambutan</div><div class="timeline__venue">Lapangan Utara GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">19.45 – 21.00</div><div class="timeline__desc">Pengumuman Pemenang Seluruh Cabang Lomba &amp; Penobatan Juara Umum Angkatan</div><div class="timeline__venue">Lapangan Utara GOR Ki Bagoes Hadikoesoemo UII</div></div>
-          <div class="timeline__item"><div class="timeline__time">21.00 – 21.30</div><div class="timeline__desc">Penampilan Musik Angkatan &amp; Penutup Spesial oleh KOSMIK</div><div class="timeline__venue">Lapangan Utara GOR Ki Bagoes Hadikoesoemo UII</div></div>
+          <div class="map-slot map-slot--empty"></div>
         </div>
       </div>
     </div>
@@ -5472,32 +4744,24 @@ p, span, li, a, td, input, button,
 
 <!-- EVENTS HIGHLIGHT -->
 <section class="events" id="events">
-  <div class="container" style="text-align: center;">
-    <span class="vibe-badge" style="color:#E11D48;background:#FFE4E6;border-color:#FECDD3;margin-bottom:.8rem;">CHOOSE YOUR JOURNEY</span>
-    <h2 class="section-title reveal" style="text-align: center;">Rangkaian Acara Utama</h2>
-    <p class="section-subtitle reveal" style="text-align: center;">4 pilar kegiatan utama perayaan PORSEMATIK feat. Milad Informatika ke-32.</p>
+  <div class="container">
+    <h2 class="section-title reveal">Events Highlight</h2>
+    <p class="section-subtitle reveal">Rangkaian acara utama kolaborasi PORSEMATIK &amp; Milad Informatika ke-32.</p>
 
     <div class="events__grid reveal">
       <!-- 1. Pembukaan -->
       <div class="event-card event-card--rose">
         <div class="event-card__date">16 Nov 2026</div>
-        <h3 class="event-card__title">
-          <svg class="px-icon px-icon--md" viewBox="0 0 16 16" style="vertical-align:middle;margin-right:4px;"><path d="M2,1 h3 v14 h-3 Z M5,2 h8 v7 h-8 Z M6,4 h6 v3 h-6 Z" fill="#E11D48"/></svg>
-          Opening Ceremony
-        </h3>
+        <h3 class="event-card__title">🎪 Opening Ceremony</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 17.50 – 18.10 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> GOR Ki Bagoes Hadikoesoemo UII</div>
         <p class="event-card__desc">Upacara pembukaan resmi PORSEMATIK feat. Milad Informatika 2026 dilanjutkan babak penyisihan turnamen Futsal Match 1–5.</p>
-        <a href="#schedule" class="btn-pixel btn-pixel--sm" style="margin-top:auto;">[ LIHAT JADWAL ]</a>
       </div>
 
       <!-- 2. Informatics Connect -->
       <div class="event-card event-card--yellow">
         <div class="event-card__date">17 Nov 2026</div>
-        <h3 class="event-card__title">
-          <svg class="px-icon px-icon--md" viewBox="0 0 16 16" style="vertical-align:middle;margin-right:4px;"><path d="M1,6 h4 v3 h-4 Z M11,6 h4 v3 h-4 Z M5,7 h6 v4 h-6 Z M3,10 h10 v2 h-10 Z M6,3 h4 v3 h-4 Z" fill="#D97706"/></svg>
-          Informatics Connect
-        </h3>
+        <h3 class="event-card__title">🤝 Informatics Connect</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 06.00 – 09.00 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Lapangan Utara GOR UII</div>
         <p class="event-card__desc">Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, kuliner UMKM (3 chip makan &amp; 1 photobooth), dan akustik KOSMIK.</p>
@@ -5507,27 +4771,19 @@ p, span, li, a, td, input, button,
       <!-- 3. VibeIT -->
       <div class="event-card event-card--purple">
         <div class="event-card__date">21 Nov 2026</div>
-        <h3 class="event-card__title">
-          <svg class="px-icon px-icon--md" viewBox="0 0 16 16" style="vertical-align:middle;margin-right:4px;"><path d="M7,1 h2 v2 h-2 Z M3,3 h10 v2 h-10 Z M2,5 h12 v9 h-12 Z M4,7 h3 v3 h-3 Z M9,7 h3 v3 h-3 Z M5,12 h6 v1 h-6 Z" fill="#7C3AED"/></svg>
-          VibeIT: AI Workshop
-        </h3>
+        <h3 class="event-card__title">🤖 VibeIT: AI Workshop</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 07.30 – 11.00 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Ruang 3.2 Lab FTI UII</div>
         <p class="event-card__desc">Pelatihan Vibe Coding eksklusif bagi 50 siswa SMA/SLTA sederajat bersama GDGOC UII untuk membuat dan deploy landing page UMKM menggunakan Lovable AI.</p>
-        <a href="#vibeit" class="btn-pixel btn-pixel--sm" style="margin-top:auto;">[ DETAIL VIBEIT ]</a>
       </div>
 
       <!-- 4. Awarding Night -->
       <div class="event-card event-card--green">
         <div class="event-card__date">22 Nov 2026</div>
-        <h3 class="event-card__title">
-          <svg class="px-icon px-icon--md" viewBox="0 0 16 16" style="vertical-align:middle;margin-right:4px;"><path d="M3,2 h10 v6 h-2 v3 h-2 v2 h2 v1 h-6 v-1 h2 v-2 h-2 v-3 h-2 Z M1,3 h2 v3 h-2 Z M13,3 h2 v3 h-2 Z" fill="#15803D"/></svg>
-          Awarding Night &amp; Penutupan
-        </h3>
+        <h3 class="event-card__title">🏆 Awarding Night &amp; Penutupan</h3>
         <div class="event-card__time"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v2 h-10 Z M1,5 h14 v6 h-14 Z M3,11 h10 v2 h-10 Z M5,13 h6 v2 h-6 Z M7,4 h2 v4 h3 v2 h-5 Z" fill="#EA580C"/></svg> 19.15 – 21.30 WIB</div>
         <div class="event-card__venue"><svg class="px-icon px-icon--sm" viewBox="0 0 16 16"><path d="M5,1 h6 v2 h-6 Z M3,3 h10 v4 h-10 Z M5,7 h6 v2 h-6 Z M6,9 h4 v3 h-4 Z M7,12 h2 v3 h-2 Z M7,4 h2 v2 h-2 Z" fill="#0284C7"/></svg> Lapangan Utara GOR UII</div>
         <p class="event-card__desc">Malam puncak penayangan after movie, pengumuman pemenang lomba &amp; Juara Umum Angkatan, stand kuliner, penampilan musik angkatan, dan penutup KOSMIK.</p>
-        <a href="#schedule" class="btn-pixel btn-pixel--sm" style="margin-top:auto;">[ LIHAT JADWAL ]</a>
       </div>
     </div>
   </div>
@@ -5700,48 +4956,68 @@ p, span, li, a, td, input, button,
       </div>
     </div>
 
-        <!-- 2. ALUR ACARA 4 FITUR UTAMA -->
+    <!-- 2. ALUR ACARA 6 LANGKAH -->
     <div class="vibe-timeline-wrap reveal">
       <div class="vibe-section-title">
-        <span class="vibe-tag" style="background:#FEF3C7;color:#B45309;">4 FITUR UTAMA</span>
-        <h3 style="text-align:center;">Rangkaian Acara Informatics Connect</h3>
+        <span class="vibe-tag" style="background:#FEF3C7;color:#B45309;">TIMELINE KEGIATAN</span>
+        <h3 style="text-align:center;">Rangkaian Acara Informatics Connect (6 Level)</h3>
       </div>
-      <div class="vibe-steps-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="vibe-steps-grid">
         <div class="vibe-step" style="text-align:center;">
           <div class="vibe-step__num" style="background:#F59E0B;">LV.1</div>
           <div class="vibe-step__time">06.00 – 06.30 WIB</div>
-          <div class="vibe-step__title">Registrasi Ulang &amp; 4 Chip</div>
-          <p class="vibe-step__desc">Scan QR Code kehadiran di meja panitia &amp; pembagian ziplock 4 chip (3 chip makan kuliner UMKM + 1 chip photobooth gratis).</p>
+          <div class="vibe-step__title">Registrasi &amp; Penukaran Chip</div>
+          <p class="vibe-step__desc">Check-in peserta di meja registrasi, pembagian 3 chip makan kuliner UMKM dan 1 chip photobooth gratis.</p>
         </div>
         <div class="vibe-step" style="text-align:center;">
-          <div class="vibe-step__num" style="background:#EA580C;">LV.2</div>
+          <div class="vibe-step__num" style="background:#F59E0B;">LV.2</div>
           <div class="vibe-step__time">06.30 – 07.15 WIB</div>
-          <div class="vibe-step__title">Tumpeng Milad &amp; Wish Note</div>
-          <p class="vibe-step__desc">Sambutan resmi Kaprodi Informatika FTI UII, pemotongan tumpeng simbolis Milad ke-32, doa bersama, &amp; pembacaan Wish Note harapan masa depan prodi.</p>
+          <div class="vibe-step__title">Senam Sehat Ceria Bersama</div>
+          <p class="vibe-step__desc">Senam pagi dipandu instruktur profesional bersama seluruh dosen, mahasiswa dari berbagai angkatan, dan alumni.</p>
         </div>
         <div class="vibe-step" style="text-align:center;">
-          <div class="vibe-step__num" style="background:#22C55E;">LV.3</div>
-          <div class="vibe-step__time">07.15 – 08.15 WIB</div>
-          <div class="vibe-step__title">Senam Bersama &amp; Estafet Sarung</div>
-          <p class="vibe-step__desc">Senam sehat bugar bersama instruktur profesional eksternal dilanjutkan lomba estafet sarung guyub gabungan mahasiswa, dosen, dan alumni.</p>
+          <div class="vibe-step__num" style="background:#F59E0B;">LV.3</div>
+          <div class="vibe-step__time">07.15 – 07.45 WIB</div>
+          <div class="vibe-step__title">Potong Tumpeng &amp; Wish Note</div>
+          <p class="vibe-step__desc">Seremoni simbolis tumpengan Milad Informatika ke-32, doa bersama, serta penempelan kertas harapan (Wish Note) masa depan prodi.</p>
         </div>
         <div class="vibe-step" style="text-align:center;">
-          <div class="vibe-step__num" style="background:#3B82F6;">LV.4</div>
-          <div class="vibe-step__time">08.15 – 09.00 WIB</div>
-          <div class="vibe-step__title">Kuliner UMKM &amp; Akustik KOSMIK</div>
-          <p class="vibe-step__desc">Sarapan santai lezat di deretan stand UMKM mahasiswa, sesi foto ceria di photobooth berputar 360°, dan penampilan musik akustik syahdu KOSMIK.</p>
+          <div class="vibe-step__num" style="background:#F59E0B;">LV.4</div>
+          <div class="vibe-step__time">07.45 – 08.15 WIB</div>
+          <div class="vibe-step__title">Lomba Estafet Sarung Guyub</div>
+          <p class="vibe-step__desc">Permainan santai estafet sarung antartim gabungan dosen dan perwakilan mahasiswa tiap angkatan untuk memupuk keakraban.</p>
+        </div>
+        <div class="vibe-step" style="text-align:center;">
+          <div class="vibe-step__num" style="background:#F59E0B;">LV.5</div>
+          <div class="vibe-step__time">08.15 – 08.45 WIB</div>
+          <div class="vibe-step__title">Festival Kuliner UMKM &amp; Photobooth</div>
+          <p class="vibe-step__desc">Menikmati sarapan lezat di stand kuliner UMKM mahasiswa menggunakan 3 chip makan dan foto seru di photobooth 360/cetak.</p>
+        </div>
+        <div class="vibe-step" style="text-align:center;">
+          <div class="vibe-step__num" style="background:#F59E0B;">LV.6</div>
+          <div class="vibe-step__time">08.45 – 09.00 WIB</div>
+          <div class="vibe-step__title">Akustik KOSMIK &amp; Penutupan</div>
+          <p class="vibe-step__desc">Penampilan musik akustik merdu dari komunitas musik KOSMIK serta penutupan resmi kegiatan pagi.</p>
         </div>
       </div>
     </div>
 
-    <!-- 4. CTA BUTTONS -->
-    <div class="vibe-actions reveal" style="justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;">
+    <!-- 3. HIGHLIGHT BOX -->
+    <div class="vibe-alert-box reveal" style="background:#ECFDF5;border-color:#10B981;box-shadow:4px 4px 0 #059669;text-align:center;">
+      <div class="vibe-alert-badge" style="color:#065F46;">FASILITAS CHIP PESERTA</div>
+      <div class="vibe-alert-body" style="justify-content:center;">
+        <div class="vibe-alert-icon"><svg class="px-icon px-icon--lg" viewBox="0 0 16 16"><path d="M4,2 h8 v2 h2 v4 h-2 v2 h-2 v2 h-4 v-2 h-2 v-6 h2 Z M5,4 h2 v2 h-2 Z M9,4 h2 v2 h-2 Z M5,7 h2 v2 h-2 Z" fill="#10B981"/></svg></div>
+        <div class="vibe-alert-text" style="color:#064E3B;text-align:center;">
+          <strong>FASILITAS PESERTA:</strong> Setiap peserta yang mendaftar dan hadir akan mendapatkan <strong>3 chip makan kuliner UMKM</strong> dan <strong>1 chip akses foto di photobooth</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CTA BUTTON (PORTAL RESMI NETLIFY) -->
+    <div class="vibe-actions reveal" style="justify-content:center;">
       <a href="https://harmonious-tarsier-a4a80a.netlify.app/" class="btn-pixel" target="_blank" rel="noopener">
-        [ DAFTAR VIA PORTAL INFORMATICS CONNECT ]
+        [ DAFTAR INFORMATICS CONNECT (MAHASISWA, DOSEN &amp; ALUMNI) ]
       </a>
-      <button class="btn-pixel btn-pixel--disabled" disabled title="Pendaftaran telah ditutup">
-        [ PENDAFTARAN DITUTUP ]
-      </button>
     </div>
   </div>
 </section>
@@ -5772,13 +5048,12 @@ p, span, li, a, td, input, button,
     </div>
 
     <!-- Filter Tabs -->
-    <!-- Filter Tabs ala Arkavidia -->
     <div class="filter-tabs reveal">
-      <button class="filter-tab active" data-filter="all">SEMUA</button>
-      <button class="filter-tab" data-filter="sports">SPORTS</button>
-      <button class="filter-tab" data-filter="esport">E-SPORT</button>
-      <button class="filter-tab" data-filter="art">SENI</button>
-      <button class="filter-tab" data-filter="education">EDUKASI</button>
+      <button class="filter-tab active" data-filter="all">Semua Lomba</button>
+      <button class="filter-tab" data-filter="sports">Sports</button>
+      <button class="filter-tab" data-filter="esport">E-Sport</button>
+      <button class="filter-tab" data-filter="art">Art (Seni)</button>
+      <button class="filter-tab" data-filter="education">Education</button>
     </div>
 
     <!-- 6 COMPACT COMPETITION CARDS IN 2-COLUMN GRID (KANAN - KIRI) -->
@@ -6052,7 +5327,32 @@ p, span, li, a, td, input, button,
     </div>
   </div>
 
-  
+  <!-- STICKER: ANIMATED BOUNCING SPORTS BALL -->
+  <div class="hanging-sticker sticker--sports" style="top: 66%; left: 3.5%;" title="Sports Competition (Futsal &amp; Basket)">
+    <div class="washi-tape washi-tape--green"></div>
+    <svg viewBox="0 0 54 54" width="48" height="48" class="sticker-svg px-bounce-ball">
+      <circle cx="27" cy="27" r="23" fill="#FFFFFF"/>
+      <circle cx="27" cy="27" r="20" fill="#F8FAFC"/>
+      <polygon points="27,15 33,20 31,27 23,27 21,20" fill="#1E293B"/>
+      <polygon points="27,15 27,8 20,11 21,20" fill="#1E293B"/>
+      <polygon points="33,20 39,18 40,24 31,27" fill="#1E293B"/>
+      <polygon points="23,27 15,28 17,21 21,20" fill="#1E293B"/>
+      <polygon points="31,27 34,35 27,38 23,27" fill="#1E293B"/>
+      <circle cx="41" cy="39" r="10" fill="#FFFFFF"/>
+      <circle cx="41" cy="39" r="8.5" fill="#EA580C"/>
+      <line x1="33" y1="39" x2="49" y2="39" stroke="#7C2D12" stroke-width="1.2"/>
+      <line x1="41" y1="31" x2="41" y2="47" stroke="#7C2D12" stroke-width="1.2"/>
+    </svg>
+    <span class="sticker-label">SPORTS ⚽🏀</span>
+  </div>
+
+</section>
+
+<div class="pixel-divider-wrap pixel-divider--to-gray"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
+
+
+
+  </div>
 </section>
 
 <div class="pixel-divider-wrap" style="color:#FFFDF9;background:#FEFCE8;"><svg class="pixel-divider" viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 L0,0 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 h20 v10 h20 v-10 L1440,20 Z" fill="currentColor"/></svg></div>
@@ -6138,7 +5438,7 @@ p, span, li, a, td, input, button,
         <span class="f-badge">32 MILAD</span>
         <span class="f-badge">MMXXVI</span>
       </div>
-      <h3 class="footer__title">PORSEMATIK <em class="italic-feat">feat.</em> Milad Informatika Tahun 2026</h3>
+      <h3 class="footer__title">PORSEMATIK feat. Milad Informatika Tahun 2026</h3>
       <p class="footer__tagline">"Ignite the Summit: Elevating Solidarity, Resilience, and Creativity through Sportsmanship"</p>
     </div>
 
@@ -6161,7 +5461,7 @@ p, span, li, a, td, input, button,
       <h4 class="footer__heading">Sekretariat &amp; Kontak</h4>
       <p class="footer__org-text" style="line-height:1.7;">
         <span style="font-size:0.85rem;color:#94A3B8;">Penyelenggara:</span><br>
-        <strong style="font-size:1.02rem;color:#FDE047;display:inline-block;margin:0.2rem 0;">Panitia Pelaksana PORSEMATIK <em class="italic-feat">feat.</em> Milad Informatika Tahun 2026</strong><br>
+        <strong style="font-size:1.02rem;color:#FDE047;display:inline-block;margin:0.2rem 0;">Panitia Pelaksana PORSEMATIK feat. Milad Informatika Tahun 2026</strong><br>
         <span style="font-size:0.84rem;color:#CBD5E1;">(Di bawah naungan Bidang Bakat dan Kreativitas HMIF LEM FTI UII Periode 2025/2026)</span>
       </p>
       <p class="footer__address-text">📍 Komplek Kantor Lembaga Kemahasiswaan UII, Jl. Kaliurang KM 14,5 Sleman, DIY, 55584</p>
@@ -6189,7 +5489,7 @@ p, span, li, a, td, input, button,
   </div>
 
   <div class="footer__bottom-bar">
-    <p>&copy; 2026 Panitia PORSEMATIK <em class="italic-feat">feat.</em> Milad Informatika Tahun 2026 — HMIF LEM FTI Universitas Islam Indonesia.</p>
+    <p>&copy; 2026 Panitia PORSEMATIK feat. Milad Informatika Tahun 2026 — HMIF LEM FTI Universitas Islam Indonesia.</p>
   </div>
 </footer>
 
@@ -6212,7 +5512,7 @@ p, span, li, a, td, input, button,
 <script>
 (function() {
   /* ===== Countdown ===== */
-  var target = new Date('2026-11-16T03:50:00Z').getTime(); /* 10:50 UTC+7 = 03:50 UTC */
+  var target = new Date('2026-11-16T17:50:00+07:00').getTime(); /* 10:50 UTC+7 = 03:50 UTC */
   var daysEl = document.getElementById('cd-days');
   var hoursEl = document.getElementById('cd-hours');
   var minsEl = document.getElementById('cd-mins');
@@ -6572,53 +5872,6 @@ p, span, li, a, td, input, button,
     });
   });
 })();
-
-  // Click on stage cards / checkpoints switches to that day in the daily rundown
-  document.querySelectorAll('.stage-clickable').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var day = card.getAttribute('data-target-day');
-      if (day) {
-        var dayTab = document.querySelector('.day-tab[data-day="' + day + '"]');
-        if (dayTab) {
-          dayTab.click();
-          var rundownWrap = document.querySelector('.rundown-tabs-wrap');
-          if (rundownWrap) {
-            rundownWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }
-      }
-    });
-  });
-
-  // Sync Navbar SFX Toggle with floating SFX Toggle
-  var navSfx = document.getElementById('navSfxToggle');
-  var navSfxMob = document.getElementById('navSfxToggleMobile');
-  function updateAllSfxButtons(enabled) {
-    var txt = enabled ? '[ 🔊 SFX: ON ]' : '[ 🔇 SFX: OFF ]';
-    var mobTxt = enabled ? '[ 🔊 SFX ]' : '[ 🔇 SFX ]';
-    if (navSfx) navSfx.textContent = txt;
-    if (navSfxMob) navSfxMob.textContent = mobTxt;
-    var floatSfx = document.getElementById('sfxFloatBtn');
-    if (floatSfx) floatSfx.textContent = enabled ? '[ SFX: ON ]' : '[ SFX: OFF ]';
-  }
-
-  if (navSfx) {
-    navSfx.addEventListener('click', function() {
-      SFX.init();
-      SFX.enabled = !SFX.enabled;
-      if (SFX.enabled) SFX.coin();
-      updateAllSfxButtons(SFX.enabled);
-    });
-  }
-  if (navSfxMob) {
-    navSfxMob.addEventListener('click', function() {
-      SFX.init();
-      SFX.enabled = !SFX.enabled;
-      if (SFX.enabled) SFX.coin();
-      updateAllSfxButtons(SFX.enabled);
-    });
-  }
-
 </script>
 
 
