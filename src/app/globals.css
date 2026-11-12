@@ -3820,3 +3820,18 @@ p, span, li, a, td, input, button,
   }
 }
 
+
+
+/* ===================================================================
+   NEXT.JS VISIBILITY OVERRIDE
+   =================================================================== */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+.reveal.visible {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
