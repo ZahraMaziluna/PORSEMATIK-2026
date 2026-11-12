@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import VibeItSection from "@/components/VibeItSection";
-import PixelDivider from "@/components/PixelDivider";
+import VibeItSection from "@/components/sections/VibeItSection";
+import PixelDivider from "@/components/layout/PixelDivider";
 
 export const metadata: Metadata = {
   title: "VibeIT",
@@ -11,7 +11,7 @@ export default function VibeItPage() {
   return (
     <main id="main" className="page">
       <VibeItSection />
-      <PixelDivider color="#1E293B" background="#F5F3FF" />
+      <PixelDivider color="#1E293B" background="#FFFDF9" />
     </main>
   );
 }

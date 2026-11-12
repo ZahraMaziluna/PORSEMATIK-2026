@@ -86,7 +86,7 @@ Situs dipecah menjadi 7 route. Navbar dan Footer ada sekali di `layout.tsx`, jad
 | Route | Isi |
 |---|---|
 | `/` Beranda | Hero (2 CTA: Daftar Lomba, Lihat Kompetisi), pita arcade cabang lomba, About, Roadmap 6 stage (vertikal), Pendaftaran Lomba (6 kartu ringkas) |
-| `/jadwal` | Jadwal 6 stage (peta dunia) dan Events Highlight |
+| `/jadwal` | Jadwal 6 stage di jalan vertikal yang sama dengan Beranda (kartu STG asli), lalu Events Highlight |
 | `/klasemen` | Klasemen Juara Umum Angkatan |
 | `/kompetisi` | Competition Hub (filter, pencarian, 6 kartu) dan Pusat Berkas |
 | `/informatics-connect` | Rangkaian Informatics Connect |
@@ -95,7 +95,7 @@ Situs dipecah menjadi 7 route. Navbar dan Footer ada sekali di `layout.tsx`, jad
 
 Navbar (`.site-nav`, tinggi 64px, fixed): logo, 7 tautan, tombol SFX, tombol "Daftar Lomba" (Linktree resmi). Di bawah 1100px menjadi hamburger berlabel "Menu". Tautan aktif ditandai garis oranye. Tidak ada tombol SFX melayang lagi.
 
-Roadmap di Beranda memakai konsep jalan yang sama dengan peta Jadwal: jalan tanah piksel `#78350F` berbingkai slate dengan garis tengah kuning putus-putus, dibuat vertikal, dengan kotak checkpoint STG di atasnya. Pendaki piksel (`PixelHiker.tsx`, tampak depan, topi oranye, jaket hijau, carrier cokelat dengan matras kuning, tongkat trekking) berjalan di jalan itu mengikuti scroll: mulai di STG 1 saat Roadmap muncul dan tiba di STG 6 saat Roadmap hampir keluar. Checkpoint yang terlewati berubah hijau. Animasi langkah hanya berjalan saat scroll bergerak dan berhenti bila `prefers-reduced-motion`.
+Roadmap di Beranda dan Jadwal memakai satu komponen (`RoadTimeline.tsx`, data di `src/data/roadmap.ts`): jalan tanah piksel `#78350F` berbingkai slate dengan garis tengah kuning putus-putus, dibuat vertikal, dengan kotak checkpoint STG di atasnya. Pendaki piksel (`PixelHiker.tsx`, tampak depan, topi oranye, jaket hijau, carrier cokelat dengan matras kuning, tongkat trekking) berjalan di jalan itu mengikuti scroll: mulai di STG 1 saat Roadmap muncul dan tiba di STG 6 saat Roadmap hampir keluar. Checkpoint yang terlewati berubah hijau. Animasi langkah hanya berjalan saat scroll bergerak dan berhenti bila `prefers-reduced-motion`.
 
 Antar bagian di dalam satu halaman tetap memakai `PixelDivider` dan warna latar tipis per seksi. Isi dan urutan seksi tidak diubah. Hanya ukuran, jarak, dan perilaku responsif.
 
@@ -136,7 +136,7 @@ Aturan:
 - Hamburger: punya `aria-expanded`, `aria-controls`, dan label teks "Menu".
 - Accordion FAQ dan tab jadwal: bisa dioperasikan keyboard, memakai `button`.
 - Status tidak boleh hanya warna. Sertakan teks atau ikon.
-- Emoji dekoratif di teks UI diganti ikon piksel SVG (`.px-icon` sudah ada) atau dihapus. Keputusan akhir ada di pemilik desain (lihat audit).
+- Emoji dekoratif di teks UI diganti ikon piksel SVG (`.px-icon` sudah ada) atau dihapus. Keputusan akhir ada di pemilik desain (lihat `docs/audit-antislop-2026-11-13.md`).
 
 ## 9. Yang tidak boleh berubah
 

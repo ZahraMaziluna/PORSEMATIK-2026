@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Competitions from "@/components/Competitions";
-import PixelDivider from "@/components/PixelDivider";
+import Competitions from "@/components/sections/Competitions";
+import PixelDivider from "@/components/layout/PixelDivider";
 
 export const metadata: Metadata = {
   title: "Kompetisi",
@@ -12,7 +12,7 @@ export default function KompetisiPage() {
   return (
     <main id="main" className="page">
       <Competitions />
-      <PixelDivider color="#1E293B" background="#F8FAFC" />
+      <PixelDivider color="#1E293B" background="#FFFDF9" />
     </main>
   );
 }

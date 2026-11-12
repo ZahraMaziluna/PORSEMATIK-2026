@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, Poppins } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const pressStart2P = Press_Start_2P({

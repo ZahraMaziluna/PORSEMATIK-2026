@@ -1,0 +1,290 @@
+/* Halaman detail lomba. Token warna per lomba diatur lewat --ev-accent / --ev-accent2.
+   Nilai dasar mengikuti DESIGN.md: garis slate 3px, bayangan keras 4px, Press Start 2P
+   untuk judul, Poppins untuk isi. Tanpa blur, tanpa teks oranye/hijau di latar terang. */
+
+.ev {
+  --ev-ink: #1E293B;
+  --ev-muted: #475569;
+  --ev-bg: #EAF0F6;
+  --ev-card: #FFFDF9;
+  --ev-accent: #22C55E;
+  --ev-accent2: #FDE68A;
+  --ev-shadow: 4px 4px 0 var(--ev-ink);
+  background: var(--ev-bg);
+  color: var(--ev-ink);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+  overflow-x: clip;
+}
+
+.ev-wrap {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: var(--gutter, 16px);
+  position: relative;
+}
+.ev-stack { display: grid; gap: clamp(1.25rem, 3vw, 2rem); min-width: 0; }
+.ev-wrap.ev-stack { padding-top: clamp(1.25rem, 3vw, 2rem); }
+
+/* ---------- Tombol kembali, badge ---------- */
+.ev-back {
+  display: inline-flex; align-items: center; gap: .5rem;
+  min-height: 44px; padding: .5rem 1rem;
+  background: var(--ev-card); color: var(--ev-ink);
+  border: 3px solid var(--ev-ink); box-shadow: var(--ev-shadow);
+  font-family: var(--font-body); font-weight: 700; font-size: .8125rem;
+  text-transform: uppercase; letter-spacing: .04em; text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.ev-back:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ev-ink); }
+
+.ev-badge {
+  display: inline-block; padding: .35rem .9rem;
+  background: var(--ev-accent2); color: var(--ev-ink);
+  border: 3px solid var(--ev-ink); box-shadow: 3px 3px 0 var(--ev-ink);
+  font-family: var(--font-body); font-weight: 700; font-size: .8125rem;
+  letter-spacing: .06em; text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.ev-title {
+  font-size: clamp(1.6rem, 5.6vw, 3.4rem);
+  line-height: 1.25; text-align: center; margin: 1rem 0 .75rem;
+  text-transform: uppercase; color: var(--ev-ink);
+  overflow-wrap: anywhere;
+}
+.ev-title--left { text-align: left; }
+.ev-lead {
+  max-width: 44rem; margin: 0 auto; text-align: center;
+  font-family: var(--font-body); font-weight: 500; font-size: 1rem; line-height: 1.7;
+  color: var(--ev-muted);
+}
+.ev-lead--left { margin: 0; text-align: left; }
+
+/* ---------- Hero ---------- */
+.ev-hero { padding: clamp(1.25rem, 3vw, 2rem) 0 0; }
+.ev-hero--center .ev-wrap { text-align: center; padding-bottom: 1rem; }
+.ev-hero--center .ev-back { float: left; }
+.ev-hero--center .ev-badge { margin-top: 1rem; }
+.ev-hero__mascot {
+  width: clamp(120px, 17vw, 190px); height: auto;
+  display: block; margin: 1rem auto 0;
+  image-rendering: pixelated; animation: ev-bob 2.4s steps(2) infinite;
+}
+@media (min-width: 900px) {
+  .ev-hero--center .ev-wrap { min-height: 15rem; }
+  .ev-hero__mascot { position: absolute; right: var(--gutter, 24px); top: 0; margin: 0; }
+  .ev-hero--center .ev-lead, .ev-hero--center .ev-title { max-width: 44rem; margin-inline: auto; }
+}
+@keyframes ev-bob { 50% { transform: translateY(-6px); } }
+
+.ev-hero__split {
+  display: grid; gap: 1.5rem; align-items: center; padding-bottom: 1rem;
+}
+@media (min-width: 860px) { .ev-hero__split { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); } }
+.ev-hero__copy { display: grid; gap: .25rem; justify-items: start; min-width: 0; }
+.ev-hero__copy .ev-badge { margin-top: 1rem; }
+.ev-hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+
+/* ---------- Kartu dasar ---------- */
+.ev-card {
+  background: var(--ev-card); border: 3px solid var(--ev-ink);
+  box-shadow: 6px 6px 0 var(--ev-ink); padding: clamp(1.1rem, 3vw, 1.75rem);
+  min-width: 0;
+}
+.ev-card--accent { background: var(--ev-accent); }
+.ev-h2 {
+  display: flex; align-items: center; gap: .65rem;
+  font-size: clamp(.8rem, 2vw, 1.05rem); line-height: 1.5; text-transform: uppercase;
+  margin: 0 0 1.1rem; padding-bottom: .9rem; border-bottom: 3px solid var(--ev-ink);
+}
+.ev-h2--bare { border: 0; padding: 0; margin-bottom: .75rem; }
+.ev-sub {
+  margin: -.4rem 0 1.25rem; font-family: var(--font-body); font-weight: 600;
+  font-size: .8125rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ev-muted);
+}
+
+.ev-grid { display: grid; gap: clamp(1.25rem, 3vw, 2rem); min-width: 0; }
+@media (min-width: 900px) {
+  .ev-grid--side { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; }
+  .ev-grid--gallery { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; }
+}
+
+/* ---------- Daftar isi ---------- */
+.ev-list, .ev-rules, .ev-rewards__list, .ev-notes, .ev-rulebook { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.ev-list li, .ev-rules li {
+  display: flex; gap: .75rem; align-items: flex-start;
+  background: var(--ev-card); border: 3px solid var(--ev-ink); box-shadow: 3px 3px 0 var(--ev-ink);
+  padding: .8rem 1rem;
+  font-family: var(--font-body); font-weight: 600; font-size: .9375rem; line-height: 1.55;
+}
+.ev-list li > .px-icon, .ev-rules li > .px-icon { margin-top: .2rem; width: 1.1rem; height: 1.1rem; }
+.ev-list li > .px-icon { color: var(--ev-ink); }
+
+/* ---------- CTA ---------- */
+.ev-cta { display: grid; gap: .9rem; align-content: start; }
+.ev-cta__tag {
+  margin: 0; padding: .6rem .8rem; text-align: center; transform: rotate(-1.5deg);
+  background: var(--ev-accent); border: 3px solid var(--ev-ink);
+  font-family: var(--font-body); font-weight: 800; font-size: .875rem; text-transform: uppercase;
+}
+.ev-cta__deadline {
+  margin: 0; padding: .7rem .8rem; text-align: center; background: var(--ev-accent2);
+  border: 3px solid var(--ev-ink); font-family: var(--font-body); font-weight: 600; font-size: .875rem; line-height: 1.5;
+}
+.ev-cta__fee {
+  display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; flex-wrap: wrap;
+  padding: .6rem .8rem; border: 3px dashed var(--ev-ink);
+  font-family: var(--font-body); font-weight: 600; font-size: .875rem;
+}
+.ev-cta__fee strong { font-size: 1.15rem; font-weight: 800; }
+.ev-cta__fee small { font-size: .8125rem; font-weight: 600; }
+
+.ev-btn {
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 48px; padding: .6rem 1rem; text-align: center; text-decoration: none;
+  border: 3px solid var(--ev-ink); box-shadow: var(--ev-shadow); color: var(--ev-ink);
+  font-family: var(--font-body); font-weight: 800; font-size: .875rem; letter-spacing: .03em; text-transform: uppercase;
+  transition: transform .2s, box-shadow .2s;
+}
+.ev-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ev-ink); }
+.ev-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ev-ink); }
+.ev-btn--primary { background: var(--ev-accent); }
+.ev-btn--alt { background: var(--ev-accent2); }
+
+/* ---------- Reward ---------- */
+.ev-rewards__list li {
+  display: flex; gap: .75rem; align-items: center; padding: .75rem .9rem;
+  background: var(--ev-card); border: 3px solid var(--ev-ink); box-shadow: 3px 3px 0 var(--ev-ink);
+}
+.ev-rewards__list li.is-top { background: var(--ev-accent2); transform: rotate(-1deg); }
+.ev-rewards__list li .px-icon { width: 1.4rem; height: 1.4rem; }
+.ev-rewards__list strong { display: block; font-family: var(--font-body); font-weight: 800; font-size: .9375rem; line-height: 1.35; }
+.ev-rewards__list span { display: block; font-family: var(--font-body); font-weight: 500; font-size: .875rem; color: var(--ev-muted); line-height: 1.4; }
+.ev-rewards__list li.is-top span { color: var(--ev-ink); }
+.ev-rewards__list div { min-width: 0; }
+
+/* Timeline memakai RoadTimeline (jalan piksel) dari halaman Jadwal. */
+.ev .roadmap__track { max-width: 100%; padding-block: .5rem; }
+
+/* ---------- FAQ ---------- */
+.ev-faq { display: grid; gap: .75rem; align-items: start; }
+@media (min-width: 800px) { .ev-faq--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ev-faq__item { background: var(--ev-card); border: 3px solid var(--ev-ink); box-shadow: 3px 3px 0 var(--ev-ink); min-width: 0; }
+.ev-faq__q {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+  min-height: 48px; padding: .75rem 1rem; text-align: left; background: transparent; color: var(--ev-ink);
+  border: 0; cursor: pointer; font-family: var(--font-body); font-weight: 700; font-size: .9375rem; line-height: 1.4; text-transform: uppercase;
+}
+.ev-faq__q:focus-visible { outline: 3px solid #B45309; outline-offset: -3px; }
+.ev-faq__chev { transition: transform .25s; flex: none; }
+.ev-faq__item.is-open .ev-faq__chev { transform: rotate(90deg); }
+.ev-faq__item.is-open .ev-faq__q { background: var(--ev-accent2); }
+.ev-faq__a { padding: .9rem 1rem 1.1rem; border-top: 3px solid var(--ev-ink); font-family: var(--font-body); font-weight: 500; font-size: .9375rem; line-height: 1.65; }
+.ev-faq__a[hidden] { display: none; }
+
+/* =====================================================================
+   Layout B: ARENA (futsal, basket)
+   ===================================================================== */
+.ev--arena .ev-hero { background: var(--ev-accent); border-bottom: 3px solid var(--ev-ink); padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+.ev--arena .ev-title { color: var(--ev-ink); }
+.ev--arena .ev-lead { color: var(--ev-ink); }
+.ev--arena .ev-back { background: var(--ev-card); }
+.ev--arena .ev-btn--primary { background: var(--ev-ink); color: #FFFFFF; }
+.ev--arena .ev-btn--primary:hover { background: #0F172A; }
+.ev--arena .ev-btn--alt { background: var(--ev-card); }
+
+.ev-court {
+  position: relative; display: grid; place-items: center; min-height: 15rem; padding: 1.25rem;
+  background:
+    linear-gradient(var(--ev-ink), var(--ev-ink)) center / 4px 100% no-repeat,
+    repeating-linear-gradient(90deg, rgba(255,255,255,.28) 0 32px, rgba(255,255,255,0) 32px 64px),
+    #FFFDF9;
+  border: 3px solid var(--ev-ink); box-shadow: 6px 6px 0 var(--ev-ink);
+}
+.ev-court::before {
+  content: ""; position: absolute; width: 6.5rem; aspect-ratio: 1; border: 4px solid var(--ev-ink); border-radius: 50%; background: var(--ev-accent2);
+}
+.ev-court__mascot { position: relative; width: min(100%, 15rem); height: auto; image-rendering: pixelated; animation: ev-bob 2.4s steps(2) infinite; }
+
+.ev-scoreboard {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; background: var(--ev-ink);
+  border: 3px solid var(--ev-ink); box-shadow: 6px 6px 0 var(--ev-ink);
+}
+@media (min-width: 720px) { .ev-scoreboard { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.ev-scoreboard__cell { display: grid; gap: .35rem; padding: 1rem; text-align: center; background: #0F172A; color: #FFFFFF; }
+.ev-scoreboard__cell span { font-family: var(--font-body); font-weight: 700; font-size: .8125rem; letter-spacing: .12em; color: #CBD5E1; }
+.ev-scoreboard__cell strong { font-family: var(--font-pixel); font-size: clamp(.8rem, 2.2vw, 1.1rem); line-height: 1.4; color: var(--ev-accent2); }
+
+.ev-rulebook { grid-template-columns: minmax(0, 1fr); counter-reset: none; }
+@media (min-width: 720px) { .ev-rulebook { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ev-rulebook li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .9rem; align-items: start;
+  background: var(--ev-card); border: 3px solid var(--ev-ink); box-shadow: 4px 4px 0 var(--ev-ink); padding: 1rem;
+  font-family: var(--font-body); font-weight: 600; font-size: .9375rem; line-height: 1.55;
+}
+.ev-rulebook__no {
+  display: grid; place-items: center; min-width: 3rem; height: 3rem; background: var(--ev-ink); color: var(--ev-accent2);
+  font-family: var(--font-pixel) !important; font-size: .875rem !important;
+}
+
+.ev-podium { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; align-items: end; }
+.ev-podium__step {
+  display: grid; gap: .35rem; justify-items: center; text-align: center; align-content: start;
+  padding: 1rem .6rem; border: 3px solid var(--ev-ink); box-shadow: 4px 4px 0 var(--ev-ink); background: var(--ev-card);
+}
+.ev-podium__step .px-icon { width: 1.75rem; height: 1.75rem; }
+.ev-podium__step strong { font-family: var(--font-body); font-weight: 800; font-size: .875rem; line-height: 1.35; text-transform: uppercase; }
+.ev-podium__step span { font-family: var(--font-body); font-weight: 600; font-size: .875rem; line-height: 1.4; overflow-wrap: anywhere; }
+.ev-podium__step--1 { background: var(--ev-accent2); padding-block: 2rem 1.5rem; }
+.ev-podium__step--2 { padding-block: 1.5rem 1.25rem; }
+.ev-podium__step--3 { background: var(--ev-accent); }
+@media (max-width: 559px) {
+  .ev-podium { grid-template-columns: minmax(0, 1fr); }
+  .ev-podium__step--1 { order: -1; padding-block: 1.25rem; }
+}
+
+/* =====================================================================
+   Layout C: GALERI (poster, fotografi)
+   ===================================================================== */
+.ev--gallery .ev-hero { padding-bottom: .5rem; }
+.ev-frame {
+  margin: 0; justify-self: center; position: relative; width: min(100%, 17rem);
+  padding: .9rem .9rem 0; background: #FFFFFF; border: 3px solid var(--ev-ink); box-shadow: 6px 6px 0 var(--ev-ink);
+  transform: rotate(3deg);
+}
+.ev-frame__mascot { display: block; width: 100%; height: auto; background: var(--ev-accent); border: 3px solid var(--ev-ink); image-rendering: pixelated; padding: .75rem .5rem 0; }
+.ev-frame figcaption { padding: .7rem 0; text-align: center; font-family: var(--font-body); font-weight: 800; font-size: .875rem; text-transform: uppercase; letter-spacing: .08em; }
+.ev-frame__tape {
+  position: absolute; top: -.9rem; left: 50%; width: 5.5rem; height: 1.6rem; margin-left: -2.75rem; transform: rotate(-4deg);
+  background: var(--ev-accent2); border: 2px solid var(--ev-ink); opacity: .95;
+}
+
+.ev-theme {
+  margin: 0; padding: clamp(1.25rem, 3vw, 2rem); background: var(--ev-accent); border: 3px solid var(--ev-ink);
+  box-shadow: 6px 6px 0 var(--ev-ink); transform: rotate(-.6deg); position: relative;
+}
+.ev-theme__label {
+  position: absolute; top: -1rem; left: 1.25rem; padding: .25rem .8rem; background: var(--ev-ink); color: #FFFFFF;
+  font-family: var(--font-body); font-weight: 800; font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase;
+}
+.ev-theme p { margin: 0; font-family: var(--font-pixel); font-size: clamp(.8rem, 2.2vw, 1.15rem); line-height: 1.7; }
+
+.ev-notes { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+@media (min-width: 640px) { .ev-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ev-notes li {
+  display: grid; gap: .6rem; align-content: start; padding: 1.1rem 1rem; border: 3px solid var(--ev-ink); box-shadow: 4px 4px 0 var(--ev-ink);
+  font-family: var(--font-body); font-weight: 600; font-size: .9375rem; line-height: 1.55; background: var(--ev-accent2);
+}
+.ev-notes li:nth-child(2) { background: var(--ev-accent); transform: rotate(1deg); }
+.ev-notes li:nth-child(3) { background: #FFFDF9; transform: rotate(-1deg); }
+.ev-notes li:nth-child(4) { background: var(--ev-accent2); transform: rotate(.8deg); }
+.ev-notes li:nth-child(1) { transform: rotate(-.8deg); }
+.ev-notes li .px-icon { width: 1.5rem; height: 1.5rem; }
+
+@media (min-width: 900px) { .ev-sticky { position: sticky; top: calc(var(--nav-h, 64px) + 16px); } }
+
+/* ---------- Gerak ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ev-hero__mascot, .ev-court__mascot { animation: none; }
+  .ev-back, .ev-btn, .ev-faq__chev { transition: none; }
+}

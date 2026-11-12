@@ -1,12 +1,15 @@
 import React from "react";
-import Hero from "@/components/Hero";
-import HomeTicker from "@/components/HomeTicker";
-import About from "@/components/About";
-import Roadmap from "@/components/Roadmap";
-import Gallery from "@/components/Gallery";
-import Registration from "@/components/Registration";
-import Faq from "@/components/Faq";
-import PixelDivider from "@/components/PixelDivider";
+import Hero from "@/components/home/Hero";
+import HomeTicker from "@/components/home/HomeTicker";
+import About from "@/components/home/About";
+import Roadmap from "@/components/home/Roadmap";
+import Gallery from "@/components/home/Gallery";
+import VibeItHighlight from "@/components/home/VibeItHighlight";
+import Registration from "@/components/home/Registration";
+import Sponsors from "@/components/home/Sponsors";
+import Faq from "@/components/sections/Faq";
+import PixelDivider from "@/components/layout/PixelDivider";
+import RoadDivider from "@/components/layout/RoadDivider";
 
 export default function HomePage() {
   return (
@@ -25,10 +28,18 @@ export default function HomePage() {
       <PixelDivider color="#87CEEB" background="#F0FDF4" />
 
       <Gallery />
-      <PixelDivider color="#FFFDF9" background="#87CEEB" />
+      <PixelDivider color="#F5F3FF" background="#87CEEB" />
+
+      <VibeItHighlight />
+      <PixelDivider color="#FFFDF9" background="#F5F3FF" />
 
       <Registration />
       <PixelDivider color="#1E293B" background="#FFFDF9" />
+      <RoadDivider />
+      <PixelDivider color="#EFF6FF" background="#1E293B" />
+
+      <Sponsors />
+      <PixelDivider color="#1E293B" background="#EFF6FF" />
 
       <Faq />
       <PixelDivider color="#FFFDF9" background="#1E293B" />

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import PixelIcon from "@/components/icons/PixelIcon";
-import ClimberRunner from "@/components/ClimberRunner";
+import ClimberRunner from "@/components/layout/ClimberRunner";
 
 const NAV_LINKS = [
   { href: "/", label: "Beranda" },
@@ -127,6 +127,7 @@ export default function Footer() {
           &copy; 2026 Panitia PORSEMATIK feat. Milad Informatika Tahun 2026, HMIF LEM FTI Universitas Islam
           Indonesia.
         </p>
+        <p className="footer__credit">- Luna ft Guevara -</p>
       </div>
     </footer>
     </>

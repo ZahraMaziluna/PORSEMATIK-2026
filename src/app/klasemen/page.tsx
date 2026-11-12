@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Leaderboard from "@/components/Leaderboard";
-import PixelDivider from "@/components/PixelDivider";
+import Leaderboard from "@/components/sections/Leaderboard";
+import PixelDivider from "@/components/layout/PixelDivider";
 
 export const metadata: Metadata = {
   title: "Klasemen",
@@ -11,7 +11,7 @@ export default function KlasemenPage() {
   return (
     <main id="main" className="page">
       <Leaderboard />
-      <PixelDivider color="#1E293B" background="#FEFCE8" />
+      <PixelDivider color="#1E293B" background="#FFFDF9" />
     </main>
   );
 }

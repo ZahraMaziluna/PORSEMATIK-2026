@@ -8,3 +8,4 @@ Thumbs.db
 *.log
 generate_*.py
 fix_*.py
+*.tsbuildinfo

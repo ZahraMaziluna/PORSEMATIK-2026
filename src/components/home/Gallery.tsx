@@ -29,9 +29,9 @@ function MarqueeRow({
               <Image
                 src={photo.src}
                 alt={isCopy ? "" : photo.alt}
-                width={288}
-                height={288}
-                sizes="288px"
+                width={480}
+                height={480}
+                sizes="(max-width: 640px) 240px, 480px"
                 className="gallery-card__img"
               />
             </li>

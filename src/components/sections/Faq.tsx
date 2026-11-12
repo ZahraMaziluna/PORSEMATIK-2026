@@ -95,12 +95,12 @@ export default function Faq() {
   return (
     <section className="faq" id="faq">
       <div className="container" style={{ textAlign: "center" }}>
-        <span className="vibe-tag" style={{ background: "#FFE4D6", color: "#9A3412" }}>
+        <span className="sec-badge">
           TANYA JAWAB RESMI
         </span>
         <h2
           className="section-title reveal"
-          style={{ marginTop: ".4rem", textAlign: "center" }}
+          
         >
           FAQ
         </h2>

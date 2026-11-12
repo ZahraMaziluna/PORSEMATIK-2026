@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import RoadTimeline from "@/components/RoadTimeline";
+import RoadTimeline from "@/components/schedule/RoadTimeline";
 import { STAGES } from "@/data/roadmap";
 
 export default function Roadmap() {
   return (
     <section className="roadmap" id="roadmap">
       <div className="container">
+        <span className="sec-badge reveal">Perjalanan Acara</span>
         <h2 className="section-title reveal">Roadmap Acara</h2>
         <p className="section-subtitle reveal">
           Perjalanan 6 stage PORSEMATIK feat. Milad Informatika, 16 sampai 22 November 2026.

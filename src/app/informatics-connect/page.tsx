@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import ConnectSection from "@/components/ConnectSection";
-import PixelDivider from "@/components/PixelDivider";
+import ConnectSection from "@/components/sections/ConnectSection";
+import PixelDivider from "@/components/layout/PixelDivider";
 
 export const metadata: Metadata = {
   title: "Informatics Connect",
@@ -11,7 +11,7 @@ export default function InformaticsConnectPage() {
   return (
     <main id="main" className="page">
       <ConnectSection />
-      <PixelDivider color="#1E293B" background="#FFFBEB" />
+      <PixelDivider color="#1E293B" background="#FFFDF9" />
     </main>
   );
 }

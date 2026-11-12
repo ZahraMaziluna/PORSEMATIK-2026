@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useSound } from "@/hooks/useSound";
 
+const pad = (n: number) => String(n).padStart(2, "0");
+
 export default function Hero() {
   const { days, hours, minutes, seconds } = useCountdown("2026-11-16T17:50:00+07:00");
   const { playStartFanfare } = useSound();
@@ -698,10 +700,10 @@ export default function Hero() {
 
   {/*  Live Countdown Timer to Nov 16, 2026 17:50:00 WIB  */}
   <div className="countdown" id="countdown">
-    <div className="countdown__block"><span className="countdown__num" id="cd-days">00</span><span className="countdown__label">Days</span></div>
-    <div className="countdown__block"><span className="countdown__num" id="cd-hours">00</span><span className="countdown__label">Hours</span></div>
-    <div className="countdown__block"><span className="countdown__num" id="cd-mins">00</span><span className="countdown__label">Minutes</span></div>
-    <div className="countdown__block"><span className="countdown__num" id="cd-secs">00</span><span className="countdown__label">Seconds</span></div>
+    <div className="countdown__block"><span className="countdown__num" id="cd-days">{pad(days)}</span><span className="countdown__label">Days</span></div>
+    <div className="countdown__block"><span className="countdown__num" id="cd-hours">{pad(hours)}</span><span className="countdown__label">Hours</span></div>
+    <div className="countdown__block"><span className="countdown__num" id="cd-mins">{pad(minutes)}</span><span className="countdown__label">Minutes</span></div>
+    <div className="countdown__block"><span className="countdown__num" id="cd-secs">{pad(seconds)}</span><span className="countdown__label">Seconds</span></div>
   </div>
 
   {/*  [START] Button placed comfortably in open sky above the summit  */}

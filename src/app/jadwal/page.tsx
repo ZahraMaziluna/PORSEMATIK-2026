@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Schedule from "@/components/Schedule";
-import EventsHighlight from "@/components/EventsHighlight";
-import PixelDivider from "@/components/PixelDivider";
+import Schedule from "@/components/schedule/Schedule";
+import EventsHighlight from "@/components/schedule/EventsHighlight";
+import PixelDivider from "@/components/layout/PixelDivider";
 
 export const metadata: Metadata = {
   title: "Jadwal",

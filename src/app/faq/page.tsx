@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Faq from "@/components/Faq";
-import PixelDivider from "@/components/PixelDivider";
+import Faq from "@/components/sections/Faq";
+import PixelDivider from "@/components/layout/PixelDivider";
 
 export const metadata: Metadata = {
   title: "FAQ",

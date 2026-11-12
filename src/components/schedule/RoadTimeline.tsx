@@ -90,8 +90,8 @@ export default function RoadTimeline({ stages }: { stages: readonly Stage[] }) {
                 {stage.code}
                 {stage.badge === "gold" ? <> <PixelIcon name="trophy" /></> : null}
               </span>
-              <div className="map-date">{stage.date}</div>
-              <div className="map-time">{stage.time}</div>
+              {stage.date ? <div className="map-date">{stage.date}</div> : null}
+              {stage.time ? <div className="map-time">{stage.time}</div> : null}
               <h3 className="map-title">{stage.title}</h3>
               <p className="map-desc">{stage.desc}</p>
             </div>

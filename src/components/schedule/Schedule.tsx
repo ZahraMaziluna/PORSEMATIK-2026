@@ -1,5 +1,5 @@
 import React from "react";
-import RoadTimeline from "@/components/RoadTimeline";
+import RoadTimeline from "@/components/schedule/RoadTimeline";
 import { STAGES } from "@/data/roadmap";
 
 export default function Schedule() {
