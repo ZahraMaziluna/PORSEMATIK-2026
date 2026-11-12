@@ -967,6 +967,7 @@ footer {
 .sticker--camera  { top: 52%; right: 4.5%; animation: stickerFloat2 6.5s ease-in-out infinite alternate .5s; }
 .sticker--laptop  { top: 34%; left: 2%; animation: stickerFloat2 7.5s ease-in-out infinite alternate 1.5s; }
 .sticker--badge   { top: 36%; right: 2.5%; animation: stickerFloat1 6s ease-in-out infinite alternate 2s; }
+.sticker--sports  { top: 66%; left: 3.5%; animation: stickerFloat1 7s ease-in-out infinite alternate; }
 
 @keyframes stickerFloat1 {
   0% { transform: translateY(0) rotate(-8deg); }
@@ -3790,12 +3791,20 @@ p, span, li, a, td, input, button,
   /* Compact 2-column cards on Mobile */
   .events__grid,
   .comp-grid {
+    display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 8px !important;
+    overflow-x: visible !important;
+    width: 100% !important;
   }
   .event-card,
   .comp-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     padding: 8px !important;
+    flex-shrink: 1 !important;
   }
   .event-card__title,
   .comp-card__name {
