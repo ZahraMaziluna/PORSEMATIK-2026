@@ -697,13 +697,7 @@ footer {
 
 /* Washi Tape Strip */
 .washi-tape {
-  width: 34px;
-  height: 13px;
-  background: rgba(245, 158, 11, 0.85);
-  margin-bottom: -7px;
-  z-index: 2;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
-  clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+  display: none !important;
 }
 .washi-tape--orange { background: rgba(255, 140, 0, 0.85); transform: rotate(-6deg); }
 .washi-tape--green  { background: rgba(46, 204, 64, 0.85); transform: rotate(5deg); }
@@ -2262,6 +2256,7 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
     flex-wrap: nowrap !important;
     width: 100% !important;
     padding: 6px 0 14px 0 !important;
+    gap: 0 !important;
     box-sizing: border-box !important;
     overflow: visible !important;
     transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
@@ -2697,7 +2692,7 @@ body .comp-grid { grid-template-columns: 1fr !important; width: 100%; }
 }
 body .btn-pixel {
   min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
-  text-align: center; line-height: 1.5; white-space: normal; overflow-wrap: anywhere;
+  text-align: center; line-height: 1.4; white-space: nowrap !important; word-break: keep-all !important; overflow-wrap: normal !important;
 }
 
 /* ---------- Events slider (mobile): target sentuh 44px ---------- */
@@ -3606,8 +3601,33 @@ html body .ichl__title { margin: 1rem 0 .75rem; text-align: left; color: var(--i
   .ichl__ticket { transform: rotate(1.2deg); margin-top: 1.5rem; }
 }
 
-/* Tombol daftar Informatics Connect: di bawah baris kartu Events Highlight, bukan di dalam kartu */
-.events-cta { display: flex; justify-content: center; margin-top: 2.5rem; }
+/* Tombol daftar di bawah baris kartu Events Highlight */
+.events-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+}
+@media (max-width: 768px) {
+  .events-cta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.85rem !important;
+    margin-top: 1.75rem !important;
+    padding: 0 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .events-cta .btn-pixel {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+  }
+}
 
 /* ---------- Matahari piksel: pojok kanan atas, di bawah navbar, sinar berputar ---------- */
 body .pixel-sky-sun {

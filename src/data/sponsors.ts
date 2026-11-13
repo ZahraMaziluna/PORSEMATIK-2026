@@ -1,19 +1,16 @@
-/*
- * Daftar sponsor dan media partner untuk section "Didukung Oleh" di Beranda.
- *
- * Cara mengisi: taruh logo di public/img/sponsors/ (PNG/SVG/WebP, latar transparan atau putih),
- * lalu tambahkan satu baris per pihak. Selama daftar masih kosong, Beranda menampilkan slot
- * kosong bertuliskan "Slot Sponsor" / "Slot Media Partner". Jangan menaruh nama atau logo
- * yang belum resmi menjadi mitra.
- *
- *   { name: "Nama Sponsor", logo: "/img/sponsors/nama-sponsor.png", href: "https://contoh.com" }
- */
 export interface Partner {
   name: string;
   logo: string;
   href?: string;
 }
 
-export const SPONSORS: readonly Partner[] = [];
+export const SPONSORS: readonly Partner[] = [
+  { name: "Susu Sarjana", logo: "/img/sponsors/susu-sarjana.png" },
+  { name: "Kahf", logo: "/img/sponsors/kahf.png" },
+  { name: "Surabraja Putra", logo: "/img/sponsors/sbp.png" },
+  { name: "SBCR Surabraja", logo: "/img/sponsors/sbcr.png" },
+  { name: "SBM", logo: "/img/sponsors/sbm.png" },
+  { name: "Gelaskaca Productions", logo: "/img/sponsors/gelaskaca.png" },
+];
 
 export const MEDIA_PARTNERS: readonly Partner[] = [];

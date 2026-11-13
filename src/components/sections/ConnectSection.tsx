@@ -24,7 +24,7 @@ const DATA: GatheringData = {
     { time: "06.00 – 06.30 WIB", title: "Registrasi & Penukaran Chip", desc: "Check-in peserta di meja registrasi, pembagian 3 chip makan kuliner UMKM dan 1 chip photobooth gratis." },
     { time: "06.30 – 07.15 WIB", title: "Senam Sehat Ceria Bersama", desc: "Senam pagi dipandu instruktur profesional bersama seluruh dosen, mahasiswa dari berbagai angkatan, dan alumni." },
     { time: "07.15 – 07.45 WIB", title: "Potong Tumpeng & Wish Note", desc: "Seremoni simbolis tumpengan Milad Informatika ke-32, doa bersama, serta penempelan kertas harapan (Wish Note) masa depan prodi." },
-    { time: "07.45 – 08.15 WIB", title: "Lomba Estafet Sarung Guyub", desc: "Permainan santai estafet sarung antartim gabungan dosen dan perwakilan mahasiswa tiap angkatan untuk memupuk keakraban." },
+    { time: "07.45 – 08.15 WIB", title: "Lomba Estafet Sarung", desc: "Permainan santai estafet sarung antartim gabungan dosen dan perwakilan mahasiswa tiap angkatan untuk memupuk keakraban." },
     { time: "08.15 – 08.45 WIB", title: "Festival Kuliner UMKM & Photobooth", desc: "Menikmati sarapan lezat di stand kuliner UMKM mahasiswa menggunakan 3 chip makan dan foto seru di photobooth 360/cetak." },
     { time: "08.45 – 09.00 WIB", title: "Akustik KOSMIK & Penutupan", desc: "Penampilan musik akustik merdu dari komunitas musik KOSMIK serta penutupan resmi kegiatan pagi." },
   ],

@@ -1,6 +1,6 @@
 import React from "react";
 import PixelIcon from "@/components/icons/PixelIcon";
-import { SPONSORS, MEDIA_PARTNERS, type Partner } from "@/data/sponsors";
+import { SPONSORS, type Partner } from "@/data/sponsors";
 
 const PLACEHOLDER_COUNT = 6;
 const MIN_PER_HALF = 12;
@@ -61,14 +61,10 @@ export default function Sponsors() {
     <section className="sponsors" id="sponsor" aria-labelledby="sponsor-title">
       <div className="container">
         <span className="sec-badge reveal">Mitra Acara</span>
-        <h2 className="section-title reveal" id="sponsor-title">Didukung Oleh</h2>
+        <h2 className="section-title reveal" id="sponsor-title">OUR SPONSOR</h2>
       </div>
 
-      <h3 className="sponsor-label sponsor-label--main">Sponsor Resmi</h3>
       <Row slots={toSlots(SPONSORS, "Slot Sponsor")} />
-
-      <h3 className="sponsor-label sponsor-label--media">Media Partner</h3>
-      <Row slots={toSlots(MEDIA_PARTNERS, "Slot Media Partner")} reverse />
     </section>
   );
 }

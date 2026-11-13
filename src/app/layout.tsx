@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, Poppins } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import GlobalSoundHandler from "@/components/layout/GlobalSoundHandler";
 import "./globals.css";
 
 const pressStart2P = Press_Start_2P({
@@ -63,6 +64,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Lewati ke konten utama
         </a>
+        <GlobalSoundHandler />
         <Navbar />
         {children}
         <Footer />

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useSound } from "@/hooks/useSound";
 
 const BAND = 50; // tinggi pita tanah (piksel dunia)
 const PX = 4;
@@ -174,6 +175,7 @@ export default function ClimberRunner() {
   const [paused, setPaused] = useState(false);
   const modeRef = useRef(mode);
   modeRef.current = mode;
+  const { playJump, playStartFanfare, playHit, playClick } = useSound();
 
   const setStatus = (text: string) => {
     if (statusRef.current) statusRef.current.textContent = text;
@@ -190,10 +192,14 @@ export default function ClimberRunner() {
     const g = gameRef.current;
     if (g.dead) {
       restart();
+      playStartFanfare();
       return;
     }
-    if (g.y === 0) g.vy = JUMP_V;
-  }, [restart]);
+    if (g.y === 0) {
+      g.vy = JUMP_V;
+      playJump();
+    }
+  }, [restart, playJump, playStartFanfare]);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setPaused(true);
@@ -285,6 +291,7 @@ export default function ClimberRunner() {
 
         const hit = g.obs.some((o) => o.x < g.px + 40 && o.x + o.w > g.px + 10 && g.y < o.h - 8);
         if (hit) {
+          if (!g.dead) playHit();
           g.dead = true;
           const m = Math.floor(g.dist / 8);
           bestRef.current = Math.max(bestRef.current, m);
@@ -308,6 +315,7 @@ export default function ClimberRunner() {
 
   const startPlay = () => {
     restart();
+    playStartFanfare();
     setMode("play");
     setPaused(false);
     sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -315,6 +323,7 @@ export default function ClimberRunner() {
   };
   const startAuto = () => {
     restart();
+    playClick();
     setMode("auto");
   };
 

@@ -2,6 +2,10 @@
 
 import React, { useState } from "react";
 import PixelIcon from "@/components/icons/PixelIcon";
+import { useSound } from "@/hooks/useSound";
+
+const VIBEIT_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScuKliSypDmIJL__CyamGvfZk9dehMoDlrBSP0lsdIi-D0bHg/viewform?usp=publish-editor";
 
 export default function EventsHighlight() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -11,15 +15,20 @@ export default function EventsHighlight() {
   const totalSlides = 4;
   const minSwipeDistance = 40;
 
+  const { playClick } = useSound();
+
   const handlePrev = () => {
+    playClick();
     setActiveSlide((prev) => Math.max(0, prev - 1));
   };
 
   const handleNext = () => {
+    playClick();
     setActiveSlide((prev) => Math.min(totalSlides - 1, prev + 1));
   };
 
   const handleSelect = (idx: number) => {
+    playClick();
     setActiveSlide(idx);
   };
 
@@ -70,7 +79,7 @@ export default function EventsHighlight() {
         {/* Slider Viewport */}
         <div className="events-slider-viewport">
           <div
-            className="events__grid reveal"
+            className="events__grid"
             style={{
               transform: `translateX(-${activeSlide * 100}%)`,
             }}
@@ -233,6 +242,14 @@ export default function EventsHighlight() {
             rel="noopener noreferrer"
           >
             [ DAFTAR INFORMATICS CONNECT ]
+          </a>
+          <a
+            href={VIBEIT_URL}
+            className="btn-pixel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            [ DAFTAR VIBEIT ]
           </a>
         </div>
       </div>
