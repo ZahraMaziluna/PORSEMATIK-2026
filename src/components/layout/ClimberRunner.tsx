@@ -175,7 +175,7 @@ export default function ClimberRunner() {
   const [paused, setPaused] = useState(false);
   const modeRef = useRef(mode);
   modeRef.current = mode;
-  const { playJump, playStartFanfare, playHit, playClick } = useSound();
+  const { playJump, playLanding, playStartFanfare, playHit, playClick } = useSound();
 
   const setStatus = (text: string) => {
     if (statusRef.current) statusRef.current.textContent = text;
@@ -273,7 +273,11 @@ export default function ClimberRunner() {
         }
 
         g.vy -= GRAVITY * k;
+        const prevY = g.y;
         g.y = Math.max(0, g.y + g.vy * k);
+        if (prevY > 0 && g.y === 0 && modeRef.current === "play") {
+          playLanding();
+        }
         if (g.y === 0 && g.vy < 0) g.vy = 0;
 
         const lastObs = g.obs[g.obs.length - 1];

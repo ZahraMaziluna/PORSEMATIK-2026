@@ -29,10 +29,7 @@ function Row({ slots, reverse }: { slots: Slot[]; reverse?: boolean }) {
       </span>
     );
     const inner = (
-      <>
-        <span className="sponsor-card__logo">{body}</span>
-        <span className="sponsor-card__name">{slot.label}</span>
-      </>
+      <span className="sponsor-card__logo">{body}</span>
     );
     const key = `${dup ? "b" : "a"}-${slot.key}-${index}`;
     return slot.partner?.href && !dup ? (

@@ -139,6 +139,15 @@ export default function EventsHighlight() {
               <p className="event-card__desc">
                 Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, kuliner UMKM (3 chip makan &amp; 1 photobooth), dan akustik KOSMIK.
               </p>
+              <a
+                href="https://storied-florentine-b344b6.netlify.app"
+                className="btn-pixel btn-pixel--sm"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ marginTop: "auto" }}
+              >
+                [ DAFTAR INFORMATICS CONNECT ]
+              </a>
             </div>
 
             {/* 3. VibeIT */}
@@ -166,6 +175,15 @@ export default function EventsHighlight() {
               <p className="event-card__desc">
                 Pelatihan Vibe Coding eksklusif bagi 50 siswa SMA/SLTA sederajat bersama GDGOC UII untuk membuat dan deploy landing page UMKM menggunakan Lovable AI.
               </p>
+              <a
+                href={VIBEIT_URL}
+                className="btn-pixel btn-pixel--sm"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ marginTop: "auto" }}
+              >
+                [ DAFTAR VIBEIT ]
+              </a>
             </div>
 
             {/* 4. Awarding Night */}
@@ -232,25 +250,6 @@ export default function EventsHighlight() {
           >
             NEXT <PixelIcon name="chevronRight" />
           </button>
-        </div>
-
-        <div className="events-cta">
-          <a
-            href="https://storied-florentine-b344b6.netlify.app"
-            className="btn-pixel"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            [ DAFTAR INFORMATICS CONNECT ]
-          </a>
-          <a
-            href={VIBEIT_URL}
-            className="btn-pixel"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            [ DAFTAR VIBEIT ]
-          </a>
         </div>
       </div>
     </section>
