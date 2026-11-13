@@ -137,7 +137,7 @@ export default function EventsHighlight() {
                 <span>Lapangan Utara GOR UII</span>
               </div>
               <p className="event-card__desc">
-                Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, kuliner UMKM (3 chip makan &amp; 1 photobooth), dan akustik KOSMIK.
+                Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, Festival Kuliner UMKM &amp; Photobooth diiringi akustik KOSMIK, serta penutupan.
               </p>
               <a
                 href="https://storied-florentine-b344b6.netlify.app"

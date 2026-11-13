@@ -2112,17 +2112,29 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
+    justify-content: flex-start !important;
+  }
+  .events__grid .event-card .event-card__desc {
+    margin-top: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
   }
   .events__grid .event-card .btn-pixel {
     margin-top: auto !important;
     width: 100% !important;
+    max-width: 100% !important;
     text-align: center !important;
     box-sizing: border-box !important;
-    display: block !important;
-    font-size: 0.65rem !important;
-    padding: 10px 8px !important;
-    white-space: nowrap !important;
-    word-break: keep-all !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: clamp(0.5rem, 0.7vw, 0.62rem) !important;
+    padding: 8px 6px !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
   }
 }
 
@@ -2284,14 +2296,16 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
     width: 100% !important;
     box-sizing: border-box !important;
     padding: 1.5rem 1.25rem !important;
-    min-height: 310px !important;
+    min-height: 320px !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: flex-start !important;
     margin: 0 !important;
-    background: #0F172A !important;
-    border: 3px solid #1E293B !important;
+    background: #FFFFFF !important;
+    border: 3px solid var(--ink) !important;
     border-radius: 0px !important;
-    box-shadow: 4px 4px 0 #020617 !important;
+    box-shadow: 4px 4px 0 var(--ink) !important;
+    color: var(--ink) !important;
     white-space: normal !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
@@ -2309,12 +2323,15 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
     display: inline-block !important;
     width: fit-content !important;
     white-space: nowrap !important;
+    background: #FEF3C7 !important;
+    border: 2px solid #F59E0B !important;
+    color: #92400E !important;
   }
   .events__grid .event-card .event-card__title {
     font-size: 0.82rem !important;
     line-height: 1.5 !important;
     margin-bottom: 0.75rem !important;
-    color: #F8FAFC !important;
+    color: var(--ink) !important;
   }
   .events__grid .event-card .event-card__time {
     font-size: 0.88rem !important;
@@ -2322,7 +2339,7 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
-    color: var(--pixel-green) !important;
+    color: var(--green-ink) !important;
     white-space: nowrap !important;
   }
   .events__grid .event-card .event-card__venue {
@@ -2331,25 +2348,29 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
-    color: #94A3B8 !important;
+    color: #475569 !important;
   }
   .events__grid .event-card .event-card__desc {
     font-size: 0.85rem !important;
     line-height: 1.6 !important;
-    color: #CBD5E1 !important;
-    margin-top: auto !important;
-    margin-bottom: 0.8rem !important;
+    color: #475569 !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
   }
   .events__grid .event-card .btn-pixel {
-    font-size: 0.65rem !important;
-    padding: 10px 14px !important;
+    font-size: 0.62rem !important;
+    padding: 10px 12px !important;
     width: 100% !important;
+    max-width: 100% !important;
     text-align: center !important;
     margin-top: auto !important;
-    display: block !important;
-    white-space: nowrap !important;
-    word-break: keep-all !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
     box-sizing: border-box !important;
+    line-height: 1.4 !important;
   }
 
   /* Slider Navigation Bar (Arrows & Dots) */
@@ -2673,7 +2694,7 @@ html body .events__grid .event-card .event-card__time,
 html body .events__grid .event-card .event-card__venue,
 html body .events__grid .event-card .event-card__desc { font-size: var(--fs-text-sm) !important; }
 html body .events__grid .event-card .event-card__title { font-size: clamp(.75rem, 3.4vw, .9375rem) !important; }
-html body .events__grid .event-card .btn-pixel { font-size: var(--fs-pixel) !important; }
+html body .events__grid .event-card .btn-pixel { font-size: clamp(0.52rem, 0.75vw, 0.65rem) !important; white-space: normal !important; word-break: normal !important; line-height: 1.4 !important; }
 
 /* ---------- Kontras ---------- */
 body .btn-pixel { color: var(--ink); }

@@ -83,6 +83,7 @@ const SOUND_FILES = {
   pickup: "/audio/pickup.mp3",
   click: "/audio/click.mp3",
   hit: "/audio/hit.mp3",
+  step: "/audio/step.mp3",
 };
 
 export function useSound() {
@@ -139,31 +140,37 @@ export function useSound() {
     playSoundFile(SOUND_FILES.pickup, 0.45);
   }, [soundEnabled]);
 
-  // 3. Play Jump Sound (YouTube 8-Bit Retro Sounds -> Movements -> Jumps)
+  // 3. Play Soft Jump Sound (Gentle, bouncy 8-bit jump)
   const playJump = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.jump, 0.45);
+    playSoundFile(SOUND_FILES.jump, 0.28);
   }, [soundEnabled]);
 
-  // 4. Play Landing Sound (YouTube 8-Bit Retro Sounds -> Movements -> Landings)
+  // 4. Play Soft Landing Sound (Gentle 8-bit landing tap)
   const playLanding = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.landing, 0.4);
+    playSoundFile(SOUND_FILES.landing, 0.2);
   }, [soundEnabled]);
 
-  // 5. Play Hit / Impact Sound (YouTube 8-Bit Retro Sounds -> Impacts)
+  // 5. Play Walking / Footstep Sound (Hiker walking along roadmap)
+  const playStep = useCallback(() => {
+    if (!soundEnabled) return;
+    playSoundFile(SOUND_FILES.step, 0.22);
+  }, [soundEnabled]);
+
+  // 6. Play Hit / Impact Sound (YouTube 8-Bit Retro Sounds -> Impacts)
   const playHit = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.hit, 0.5);
+    playSoundFile(SOUND_FILES.hit, 0.45);
   }, [soundEnabled]);
 
-  // 6. Play Coin Sound (Retro High Pickup)
+  // 7. Play Coin Sound (Retro High Pickup)
   const playCoin = useCallback(() => {
     if (!soundEnabled) return;
     playSoundFile(SOUND_FILES.pickup, 0.45);
   }, [soundEnabled]);
 
-  // 7. Play Game Start Fanfare
+  // 8. Play Game Start / Welcome Fanfare (On site entrance / refresh)
   const playStartFanfare = useCallback(() => {
     if (!soundEnabled) return;
     const ctx = getSharedContext();
@@ -172,10 +179,10 @@ export function useSound() {
 
     try {
       const notes = [
-        { f: 523.25, t: 0.0, d: 0.09 }, // C5
-        { f: 659.25, t: 0.1, d: 0.09 }, // E5
-        { f: 783.99, t: 0.2, d: 0.09 }, // G5
-        { f: 1046.5, t: 0.3, d: 0.3 },  // C6
+        { f: 523.25, t: 0.0, d: 0.08 }, // C5
+        { f: 659.25, t: 0.08, d: 0.08 }, // E5
+        { f: 783.99, t: 0.16, d: 0.08 }, // G5
+        { f: 1046.5, t: 0.24, d: 0.22 },  // C6
       ];
 
       notes.forEach(({ f, t, d }) => {
@@ -185,7 +192,7 @@ export function useSound() {
         osc.type = "square";
         osc.frequency.setValueAtTime(f, ctx.currentTime + t);
 
-        gain.gain.setValueAtTime(0.12, ctx.currentTime + t);
+        gain.gain.setValueAtTime(0.09, ctx.currentTime + t);
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + d);
 
         osc.connect(gain);
@@ -204,6 +211,7 @@ export function useSound() {
     playClick,
     playJump,
     playLanding,
+    playStep,
     playHit,
     playCoin,
     playStartFanfare,

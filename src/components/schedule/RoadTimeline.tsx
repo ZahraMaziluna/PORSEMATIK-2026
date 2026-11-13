@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PixelIcon from "@/components/icons/PixelIcon";
 import PixelHiker from "@/components/icons/PixelHiker";
+import { useSound } from "@/hooks/useSound";
 import type { Stage } from "@/data/roadmap";
 
 /*
@@ -14,6 +15,9 @@ export default function RoadTimeline({ stages }: { stages: readonly Stage[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const hikerRef = useRef<HTMLDivElement>(null);
   const [reached, setReached] = useState(0);
+  const { playStep, playPickup } = useSound();
+  const lastStepTimeRef = useRef(0);
+  const prevReachedRef = useRef(0);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -48,10 +52,19 @@ export default function RoadTimeline({ stages }: { stages: readonly Stage[] }) {
 
       hiker.style.transform = `translateY(${y - hiker.offsetHeight / 2}px)`;
       const count = centers.filter((c) => c <= y + 1).length;
-      setReached((prev) => (prev === count ? prev : count));
+      if (count > prevReachedRef.current && count > 0) {
+        prevReachedRef.current = count;
+        playPickup();
+      }
+      setReached(count);
 
       if (Math.abs(y - lastY) > 0.5) {
         hiker.dataset.walking = "true";
+        const now = performance.now();
+        if (now - lastStepTimeRef.current > 200) {
+          lastStepTimeRef.current = now;
+          playStep();
+        }
         window.clearTimeout(idleTimer);
         idleTimer = window.setTimeout(() => {
           hiker.dataset.walking = "false";

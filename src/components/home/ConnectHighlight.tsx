@@ -10,8 +10,8 @@ const AGENDA: ReadonlyArray<{ time: string; title: string }> = [
   { time: "06.30", title: "Senam Sehat Ceria Bersama" },
   { time: "07.15", title: "Potong Tumpeng & Wish Note" },
   { time: "07.45", title: "Lomba Estafet Sarung" },
-  { time: "08.15", title: "Festival Kuliner UMKM & Photobooth" },
-  { time: "08.45", title: "Akustik KOSMIK & Penutupan" },
+  { time: "08.15", title: "Festival Kuliner UMKM & Photobooth (diiringi Akustik KOSMIK)" },
+  { time: "08.45", title: "Penutupan" },
 ];
 
 export default function ConnectHighlight() {
