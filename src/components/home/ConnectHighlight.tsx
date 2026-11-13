@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import PixelIcon from "@/components/icons/PixelIcon";
 
-const CONNECT_URL = "https://storied-florentine-b344b6.netlify.app";
+const CONNECT_URL = "https://graceful-wisp-d728cb.netlify.app";
 
 /* Ringkasan dari ConnectSection.tsx (halaman /informatics-connect). Ubah keduanya bila jadwal berubah. */
 const AGENDA: ReadonlyArray<{ time: string; title: string }> = [

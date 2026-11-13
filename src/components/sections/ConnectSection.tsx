@@ -41,7 +41,7 @@ const DATA: GatheringData = {
   actions: [
     {
       label: "DAFTAR INFORMATICS CONNECT (MAHASISWA, DOSEN & ALUMNI)",
-      href: "https://storied-florentine-b344b6.netlify.app",
+      href: "https://graceful-wisp-d728cb.netlify.app",
     },
   ],
 };

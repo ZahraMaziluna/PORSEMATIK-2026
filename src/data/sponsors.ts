@@ -11,6 +11,7 @@ export const SPONSORS: readonly Partner[] = [
   { name: "SBCR Surabraja", logo: "/img/sponsors/sbcr.png" },
   { name: "SBM", logo: "/img/sponsors/sbm.png" },
   { name: "Gelaskaca Productions", logo: "/img/sponsors/gelaskaca.png" },
+  { name: "Grazie", logo: "/img/sponsors/grazie.png" },
 ];
 
 export const MEDIA_PARTNERS: readonly Partner[] = [];

@@ -140,7 +140,7 @@ export default function EventsHighlight() {
                 Momen kebersamaan mahasiswa, dosen, dan alumni: Pemotongan tumpeng Milad ke-32, Wish Note, senam bersama, estafet sarung, Festival Kuliner UMKM &amp; Photobooth diiringi akustik KOSMIK, serta penutupan.
               </p>
               <a
-                href="https://storied-florentine-b344b6.netlify.app"
+                href="https://graceful-wisp-d728cb.netlify.app"
                 className="btn-pixel btn-pixel--sm"
                 target="_blank"
                 rel="noopener noreferrer"
