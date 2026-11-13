@@ -2745,11 +2745,11 @@ body .hanging-sticker { display: flex !important; }
 /* Ensure Desktop CTA buttons leave clear space above the summit climber */
 @media (min-width: 900px) {
   body section.hero {
-    padding-top: calc(var(--nav-h) + 1.25rem) !important;
-    padding-bottom: 14.5rem !important;
+    padding-top: calc(var(--nav-h) + 1rem) !important;
+    padding-bottom: 16.5rem !important;
   }
   body .hero__cta-wrap {
-    margin-bottom: 3.5rem !important;
+    margin-bottom: 5.5rem !important;
   }
 }
 body .hero__subtitle { font-size: clamp(.6875rem, 1.6vw, .875rem); line-height: 1.6; max-width: 100%; }
