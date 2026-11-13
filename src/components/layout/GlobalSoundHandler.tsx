@@ -20,7 +20,6 @@ export default function GlobalSoundHandler() {
 
     const cleanup = () => {
       window.removeEventListener("pointerdown", triggerWelcome);
-      window.removeEventListener("scroll", triggerWelcome);
       window.removeEventListener("keydown", triggerWelcome);
       window.removeEventListener("touchstart", triggerWelcome);
     };
@@ -34,7 +33,6 @@ export default function GlobalSoundHandler() {
     }
 
     window.addEventListener("pointerdown", triggerWelcome, { once: true, passive: true });
-    window.addEventListener("scroll", triggerWelcome, { once: true, passive: true });
     window.addEventListener("keydown", triggerWelcome, { once: true, passive: true });
     window.addEventListener("touchstart", triggerWelcome, { once: true, passive: true });
 

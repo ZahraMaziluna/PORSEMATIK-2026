@@ -55,13 +55,14 @@ export default function RoadTimeline({ stages }: { stages: readonly Stage[] }) {
       if (count > prevReachedRef.current && count > 0) {
         prevReachedRef.current = count;
         playPickup();
+        lastStepTimeRef.current = performance.now() + 180; // Avoid overlapping footstep with pickup sound
       }
       setReached(count);
 
       if (Math.abs(y - lastY) > 0.5) {
         hiker.dataset.walking = "true";
         const now = performance.now();
-        if (now - lastStepTimeRef.current > 200) {
+        if (now - lastStepTimeRef.current > 260) {
           lastStepTimeRef.current = now;
           playStep();
         }

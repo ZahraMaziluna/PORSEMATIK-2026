@@ -737,7 +737,7 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  .hanging-sticker { display: none; }
+  /* Hanging stickers styled responsively for mobile */
 }
 
 /* ========== SCRAPBOOK COLLAGE STRIP ========== */
@@ -1435,7 +1435,6 @@ body {
   .vibe-info-grid { grid-template-columns: 1fr 1fr !important; }
   .vibe-steps-grid { grid-template-columns: 1fr !important; }
   .footer__grid-4 { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
-  .hanging-sticker { display: none !important; }
 }
 @media (max-width: 600px) {
   .vibe-info-grid { grid-template-columns: 1fr !important; }
@@ -2141,14 +2140,25 @@ p, span, li, a, td, input, button, .hero__subtitle, .hero__tagline, .section-sub
 /* 8. MOBILE VIEW (< 768px): 2-COLUMN CARDS & CLEAN SPACING */
 @media (max-width: 768px) {
   .hanging-sticker {
-    transform: scale(0.65) !important;
+    display: flex !important;
+    position: absolute !important;
+    transform: scale(0.6) !important;
+    transform-origin: center center !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
   }
-  .sticker--laptop, .sticker--badge { display: none !important; }
-  .sticker--trophy  { top: 8% !important; left: 1% !important; }
-  .sticker--torch   { top: 8% !important; right: 1% !important; }
-  .sticker--gamepad { top: 46% !important; left: 1% !important; }
-  .sticker--camera  { top: 46% !important; right: 1% !important; }
-  .sticker--sports  { top: 64% !important; left: 1% !important; }
+  .hanging-sticker .sticker-label {
+    font-size: 0.45rem !important;
+    padding: 2px 4px !important;
+    white-space: nowrap !important;
+  }
+  .sticker--trophy  { top: 6% !important; left: 2px !important; right: auto !important; }
+  .sticker--laptop  { top: 24% !important; left: 0px !important; right: auto !important; }
+  .sticker--gamepad { top: 42% !important; left: 2px !important; right: auto !important; }
+  .sticker--sports  { top: 60% !important; left: 2px !important; right: auto !important; }
+  .sticker--torch   { top: 12% !important; right: 2px !important; left: auto !important; }
+  .sticker--badge   { top: 30% !important; right: 2px !important; left: auto !important; }
+  .sticker--camera  { top: 48% !important; right: 2px !important; left: auto !important; }
 
   .pixel-sky-sun {
     top: 18px;
@@ -2650,15 +2660,83 @@ body .site-nav__logo {
 /* ---------- Hero ---------- */
 body section.hero {
   min-height: 100vh; min-height: 100svh;
-  padding: calc(var(--nav-h) + 2rem) var(--gutter) 9rem !important;
+  padding: calc(var(--nav-h) + 2rem) var(--gutter) 9.5rem !important;
   justify-content: center;
 }
-body .hanging-sticker { display: none !important; }
-@media (min-width: 1100px) {
-  body .hanging-sticker { display: flex !important; }
+body .hanging-sticker { display: flex !important; }
+@media (max-width: 1099px) {
+  body .hanging-sticker {
+    display: flex !important;
+    position: absolute !important;
+    transform: scale(0.6) !important;
+    transform-origin: center center !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+  }
+  body .hanging-sticker .sticker-label {
+    font-size: 0.45rem !important;
+    padding: 2px 4px !important;
+    white-space: nowrap !important;
+  }
+  body .sticker--trophy  { top: 6% !important; left: 2px !important; right: auto !important; }
+  body .sticker--laptop  { top: 24% !important; left: 0px !important; right: auto !important; }
+  body .sticker--gamepad { top: 42% !important; left: 2px !important; right: auto !important; }
+  body .sticker--sports  { top: 60% !important; left: 2px !important; right: auto !important; }
+  body .sticker--torch   { top: 12% !important; right: 2px !important; left: auto !important; }
+  body .sticker--badge   { top: 30% !important; right: 2px !important; left: auto !important; }
+  body .sticker--camera  { top: 48% !important; right: 2px !important; left: auto !important; }
+
+  body .hero-title-group,
+  body .hero__subtitle,
+  body .hero__tagline,
+  body .countdown,
+  body .hero__cta-wrap {
+    max-width: calc(100% - 90px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
 }
 @media (max-width: 899px) {
-  body section.hero { padding-top: calc(var(--nav-h) + 3.25rem) !important; padding-bottom: 7rem !important; }
+  body section.hero { padding-top: calc(var(--nav-h) + 3.25rem) !important; padding-bottom: 7.5rem !important; }
+}
+
+/* ---------- 8-Bit Summit Climber (Scaled & Raised Proudly on Summit Peak) ---------- */
+.summit-climber-wrap {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: -24px !important;
+  width: 58px !important;
+  height: 70px !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+}
+.summit-climber-svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  overflow: visible !important;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.22));
+}
+
+@media (max-width: 899px) {
+  .summit-climber-wrap {
+    top: -16px !important;
+    width: 44px !important;
+    height: 54px !important;
+  }
+}
+
+/* Ensure Desktop CTA buttons leave clear space above the summit climber */
+@media (min-width: 900px) {
+  body .hero__cta-wrap {
+    margin-bottom: 3.8rem !important;
+  }
 }
 body .hero__subtitle { font-size: clamp(.6875rem, 1.6vw, .875rem); line-height: 1.6; max-width: 100%; }
 body .hero__tagline { font-size: clamp(.9375rem, 2vw, 1.2rem) !important; line-height: 1.6 !important; }

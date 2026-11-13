@@ -133,80 +133,6 @@ export default function Hero() {
   <polygon points="720,45 695,65 708,60 715,75 725,60 735,72 748,58 720,45" fill="#FFFBEB"/>
   <polygon points="720,45 710,55 720,50 730,55 720,45" fill="#FFFFFF"/>
 
-    {/*  LIVELY 8-BIT PLATFORMER SUMMIT HERO & FLAMING TORCH (X: 720, Y: 45)  */}
-  <g className="summit-climber-group" shapeRendering="crispEdges">
-    {/*  SUMMIT TORCH (Right Hand Raised High)  */}
-    <rect x="736" y="20" width="4" height="24" fill="#58240C"/>
-    <rect x="737" y="22" width="2" height="20" fill="#8B4513"/>
-    <rect x="733" y="16" width="10" height="5" fill="#D97706"/>
-    <rect x="734" y="17" width="8" height="3" fill="#F59E0B"/>
-    {/*  Asap api naik: kotak piksel abu memudar  */}
-    <g className="torch-smoke" shapeRendering="crispEdges">
-      <rect className="smoke smoke--1" x="735" y="-2" width="5" height="5" fill="#94A3B8"/>
-      <rect className="smoke smoke--2" x="737" y="-2" width="6" height="6" fill="#CBD5E1"/>
-      <rect className="smoke smoke--3" x="734" y="-2" width="4" height="4" fill="#64748B"/>
-      <rect className="smoke smoke--4" x="738" y="-2" width="5" height="5" fill="#E2E8F0"/>
-      <rect className="smoke smoke--5" x="736" y="-2" width="4" height="4" fill="#94A3B8"/>
-    </g>
-    {/*  Percikan bara  */}
-    <g className="torch-embers" shapeRendering="crispEdges">
-      <rect className="ember ember--1" x="733" y="4" width="2" height="2" fill="#FDE047"/>
-      <rect className="ember ember--2" x="741" y="4" width="2" height="2" fill="#FB923C"/>
-      <rect className="ember ember--3" x="737" y="3" width="1.5" height="1.5" fill="#FFFFFF"/>
-    </g>
-    {/*  Api menyala berlapis  */}
-    <g className="pixel-torch-flame" shapeRendering="crispEdges">
-      <g className="flame flame--outer">
-        <rect x="733" y="8" width="10" height="9" fill="#DC2626"/>
-        <rect x="734" y="4" width="8" height="6" fill="#DC2626"/>
-        <rect x="736" y="1" width="4" height="5" fill="#DC2626"/>
-      </g>
-      <g className="flame flame--mid">
-        <rect x="734" y="9" width="8" height="8" fill="#EA580C"/>
-        <rect x="735" y="5" width="6" height="6" fill="#EA580C"/>
-        <rect x="737" y="2" width="2" height="4" fill="#EA580C"/>
-      </g>
-      <g className="flame flame--inner">
-        <rect x="735" y="10" width="6" height="6" fill="#F59E0B"/>
-        <rect x="736" y="7" width="4" height="5" fill="#FDE047"/>
-      </g>
-      <g className="flame flame--core">
-        <rect x="737" y="11" width="2" height="5" fill="#FFFFFF"/>
-      </g>
-    </g>
-
-    {/*  CLIMBER HERO BODY (Vivid Platformer Adventurer)  */}
-    {/*  Red Explorer Cap & Visor  */}
-    <rect x="712" y="16" width="12" height="5" fill="#DC2626"/>
-    <rect x="710" y="19" width="16" height="3" fill="#B91C1C"/>
-    <rect x="724" y="19" width="4" height="2" fill="#7F1D1D"/> {/*  Visor  */}
-    {/*  Face / Head & Eye  */}
-    <rect x="714" y="21" width="10" height="7" fill="#FCD34D"/>
-    <rect x="721" y="23" width="2" height="2" fill="#1E293B"/> {/*  Eye looking forward  */}
-    <rect x="712" y="22" width="3" height="4" fill="#78350F"/> {/*  Hair  */}
-    {/*  Blue Explorer Jacket & Yellow Scarf  */}
-    <rect x="713" y="28" width="11" height="3" fill="#FBBF24"/> {/*  Scarf / Collar  */}
-    <rect x="711" y="31" width="14" height="9" fill="#1D4ED8"/> {/*  Jacket Body  */}
-    <rect x="713" y="33" width="10" height="5" fill="#2563EB"/>
-    {/*  Explorer Backpack (Brown)  */}
-    <rect x="707" y="29" width="5" height="9" fill="#78350F"/>
-    <rect x="708" y="30" width="3" height="7" fill="#92400E"/>
-    {/*  Right Arm Raised with Torch  */}
-    <rect x="722" y="29" width="15" height="4" fill="#1D4ED8"/>
-    <rect x="734" y="25" width="4" height="6" fill="#FCD34D"/> {/*  Hand holding torch  */}
-    {/*  Left Arm on Hip / Mountain Staff  */}
-    <rect x="710" y="32" width="4" height="6" fill="#1D4ED8"/>
-    <rect x="709" y="37" width="3" height="3" fill="#FCD34D"/>
-    {/*  Brown Adventure Belt with Gold Buckle  */}
-    <rect x="712" y="40" width="12" height="3" fill="#451A03"/>
-    <rect x="717" y="40" width="3" height="3" fill="#F59E0B"/>
-    {/*  Rugged Hiking Trousers & Boots firmly on summit ledge  */}
-    <rect x="713" y="43" width="4" height="4" fill="#334155"/>
-    <rect x="719" y="43" width="4" height="4" fill="#334155"/>
-    <rect x="711" y="46" width="6" height="3" fill="#78350F"/> {/*  Left Boot  */}
-    <rect x="719" y="46" width="6" height="3" fill="#78350F"/> {/*  Right Boot  */}
-  </g>
-
   {/*  ================= 4. HUTAN PINUS PIKSEL RAPAT (TINGGI BERBEDA) =================  */}
   <use href="#ppD4" transform="translate(-4,194)"/>
   <use href="#ppD6" transform="translate(16,170)"/>
@@ -381,6 +307,82 @@ export default function Hero() {
     <text x="13" y="17" fontFamily="'Press Start 2P', monospace" fontSize="11" fill="#FFF" textAnchor="middle" fontWeight="bold">?</text>
   </g>
 </svg>
+
+    {/* Standalone Crisp 8-Bit Summit Climber (Scaled & Raised Proudly on Summit Peak - Never Squished) */}
+    <div className="summit-climber-wrap" aria-label="Pendaki 8-bit di Puncak Gunung">
+      <svg viewBox="0 -4 46 56" className="summit-climber-svg" shapeRendering="crispEdges">
+        {/* SUMMIT TORCH (Right Hand Raised High) */}
+        <rect x="29" y="20" width="4" height="24" fill="#58240C"/>
+        <rect x="30" y="22" width="2" height="20" fill="#8B4513"/>
+        <rect x="26" y="16" width="10" height="5" fill="#D97706"/>
+        <rect x="27" y="17" width="8" height="3" fill="#F59E0B"/>
+        {/* Asap api naik */}
+        <g className="torch-smoke" shapeRendering="crispEdges">
+          <rect className="smoke smoke--1" x="28" y="-2" width="5" height="5" fill="#94A3B8"/>
+          <rect className="smoke smoke--2" x="30" y="-2" width="6" height="6" fill="#CBD5E1"/>
+          <rect className="smoke smoke--3" x="27" y="-2" width="4" height="4" fill="#64748B"/>
+          <rect className="smoke smoke--4" x="31" y="-2" width="5" height="5" fill="#E2E8F0"/>
+          <rect className="smoke smoke--5" x="29" y="-2" width="4" height="4" fill="#94A3B8"/>
+        </g>
+        {/* Percikan bara */}
+        <g className="torch-embers" shapeRendering="crispEdges">
+          <rect className="ember ember--1" x="26" y="4" width="2" height="2" fill="#FDE047"/>
+          <rect className="ember ember--2" x="34" y="4" width="2" height="2" fill="#FB923C"/>
+          <rect className="ember ember--3" x="30" y="3" width="1.5" height="1.5" fill="#FFFFFF"/>
+        </g>
+        {/* Api menyala berlapis */}
+        <g className="pixel-torch-flame" shapeRendering="crispEdges">
+          <g className="flame flame--outer">
+            <rect x="26" y="8" width="10" height="9" fill="#DC2626"/>
+            <rect x="27" y="4" width="8" height="6" fill="#DC2626"/>
+            <rect x="29" y="1" width="4" height="5" fill="#DC2626"/>
+          </g>
+          <g className="flame flame--mid">
+            <rect x="27" y="9" width="8" height="8" fill="#EA580C"/>
+            <rect x="28" y="5" width="6" height="6" fill="#EA580C"/>
+            <rect x="30" y="2" width="2" height="4" fill="#EA580C"/>
+          </g>
+          <g className="flame flame--inner">
+            <rect x="28" y="10" width="6" height="6" fill="#F59E0B"/>
+            <rect x="29" y="7" width="4" height="5" fill="#FDE047"/>
+          </g>
+          <g className="flame flame--core">
+            <rect x="30" y="11" width="2" height="5" fill="#FFFFFF"/>
+          </g>
+        </g>
+
+        {/* CLIMBER HERO BODY (Vivid Platformer Adventurer) */}
+        {/* Red Explorer Cap & Visor */}
+        <rect x="5" y="16" width="12" height="5" fill="#DC2626"/>
+        <rect x="3" y="19" width="16" height="3" fill="#B91C1C"/>
+        <rect x="17" y="19" width="4" height="2" fill="#7F1D1D"/>
+        {/* Face / Head & Eye */}
+        <rect x="7" y="21" width="10" height="7" fill="#FCD34D"/>
+        <rect x="14" y="23" width="2" height="2" fill="#1E293B"/>
+        <rect x="5" y="22" width="3" height="4" fill="#78350F"/>
+        {/* Blue Explorer Jacket & Yellow Scarf */}
+        <rect x="6" y="28" width="11" height="3" fill="#FBBF24"/>
+        <rect x="4" y="31" width="14" height="9" fill="#1D4ED8"/>
+        <rect x="6" y="33" width="10" height="5" fill="#2563EB"/>
+        {/* Explorer Backpack (Brown) */}
+        <rect x="0" y="29" width="5" height="9" fill="#78350F"/>
+        <rect x="1" y="30" width="3" height="7" fill="#92400E"/>
+        {/* Right Arm Raised with Torch */}
+        <rect x="15" y="29" width="15" height="4" fill="#1D4ED8"/>
+        <rect x="27" y="25" width="4" height="6" fill="#FCD34D"/>
+        {/* Left Arm on Hip */}
+        <rect x="3" y="32" width="4" height="6" fill="#1D4ED8"/>
+        <rect x="2" y="37" width="3" height="3" fill="#FCD34D"/>
+        {/* Brown Belt */}
+        <rect x="5" y="40" width="12" height="3" fill="#451A03"/>
+        <rect x="10" y="40" width="3" height="3" fill="#F59E0B"/>
+        {/* Hiking Trousers & Boots */}
+        <rect x="6" y="43" width="4" height="4" fill="#334155"/>
+        <rect x="12" y="43" width="4" height="4" fill="#334155"/>
+        <rect x="4" y="46" width="6" height="3" fill="#78350F"/>
+        <rect x="12" y="46" width="6" height="3" fill="#78350F"/>
+      </svg>
+    </div>
   </div>
 
   {/*  Hero Title Group: 3.5 Hearts Anchored Above 'POR'  */}

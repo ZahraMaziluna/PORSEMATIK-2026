@@ -2,10 +2,16 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-// Singleton AudioContext & in-memory AudioBuffer cache for zero-latency playback
+// Singleton AudioContext, master compressor & in-memory AudioBuffer cache
 let sharedAudioCtx: AudioContext | null = null;
+let masterCompressor: DynamicsCompressorNode | null = null;
 const audioBuffers: Record<string, AudioBuffer | null> = {};
 const audioLoading: Record<string, boolean> = {};
+
+// Timestamp trackers to prevent overlapping / clashing sounds
+let lastClickTimestamp = 0;
+let lastStepTimestamp = 0;
+let fanfareEndTimestamp = 0;
 
 function getSharedContext(): AudioContext | null {
   if (typeof window === "undefined") return null;
@@ -15,6 +21,17 @@ function getSharedContext(): AudioContext | null {
       (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     if (AudioCtx) {
       sharedAudioCtx = new AudioCtx();
+      try {
+        masterCompressor = sharedAudioCtx.createDynamicsCompressor();
+        masterCompressor.threshold.setValueAtTime(-14, sharedAudioCtx.currentTime);
+        masterCompressor.knee.setValueAtTime(8, sharedAudioCtx.currentTime);
+        masterCompressor.ratio.setValueAtTime(4, sharedAudioCtx.currentTime);
+        masterCompressor.attack.setValueAtTime(0.003, sharedAudioCtx.currentTime);
+        masterCompressor.release.setValueAtTime(0.12, sharedAudioCtx.currentTime);
+        masterCompressor.connect(sharedAudioCtx.destination);
+      } catch {
+        masterCompressor = null;
+      }
     }
   }
   return sharedAudioCtx;
@@ -46,7 +63,7 @@ function preloadSound(url: string) {
     });
 }
 
-function playSoundFile(url: string, volume = 0.5) {
+function playSoundFile(url: string, volume = 0.4) {
   if (typeof window === "undefined") return;
   const ctx = getSharedContext();
   if (ctx) {
@@ -62,7 +79,13 @@ function playSoundFile(url: string, volume = 0.5) {
         source.buffer = buffer;
         gainNode.gain.setValueAtTime(volume, ctx.currentTime);
         source.connect(gainNode);
-        gainNode.connect(ctx.destination);
+
+        if (masterCompressor) {
+          gainNode.connect(masterCompressor);
+        } else {
+          gainNode.connect(ctx.destination);
+        }
+
         source.start(0);
         return;
       } catch {}
@@ -131,43 +154,50 @@ export function useSound() {
   // 1. Play Pickup Sound (YouTube 8-Bit Retro Sounds -> Pickups)
   const playPickup = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.pickup, 0.45);
+    playSoundFile(SOUND_FILES.pickup, 0.38);
   }, [soundEnabled]);
 
-  // 2. Play Click / Button Sound (YouTube 8-Bit Retro Sounds -> Pickups section)
+  // 2. Play Click / Button Sound (Debounced & suppressed during fanfare)
   const playClick = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.pickup, 0.45);
+    const now = performance.now();
+    // Do not clash with welcome fanfare or duplicate rapid click calls
+    if (now < fanfareEndTimestamp || now - lastClickTimestamp < 75) return;
+    lastClickTimestamp = now;
+    playSoundFile(SOUND_FILES.pickup, 0.35);
   }, [soundEnabled]);
 
   // 3. Play Soft Jump Sound (Gentle, bouncy 8-bit jump)
   const playJump = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.jump, 0.28);
+    playSoundFile(SOUND_FILES.jump, 0.25);
   }, [soundEnabled]);
 
   // 4. Play Soft Landing Sound (Gentle 8-bit landing tap)
   const playLanding = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.landing, 0.2);
+    playSoundFile(SOUND_FILES.landing, 0.18);
   }, [soundEnabled]);
 
-  // 5. Play Walking / Footstep Sound (Hiker walking along roadmap)
+  // 5. Play Walking / Footstep Sound (Hiker walking along roadmap, throttled)
   const playStep = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.step, 0.22);
+    const now = performance.now();
+    if (now < fanfareEndTimestamp || now - lastStepTimestamp < 220) return;
+    lastStepTimestamp = now;
+    playSoundFile(SOUND_FILES.step, 0.18);
   }, [soundEnabled]);
 
   // 6. Play Hit / Impact Sound (YouTube 8-Bit Retro Sounds -> Impacts)
   const playHit = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.hit, 0.45);
+    playSoundFile(SOUND_FILES.hit, 0.4);
   }, [soundEnabled]);
 
   // 7. Play Coin Sound (Retro High Pickup)
   const playCoin = useCallback(() => {
     if (!soundEnabled) return;
-    playSoundFile(SOUND_FILES.pickup, 0.45);
+    playSoundFile(SOUND_FILES.pickup, 0.38);
   }, [soundEnabled]);
 
   // 8. Play Game Start / Welcome Fanfare (On site entrance / refresh)
@@ -177,12 +207,14 @@ export function useSound() {
     if (!ctx) return;
     if (ctx.state === "suspended") ctx.resume().catch(() => {});
 
+    fanfareEndTimestamp = performance.now() + 480;
+
     try {
       const notes = [
-        { f: 523.25, t: 0.0, d: 0.08 }, // C5
-        { f: 659.25, t: 0.08, d: 0.08 }, // E5
-        { f: 783.99, t: 0.16, d: 0.08 }, // G5
-        { f: 1046.5, t: 0.24, d: 0.22 },  // C6
+        { f: 523.25, t: 0.0, d: 0.07 }, // C5
+        { f: 659.25, t: 0.07, d: 0.07 }, // E5
+        { f: 783.99, t: 0.14, d: 0.07 }, // G5
+        { f: 1046.5, t: 0.21, d: 0.2 },  // C6
       ];
 
       notes.forEach(({ f, t, d }) => {
@@ -192,11 +224,15 @@ export function useSound() {
         osc.type = "square";
         osc.frequency.setValueAtTime(f, ctx.currentTime + t);
 
-        gain.gain.setValueAtTime(0.09, ctx.currentTime + t);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime + t);
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + d);
 
         osc.connect(gain);
-        gain.connect(ctx.destination);
+        if (masterCompressor) {
+          gain.connect(masterCompressor);
+        } else {
+          gain.connect(ctx.destination);
+        }
 
         osc.start(ctx.currentTime + t);
         osc.stop(ctx.currentTime + t + d);

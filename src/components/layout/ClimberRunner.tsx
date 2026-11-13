@@ -275,7 +275,7 @@ export default function ClimberRunner() {
         g.vy -= GRAVITY * k;
         const prevY = g.y;
         g.y = Math.max(0, g.y + g.vy * k);
-        if (prevY > 0 && g.y === 0 && modeRef.current === "play") {
+        if (prevY > 0 && g.y === 0 && modeRef.current === "play" && !g.dead) {
           playLanding();
         }
         if (g.y === 0 && g.vy < 0) g.vy = 0;
